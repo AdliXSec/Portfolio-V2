@@ -52,22 +52,13 @@ export default function DossierModal({ isOpen, onClose, modalKey, onDownloadCV }
   if (!isOpen && !closing) return null;
 
   return (
+    <>
     <div
       className={`fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 transition-all duration-300 ${closing ? 'bg-black/0 backdrop-blur-none opacity-0 pointer-events-none' : 'bg-black/80 backdrop-blur-md opacity-100'}`}
       onClick={(e) => { if (e.target === e.currentTarget) handleClose(); }}
     >
       <div className={`relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#14161b] border-2 border-outline-variant/60 shadow-[0_25px_80px_rgba(0,0,0,0.95)] text-on-surface p-6 sm:p-8 transform-gpu ${closing ? 'scale-95 opacity-0 transition-all duration-300 pointer-events-none' : 'modal-folder-open'}`}>
         
-      {/* Image Lightbox */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 cursor-zoom-out"
-          onClick={() => setSelectedImage(null)}
-        >
-          <img src={selectedImage} alt="Expanded view" className="max-w-full max-h-full object-contain rounded-lg shadow-2xl border-2 border-outline-variant/30" />
-        </div>
-      )}
-
         {/* Ink Stamp Overlay */}
         {stampVisible && (
           <div className="pointer-events-none absolute top-4 right-4 sm:top-10 sm:right-10 z-50 mix-blend-screen stamp-animate opacity-0">
@@ -132,5 +123,16 @@ export default function DossierModal({ isOpen, onClose, modalKey, onDownloadCV }
         </div>
       </div>
     </div>
+
+      {/* Image Lightbox */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-4 cursor-zoom-out"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img src={selectedImage} alt="Expanded view" className="max-w-[95vw] max-h-[95vh] object-contain rounded-lg shadow-2xl border-2 border-outline-variant/30" />
+        </div>
+      )}
+    </>
   );
 }

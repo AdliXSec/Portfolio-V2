@@ -27,13 +27,11 @@ export default function ExperienceCard({ id, onOpenModal }) {
         <div className="absolute left-1.5 top-2.5 bottom-2.5 w-[2px] bg-[#b3a189]" />
         {experiences.map((exp, i) => (
           <div key={i} className="relative">
-            <div className={`absolute -left-[18px] top-1.5 w-2.5 h-2.5 rounded-full ring-2 ring-[#eadecb] ${
-              exp.color === 'secondary' ? 'bg-[#006650]' : exp.color === 'primary' ? 'bg-[#633d09]' : 'bg-[#7a6d59]'
-            }`} />
+            <div className={`absolute -left-[18px] top-1.5 w-2.5 h-2.5 rounded-full ring-2 ring-[#eadecb] ${exp.color === 'secondary' ? 'bg-[#006650]' : exp.color === 'primary' ? 'bg-[#633d09]' : 'bg-[#7a6d59]'
+              }`} />
             <div className="flex items-baseline justify-between">
-              <span className={`font-mono text-[11px] font-bold ${
-                exp.color === 'secondary' ? 'text-[#006650]' : exp.color === 'primary' ? 'text-[#633d09]' : 'text-[#554b38]'
-              }`}>{exp.period}</span>
+              <span className={`font-mono text-[11px] font-bold ${exp.color === 'secondary' ? 'text-[#006650]' : exp.color === 'primary' ? 'text-[#633d09]' : 'text-[#554b38]'
+                }`}>{exp.period}</span>
               <span className="text-[10px] font-mono text-[#6c614c]">{exp.location}</span>
             </div>
             <div className="font-body text-[15px] font-bold text-[#1a1c20] leading-snug">{exp.role}</div>
@@ -46,7 +44,7 @@ export default function ExperienceCard({ id, onOpenModal }) {
       <div className="mt-4 pt-3 border-t border-[#cfbfa8] flex items-center justify-between text-[11px] font-mono text-[#633d09]">
         <span className="font-medium">Complete dossier records indexed</span>
         <span className="font-bold hover:underline inline-flex items-center gap-1">
-          CLICK TO EXPAND DOSSIER 🔍 →
+          CLICK TO EXPAND DOSSIER {'>'}
         </span>
       </div>
     </article>

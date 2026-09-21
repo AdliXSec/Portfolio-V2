@@ -73,7 +73,7 @@ export default function HeroSection({ id, onOpenModal, onDownloadCV }) {
           onClick={() => onOpenModal('principal')}
         >
           <Shield className="w-4 h-4" />
-          <span>Inspect Dossier 🔍</span>
+          <span>Inspect Dossier</span>
         </button>
         <button
           className="px-4 py-3 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface font-mono text-[12px] transition-colors flex items-center justify-center gap-1.5 border border-outline-variant/40 shadow-sm btn-press"

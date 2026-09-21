@@ -41,7 +41,7 @@ export default function PhilosophyMemo({ id, onOpenModal }) {
 
       <div className="mt-4 pt-2.5 flex items-center justify-between text-[11px] font-mono text-[#633d09]">
         <span className="font-semibold italic font-headline">Original handwritten field briefing</span>
-        <span className="text-primary font-bold hover:underline flex items-center gap-0.5">Click to read full dossier →</span>
+        <span className="text-primary font-bold hover:underline flex items-center gap-0.5">Click to read full dossier {'>'}</span>
       </div>
     </article>
   );

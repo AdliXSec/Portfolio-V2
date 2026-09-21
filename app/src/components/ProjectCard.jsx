@@ -49,19 +49,17 @@ export default function ProjectCard({ project, index, onOpenModal }) {
 
   return (
     <article id={`node-project-${index}`}
-      className={`evidence-card relative rounded-2xl ${
-        project.color === 'error' ? 'bg-surface-container-high/95' : 'bg-surface-container/95'
-      } backdrop-blur-md p-6 shadow-2xl transition-all duration-300 ${rotation} border border-outline-variant/40 ${
-        index < 3 ? '' : ''
-      } ${isEven ? '' : ''}`}
+      className={`evidence-card relative rounded-2xl ${project.color === 'error' ? 'bg-surface-container-high/95' : 'bg-surface-container/95'
+        } backdrop-blur-md p-6 shadow-2xl transition-all duration-300 ${rotation} border border-outline-variant/40 ${index < 3 ? '' : ''
+        } ${isEven ? '' : ''}`}
       style={{ zIndex: 20 + index * 5 }}
       onClick={() => onOpenModal(project.id)}
     >
       <div className={`pushpin -top-3 ${isEven ? 'right-10' : 'left-8'}`} />
       {isEven && <div className="tape-strip absolute -top-3 left-10 w-16 h-5 -rotate-6" />}
 
-      
-      
+
+
       {/* Header */}
       {project.color === 'error' ? (
         <div className="flex items-center justify-between pb-2 mb-2 border-b border-surface-container pr-24">
@@ -139,7 +137,7 @@ export default function ProjectCard({ project, index, onOpenModal }) {
           {project.techStack.join(' / ')}
         </span>
         <span className={`${colors.text} hover:underline flex items-center gap-1 font-medium`}>
-          CLICK TO INSPECT 🔍 →
+          CLICK TO INSPECT {'>'}
         </span>
       </div>
     </article>
