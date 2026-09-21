@@ -62,7 +62,7 @@ export default function DossierModal({ isOpen, onClose, modalKey, onDownloadCV }
         {/* Ink Stamp Overlay */}
         {stampVisible && (
           <div className="pointer-events-none absolute top-4 right-4 sm:top-10 sm:right-10 z-50 mix-blend-screen stamp-animate opacity-0">
-            <div className="border-2 sm:border-4 border-error/90 text-error font-mono font-bold text-2xl sm:text-4xl tracking-widest p-2 sm:p-3 rounded-lg shadow-[0_0_15px_rgba(255,0,0,0.4)]">
+            <div className="border-2 sm:border-2 border-error/90 text-error font-mono font-bold text-xl sm:text-2xl tracking-widest p-1.5 sm:p-2 rounded-lg shadow-[0_0_15px_rgba(255,0,0,0.4)]">
               DECLASSIFIED
             </div>
           </div>

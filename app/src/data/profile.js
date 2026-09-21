@@ -3,7 +3,7 @@ export const profile = {
   title: 'Software Developer & Cyber Security Analyst',
   subtitle: 'Security Researcher, CTF Player & Backend Developer',
   location: 'Sidoarjo / Surabaya | Indonesia',
-  email: 'hello@naufalsyahruradli.com',
+  email: 'naufalsyahruradli@gmail.com',
   pgp: 'N/A',
   imageUrl: 'https://i.postimg.cc/15SfVGZ0/adli.jpg',
   bio: 'Mahasiswa Sistem Informasi dengan minat mendalam di pengembangan aplikasi dan keamanan siber. Berpengalaman memecahkan masalah kompleks, berpikiran terbuka, dan memiliki passion kuat di dunia teknologi. Menggabungkan keahlian software development (backend/web) dengan analisis keamanan untuk membangun sistem yang tangguh dan aman.',
@@ -26,7 +26,7 @@ export const profile = {
   ],
 
   stats: [
-    { value: '1st', label: 'Place CTF Best Defense' },
+    { value: 'C3SA', label: 'Certified Cyber Security Analyst' },
     { value: 'HOF', label: 'CSIRT Kutai Kartanegara' },
     { value: 'WEB-RTA', label: 'Certified Web Red Team An.' },
     { value: '(1st)', label: 'Best Defender Cyber Combat' }
@@ -40,9 +40,9 @@ export const profile = {
   ],
 
   socials: [
-    { platform: 'GitHub', url: 'https://github.com/', icon: 'Github' },
-    { platform: 'LinkedIn', url: 'https://linkedin.com/', icon: 'Linkedin' },
-    { platform: 'TryHackMe', url: 'https://tryhackme.com/', icon: 'Shield' },
+    { platform: 'GitHub', url: 'https://github.com/AdliXSec', icon: 'Github' },
+    { platform: 'LinkedIn', url: 'https://linkedin.com/in/naufal-syahruradli', icon: 'Linkedin' },
+    { platform: 'TokTok', url: 'https://www.tiktok.com/@dlixonly._', icon: 'Link2' },
     { platform: 'HackTheBox', url: 'https://hackthebox.com/', icon: 'Box' }
   ]
 };

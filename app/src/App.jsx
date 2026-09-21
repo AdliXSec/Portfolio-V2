@@ -21,14 +21,46 @@ export default function App() {
   const [modalKey, setModalKey] = useState('principal');
   const [stampActive, setStampActive] = useState(false);
 
-  // Dynamic Title and Meta Description
+  // Dynamic Title, Meta Description, SEO, and Favicon
   useEffect(() => {
-    document.title = `${profile.name} | ${profile.title}`;
-
-    // Optional: Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', `${profile.name} — ${profile.title} Portfolio`);
+    document.title = `${profile.name} — ${profile.title}`;
+    
+    // Meta Description for SEO
+    const cleanBio = profile.bio.replace(/"/g, "'").substring(0, 155) + "...";
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', cleanBio);
+    
+    // Open Graph for social sharing
+    const setOgMeta = (property, content) => {
+      let el = document.querySelector(`meta[property="${property}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute('property', property);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    };
+    
+    setOgMeta('og:title', `${profile.name} — ${profile.title}`);
+    setOgMeta('og:description', cleanBio);
+    setOgMeta('og:type', 'website');
+    
+    if (profile.imageUrl) {
+      setOgMeta('og:image', profile.imageUrl);
+      
+      // Dynamic Favicon
+      let favicon = document.querySelector('link[rel="icon"]');
+      if (!favicon) {
+        favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        document.head.appendChild(favicon);
+      }
+      favicon.href = profile.imageUrl;
     }
   }, []);
 
@@ -144,7 +176,7 @@ export default function App() {
           </div>
 
           {/* Contact Section */}
-          <ContactSection />
+          <ContactSection onOpenModal={openModal} />
         </div>
       </main>
 

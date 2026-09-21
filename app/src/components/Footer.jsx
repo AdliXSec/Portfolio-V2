@@ -1,5 +1,7 @@
 import { Fingerprint } from 'lucide-react';
 
+const currentYear = new Date().getFullYear();
+
 export default function Footer() {
   return (
     <footer className="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-6">
@@ -10,9 +12,9 @@ export default function Footer() {
           <span>Naufal Syahruradli | Portfolio</span>
         </div>
         <div className="flex items-center gap-4 text-outline">
-          <span>© 2025 ALL RIGHTS RESERVED</span>
+          <span>© {currentYear} ALL RIGHTS RESERVED</span>
           <span>•</span>
-          <span className="text-secondary">SECURITY RESEARCHER &amp; ARCHITECT</span>
+          <span className="text-secondary">SECURITY RESEARCHER &amp; SOFTWARE ENGINEER</span>
         </div>
       </div>
     </footer>
