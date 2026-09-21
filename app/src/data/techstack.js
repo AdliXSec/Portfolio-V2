@@ -7,7 +7,7 @@ export const techCategories = [
   {
     category: 'Security & Analysis',
     icon: 'Shield',
-    items: ['Wireshark', 'Burp Suite', 'Ghidra', 'OSINT Tools', 'Kali Linux', 'Metasploit', 'eBPF/BCC', 'YARA']
+    items: ['Wireshark', 'Burp Suite', 'Ghidra', 'OSINT Tools', 'Kali Linux', 'Metasploit']
   },
   {
     category: 'Database & Infrastructure',

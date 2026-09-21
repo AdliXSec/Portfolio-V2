@@ -8,4 +8,4 @@ export const achievements = [
   { type: 'recognition', title: 'CISA Acknowledged — CVE-2024-29188 Discovery', organization: 'CISA (US-CERT)', year: '2024', icon: 'BadgeCheck' }
 ];
 
-export const certifications = ['OSCP', 'CISSP', 'CEH Master', 'CISA Coordinated'];
+export const certifications = ['C3SA', 'WEB-RTA', 'CRTOM', 'CCPP'];

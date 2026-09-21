@@ -1,48 +1,48 @@
 export const profile = {
   name: 'Naufal Syahruradli',
   title: 'Software Developer & Cyber Security Analyst',
-  subtitle: 'Principal Security Researcher & Adversary Emulation Specialist',
-  location: 'Jakarta // Remote Global',
-  email: 'kevin.ardian@cipher-sec.io',
-  pgp: '9F84 219B A019 44DC 9981 E8FA C19D 3302',
-  imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuALvH7ZgPu397yiCLHvCK92ucdJ0kLnjOkbJLbAzfHg_hpWV-5D_O6-FXa7aAQTKpV9m_WepzNs41oQw6b1Txot0a8fIKB202OHLg4DaAMoLV0d6zMUytPKGuelQnwCimi5ydm-6RbSnEH2K-avw9hXrYcmRugRr8BzLmLLPsyzDaNR2jihcBRtVHHWFMOHEi6X6Smu-VHp3PGJw9ku2reWY9mwftknbRwh1wAKwRoJYt8Y2Qlzrob5',
+  subtitle: 'Security Researcher, CTF Player & Backend Developer',
+  location: 'Sidoarjo / Surabaya | Indonesia',
+  email: 'hello@naufalsyahruradli.com',
+  pgp: 'N/A',
+  imageUrl: 'https://i.postimg.cc/15SfVGZ0/adli.jpg',
   bio: 'Mahasiswa Sistem Informasi dengan minat mendalam di pengembangan aplikasi dan keamanan siber. Berpengalaman memecahkan masalah kompleks, berpikiran terbuka, dan memiliki passion kuat di dunia teknologi. Menggabungkan keahlian software development (backend/web) dengan analisis keamanan untuk membangun sistem yang tangguh dan aman.',
-  philosophy: '"Defense that lacks offensive fluency is merely security theater. True resilience requires active adversary modeling at the kernel boundary."',
+  philosophy: '"Keamanan sejati bukan sekadar menambal celah, melainkan merancang arsitektur sistem yang tangguh sejak baris kode pertama ditulis hingga tahap deployment."',
 
-  philosophyShortBody: 'Defensive security cannot be built from passive assumptions. Every sensor, harness, and telemetry stream must be architected from deep knowledge of rootkit persistence, hypervisor evasions, and assembly hooks.',
-  philosophyInstruments: ['Rust', 'Go', 'eBPF / BCC', 'Linux Kernel', 'Reverse Eng'],
+  philosophyShortBody: 'Pendekatan keamanan dan pengembangan tidak bisa dipisahkan. Setiap endpoint API, struktur database, dan integrasi hardware IoT harus dibangun dengan fondasi vulnerability assessment yang mendalam dan mitigasi proaktif.',
+  philosophyInstruments: ['Python / Go', 'Laravel / FastAPI', 'React.js', 'PostgreSQL', 'Kali Linux / Burp Suite'],
 
-  extendedBio: 'Kevin \u201cCipher\u201d Ardian operates at the intersection of offensive red teaming, Linux kernel internals, and distributed systems defense. With more than six years of proven field experience, Kevin is renowned for dissecting adversarial tradecraft and formulating hardware-level and ring-0 countermeasures.',
+  extendedBio: 'Naufal beroperasi di titik temu antara pengembangan backend berkinerja tinggi, pengujian penetrasi aplikasi web, dan integrasi arsitektur perangkat keras. Sebagai mahasiswa Sistem Informasi yang juga aktif menjadi asisten laboratorium Algoritma dan Pemrograman serta mentor AI/Robotika, ia rutin merancang solusi sumber terbuka (open-source) seperti alat pemindai kerentanan hingga dashboard intelijen ancaman. Prestasinya mencakup posisi Juara 1 CTF (Best Defense) dan apresiasi Hall of Fame dari CSIRT Kabupaten Kutai Kartanegara.',
 
   extendedPhilosophy: [
-    "In contemporary defensive postures, enterprise security teams frequently rely on perimeter log aggregators, heuristic signature matchers, and application-layer runtime warnings. However, sophisticated modern threat actors routinely operate below libc, executing via raw system call vectors, in-memory bytecode injectors, and kernel ring-0 evasion mechanisms.",
-    "My security philosophy centers on Active Adversary Emulation. Every defensive detection rule must be synthesized from a weaponized offensive proof-of-concept."
+    "Dalam lanskap digital saat ini, mengandalkan pemindaian keamanan otomatis tidaklah cukup. Ancaman modern mengeksploitasi logika bisnis dan kerentanan API yang kompleks. Pengalaman membangun sistem secara utuh—dari backend, integrasi database, hingga antarmuka—memberikan keunggulan krusial dalam memahami cara penyerang berpikir dan membongkar sistem.",
+    "Fokus utama saya adalah menciptakan ekosistem keamanan yang proaktif. Hal ini diwujudkan melalui penggabungan alat investigasi OSINT, pengembangan platform SecOps terintegrasi dengan API intelijen ancaman (seperti VirusTotal dan NVD NIST), serta inovasi IoT untuk memantau kerentanan lingkungan dunia nyata."
   ],
   methodologyPillars: [
-    "Zero assumptions on userland runtime integrity (Assume LD_PRELOAD compromise).",
-    "Real-time ring-buffer sampling utilizing low-overhead eBPF probes.",
-    "Continuous adversarial testing against live production shadow graphs.",
-    "Memory-safe systems programming in Rust to preclude memory corruption exploits."
+    "Pengujian penetrasi aplikasi web berbasis logika kerentanan mendalam (Vulnerability Assessment).",
+    "Pengembangan arsitektur backend dan REST API yang efisien, aman, dan dapat diskalakan.",
+    "Integrasi Threat Intelligence dan OSINT ke dalam alur kerja operasi keamanan modern.",
+    "Eksperimentasi sistem perangkat keras (IoT) dengan mikrokontroler untuk deteksi anomali."
   ],
 
   stats: [
-    { value: '6+', label: 'Years Experience' },
-    { value: '14', label: 'CVEs Published' },
-    { value: '80+', label: 'Engagements' },
-    { value: '100%', label: 'Verified Audits' }
+    { value: '1st', label: 'Place CTF Best Defense' },
+    { value: 'HOF', label: 'CSIRT Kutai Kartanegara' },
+    { value: 'WEB-RTA', label: 'Certified Web Red Team An.' },
+    { value: '(1st)', label: 'Best Defender Cyber Combat' }
   ],
 
   domains: [
-    { label: 'Kernel Telemetry (eBPF / kprobes)', icon: '⚡' },
-    { label: 'Enterprise Red Teaming & C2', icon: '🛡️' },
-    { label: 'Binary Exploitation & Reverse Eng', icon: '🔧' },
-    { label: 'SCADA / Industrial Protocol Auditing', icon: '⚙️' }
+    { label: 'Web App Security & Pentesting', icon: '🛡️' },
+    { label: 'Backend & API Development', icon: '💻' },
+    { label: 'OSINT & Threat Intelligence', icon: '🔍' },
+    { label: 'IoT & Hardware Integration', icon: '⚙️' }
   ],
 
   socials: [
-    { platform: 'GitHub', url: 'https://github.com', icon: 'Github' },
-    { platform: 'LinkedIn', url: 'https://linkedin.com', icon: 'Linkedin' },
-    { platform: 'TryHackMe', url: 'https://tryhackme.com', icon: 'Shield' },
-    { platform: 'HackTheBox', url: 'https://hackthebox.com', icon: 'Box' }
+    { platform: 'GitHub', url: 'https://github.com/', icon: 'Github' },
+    { platform: 'LinkedIn', url: 'https://linkedin.com/', icon: 'Linkedin' },
+    { platform: 'TryHackMe', url: 'https://tryhackme.com/', icon: 'Shield' },
+    { platform: 'HackTheBox', url: 'https://hackthebox.com/', icon: 'Box' }
   ]
 };
