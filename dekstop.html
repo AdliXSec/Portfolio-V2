@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Kevin "Cipher" Ardian — Case Archive 01 | Detective Investigation Board</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#002118",
+                        "surface-tint": "#f5bc7e",
+                        "on-tertiary": "#233143",
+                        "on-surface": "#e2e2e8",
+                        "surface-dim": "#111317",
+                        "on-tertiary-fixed-variant": "#39485a",
+                        "on-secondary-fixed-variant": "#00513f",
+                        "on-primary-fixed": "#2b1700",
+                        "on-background": "#e2e2e8",
+                        "secondary-fixed-dim": "#85d6bb",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#b8c8de",
+                        "surface-bright": "#37393e",
+                        "secondary-fixed": "#a1f3d6",
+                        "on-secondary": "#00382b",
+                        "on-primary": "#482900",
+                        "on-primary-fixed-variant": "#653e0b",
+                        "on-secondary-container": "#8fe1c5",
+                        "on-error": "#690005",
+                        "on-surface-variant": "#d4c4b5",
+                        "inverse-on-surface": "#2f3035",
+                        "inverse-surface": "#e2e2e8",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#384759",
+                        "primary": "#fec486",
+                        "primary-container": "#e0a96d",
+                        "surface-variant": "#333539",
+                        "inverse-primary": "#805521",
+                        "surface-container-high": "#282a2e",
+                        "outline": "#9d8e81",
+                        "on-tertiary-fixed": "#0d1c2d",
+                        "tertiary-fixed": "#d4e4fb",
+                        "surface-container-low": "#1a1c20",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#50453a",
+                        "on-primary-container": "#633d09",
+                        "background": "#111317",
+                        "secondary": "#85d6bb",
+                        "secondary-container": "#006650",
+                        "surface-container-highest": "#333539",
+                        "primary-fixed-dim": "#f5bc7e",
+                        "primary-fixed": "#ffddbb",
+                        "surface-container-lowest": "#0c0e12",
+                        "tertiary": "#c1d1e7",
+                        "tertiary-container": "#a6b5cb",
+                        "surface-container": "#1e2024",
+                        "surface": "#111317"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline-xl": ["Newsreader", "serif"],
+                        "headline-lg": ["Newsreader", "serif"],
+                        "headline-md": ["Hanken Grotesk", "sans-serif"],
+                        "body-lg": ["Hanken Grotesk", "sans-serif"],
+                        "body-md": ["Hanken Grotesk", "sans-serif"],
+                        "body-sm": ["Hanken Grotesk", "sans-serif"],
+                        "caption-editorial": ["Newsreader", "serif"],
+                        "label-mono": ["JetBrains Mono", "monospace"],
+                        "label-lg": ["Hanken Grotesk", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cork-texture {
+            background-color: #111317;
+            background-image: radial-gradient(#242831 0.75px, transparent 0.75px), radial-gradient(#1a1d24 0.75px, #111317 0.75px);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
+        }
+
+        .yarn-path {
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 7px rgba(220, 38, 38, 0.45));
+        }
+
+        .pushpin {
+            position: absolute;
+            z-index: 40;
+            width: 22px;
+            height: 22px;
+            border-radius: 9999px;
+            background: radial-gradient(circle at 35% 30%, #ff897d 0%, #d32f2f 45%, #690005 95%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.85), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+        }
+
+        .pushpin::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 7px;
+            width: 3px;
+            height: 7px;
+            background: rgba(0, 0, 0, 0.6);
+            transform: rotate(20deg);
+            filter: blur(1px);
+        }
+
+        .tape-strip {
+            background: rgba(220, 205, 185, 0.45);
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .inspect-hover-badge {
+            opacity: 0.92;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .evidence-card:hover .inspect-hover-badge {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .evidence-card {
+            cursor: pointer;
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), z-index 0s;
+        }
+
+        .evidence-card:hover {
+            z-index: 45 !important;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+    <!-- 1. FLOATING GLASSMORPHIC WARM NOIR HEADER -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 bg-[#111317]/85 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_12px_40px_rgba(0,0,0,0.75)]">
+        <div class="max-w-[1440px] mx-auto h-20 px-6 sm:px-8 flex items-center justify-between gap-4">
+            <!-- Brand & Case Archive Title -->
+            <a class="flex items-center gap-3.5 group" href="#">
+                <div
+                    class="flex items-center justify-center w-10 h-10 rounded-xl bg-surface-container-high text-[#ffb4ab] border border-outline-variant/40 shadow-inner group-hover:border-primary/50 transition-colors">
+                    <span class="material-symbols-outlined text-[20px] text-[#ff897d]">push_pin</span>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="font-label-mono text-[11px] tracking-widest text-primary uppercase font-semibold">CASE
+                            ARCHIVE 01</span>
+                        <span class="text-outline-variant text-[10px]">//</span>
+                        <span
+                            class="font-label-mono text-[10px] tracking-wider text-secondary uppercase font-medium">CONFIDENTIAL</span>
+                    </div>
+                    <span
+                        class="font-headline-lg text-[17px] text-on-surface font-serif tracking-wide font-normal">Kevin
+                        “Cipher” Ardian</span>
+                </div>
+            </a>
+            <!-- Clean Navigation Pills -->
+            <nav
+                class="hidden lg:flex items-center gap-1.5 p-1 rounded-full bg-surface-container-lowest/90 border border-outline-variant/30 backdrop-blur-md">
+                <a class="px-4 py-1.5 rounded-full font-label-lg text-[13px] font-semibold bg-primary-container text-on-primary-container shadow-sm transition-all"
+                    href="#investigation-canvas">The Board</a>
+                <a class="px-4 py-1.5 rounded-full font-label-lg text-[13px] text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                    href="javascript:void(0)" onclick="openModal('principal')">Biography</a>
+                <a class="px-4 py-1.5 rounded-full font-label-lg text-[13px] text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                    href="javascript:void(0)" onclick="openModal('obsidian')">Case Files</a>
+                <a class="px-4 py-1.5 rounded-full font-label-lg text-[13px] text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                    href="javascript:void(0)" onclick="openModal('timeline')">Experience</a>
+                <a class="px-4 py-1.5 rounded-full font-label-lg text-[13px] text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                    href="#dispatch-card">Contact</a>
+            </nav>
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-3">
+                <a class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-mono text-[12px] font-bold tracking-wide uppercase transition-all shadow-[0_4px_14px_rgba(254,196,134,0.25)]"
+                    href="#dispatch-card">
+                    <span class="material-symbols-outlined text-[16px]">mail</span>
+                    <span>Get in Touch</span>
+                </a>
+                <a class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface border border-outline-variant/40 font-label-mono text-[12px] transition-all shadow-sm hover:border-primary/40"
+                    href="javascript:void(0)" onclick="downloadDossier()">
+                    <span class="material-symbols-outlined text-[16px] text-secondary">download</span>
+                    <span class="hidden md:inline">Download Dossier (PDF)</span>
+                    <span class="md:hidden">CV</span>
+                </a>
+                <div
+                    class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-serif font-bold text-sm">
+                    C
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- MAIN CANVAS STAGE (Full Width 1440px Detective Board) -->
+    <main class="w-full pt-20 bg-background flex-1 flex flex-col items-center">
+        <!-- SUB-HEADER BAR: Case Status, Controls & Breadcrumb -->
+        <div
+            class="w-full max-w-[1440px] px-6 sm:px-8 pt-5 pb-3 flex flex-wrap items-center justify-between gap-4 border-b border-outline-variant/20">
+            <div class="flex items-center gap-3.5">
+                <div class="flex items-center gap-2 px-3 py-1 rounded-md bg-[#241313] border border-[#ffb4ab]/30">
+                    <span
+                        class="w-2.5 h-2.5 rounded-full bg-[#d32f2f] shadow-[0_0_8px_rgba(211,47,47,0.8)] animate-pulse"></span>
+                    <span
+                        class="font-label-mono text-[11px] text-[#ffdad6] font-semibold tracking-wider uppercase">INVESTIGATION
+                        BOARD // DOSSIER NO. 904</span>
+                </div>
+                <span class="hidden md:inline font-caption-editorial text-[14px] text-on-surface-variant italic">
+                    Principal Case: Systemic Kernel Probing &amp; Infrastructure Adversary Emulation
+                </span>
+            </div>
+            <div class="flex items-center gap-3">
+                <!-- Notice badge -->
+                <div
+                    class="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container-high/60 border border-outline-variant/30 text-[11px] font-label-mono text-primary">
+                    <span class="material-symbols-outlined text-[14px]">search</span>
+                    <span>Click any document to inspect Dossier [Zoom 🔍]</span>
+                </div>
+                <!-- Live yarn toggle button -->
+                <button
+                    class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary transition-all font-label-mono text-[11px] border border-outline-variant/30"
+                    id="toggle-yarn-btn" onclick="toggleYarn()">
+                    <span class="material-symbols-outlined text-[15px] text-[#ff897d]">timeline</span>
+                    <span id="yarn-btn-text">Hide Crimson Threads</span>
+                </button>
+                <!-- Reset filter button -->
+                <button
+                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all font-label-mono text-[11px] border border-outline-variant/30"
+                    onclick="resetBoardHighlight()">
+                    <span class="material-symbols-outlined text-[15px]">filter_alt_off</span>
+                    <span class="hidden sm:inline">Reset Board Focus</span>
+                </button>
+                <!-- Operative Status Pill -->
+                <div
+                    class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/25 border border-secondary/40 text-secondary font-label-mono text-[11px]">
+                    <span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(133,214,187,0.8)]"></span>
+                    <span class="tracking-wide uppercase font-medium">Status: Available for Advisory</span>
+                </div>
+            </div>
+        </div>
+        <!-- THE DETECTIVE CORKBOARD CANVAS (Expanded, Realistic Overlapping Desk/Corkboard) -->
+        <div class="relative w-full max-w-[1440px] px-4 sm:px-8 py-8 md:py-10 flex-1 overflow-hidden cork-texture min-h-[980px]"
+            id="investigation-canvas">
+            <!-- Atmospheric Radial Noir Lighting -->
+            <div
+                class="absolute inset-0 pointer-events-none bg-gradient-radial from-transparent via-[#111317]/50 to-[#0c0e12]/90">
+            </div>
+            <div
+                class="absolute top-10 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none">
+            </div>
+            <div
+                class="absolute top-36 right-1/4 w-[550px] h-[550px] bg-secondary/5 rounded-full blur-[150px] pointer-events-none">
+            </div>
+            <!-- AUTHENTIC CRIMSON EVIDENCE YARN / SVG STRINGS -->
+            <svg aria-hidden="true"
+                class="absolute inset-0 w-full h-full pointer-events-none z-15 transition-opacity duration-500"
+                id="crimson-threads" preserveaspectratio="none" viewbox="0 0 1440 980">
+                <defs>
+                    <lineargradient id="yarnGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ff998f"></stop>
+                        <stop offset="45%" stop-color="#d32f2f"></stop>
+                        <stop offset="100%" stop-color="#70000a"></stop>
+                    </lineargradient>
+                </defs>
+                <!-- Yarn 1: Center Polaroid to Top Left Philosophy Memo -->
+                <path class="yarn-path" d="M 720,260 C 580,230 460,175 320,150" fill="none" stroke="url(#yarnGradient)"
+                    stroke-width="2.5"></path>
+                <!-- Yarn 2: Center Polaroid to Bottom Left Experience Folder -->
+                <path class="yarn-path" d="M 700,380 C 585,430 460,490 330,520" fill="none" stroke="url(#yarnGradient)"
+                    stroke-width="2.3"></path>
+                <!-- Yarn 3: Center Polaroid to Top Right Project Obsidian -->
+                <path class="yarn-path" d="M 760,250 C 890,200 1015,150 1135,140" fill="none"
+                    stroke="url(#yarnGradient)" stroke-width="2.5"></path>
+                <!-- Yarn 4: Center Polaroid to Middle Right SentinelScan -->
+                <path class="yarn-path" d="M 760,340 C 890,360 1005,370 1120,385" fill="none"
+                    stroke="url(#yarnGradient)" stroke-dasharray="7,3" stroke-width="2.2"></path>
+                <!-- Yarn 5: Center Polaroid to Bottom Right SCADA Advisory -->
+                <path class="yarn-path" d="M 740,430 C 860,510 990,600 1115,640" fill="none" stroke="url(#yarnGradient)"
+                    stroke-width="2.4"></path>
+                <!-- Yarn 6: Horizontal Cross-Evidence Correlation (SCADA to Experience File) -->
+                <path class="yarn-path" d="M 330,710 C 540,780 900,790 1125,710" fill="none" opacity="0.65"
+                    stroke="url(#yarnGradient)" stroke-dasharray="5,5" stroke-width="1.8"></path>
+            </svg>
+            <!-- 4-ZONE BALANCED DETECTIVE BOARD WITH NATURAL SCATTER, REALISTIC OVERLAPS & ELEVATIONS -->
+            <div class="relative z-20 w-full grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-start">
+                <!-- ========================================================================= -->
+                <!-- ZONE 1: LEFT COLUMN — Philosophy Memo & Career Progression Dossier (Cols 1-4) -->
+                <!-- ========================================================================= -->
+                <div class="md:col-span-12 lg:col-span-4 flex flex-col gap-0 relative">
+                    <!-- ITEM 01: INVESTIGATOR'S PHILOSOPHY MEMO (Underlapped slightly by timeline) -->
+                    <article
+                        class="evidence-card relative z-20 rounded-xl bg-[#f7f2e7] text-[#1c1d20] p-6 shadow-[0_18px_38px_rgba(0,0,0,0.68)] rotate-[-2.8deg] hover:rotate-0 hover:scale-[1.02] border border-[#ded4c3] mb-[-42px] lg:mr-[-16px]"
+                        id="node-philosophy" onclick="openModal('philosophy')">
+                        <!-- Realistic Red Pushpin & Tape Strip -->
+                        <div class="pushpin -top-3 left-1/2 -translate-x-1/2"></div>
+                        <div class="tape-strip absolute -top-3 right-6 w-16 h-6 rotate-[15deg]"></div>
+                        <!-- Click to Inspect Quick Prompt Badge -->
+                        <div
+                            class="inspect-hover-badge absolute top-3 right-3 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#1c1d20]/80 text-[#f7f2e7] font-label-mono text-[10px] tracking-wide shadow">
+                            <span class="material-symbols-outlined text-[13px] text-primary">zoom_in</span>
+                            <span>Inspect [🔍]</span>
+                        </div>
+                        <div class="flex items-center justify-between pb-2.5 mb-3 border-b border-[#ded4c3]/90 pr-24">
+                            <span
+                                class="font-label-mono text-[11px] tracking-wider uppercase text-[#633d09] font-bold flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[15px]">sticky_note_2</span>
+                                EXHIBIT // AXIOM MEMO
+                            </span>
+                            <span class="font-label-mono text-[10px] text-[#827863]">REF: PHIL-01</span>
+                        </div>
+                        <blockquote
+                            class="font-headline-lg text-[20px] leading-snug italic text-[#1a1c20] mb-4 font-serif font-normal">
+                            “Defense that lacks offensive fluency is merely security theater. True resilience requires
+                            active adversary modeling at the kernel boundary.”
+                        </blockquote>
+                        <p class="font-body-sm text-[13px] text-[#4d463c] leading-relaxed mb-4">
+                            Defensive security cannot be built from passive assumptions. Every sensor, harness, and
+                            telemetry stream must be architected from deep knowledge of rootkit persistence, hypervisor
+                            evasions, and assembly hooks.
+                        </p>
+                        <!-- Key Tools / Stack Pills -->
+                        <div class="pt-2 border-t border-[#ded4c3]/80">
+                            <div
+                                class="text-[10px] font-label-mono uppercase tracking-widest text-[#786e5b] mb-2 font-semibold">
+                                Specialized Instrumentation:</div>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span
+                                    class="px-2.5 py-1 rounded text-[11px] font-label-mono bg-[#eae2d0] text-[#2c2d30] font-medium border border-[#ded4c3]">Rust</span>
+                                <span
+                                    class="px-2.5 py-1 rounded text-[11px] font-label-mono bg-[#eae2d0] text-[#2c2d30] font-medium border border-[#ded4c3]">Go</span>
+                                <span
+                                    class="px-2.5 py-1 rounded text-[11px] font-label-mono bg-[#eae2d0] text-[#2c2d30] font-medium border border-[#ded4c3]">eBPF
+                                    / BCC</span>
+                                <span
+                                    class="px-2.5 py-1 rounded text-[11px] font-label-mono bg-[#eae2d0] text-[#2c2d30] font-medium border border-[#ded4c3]">Linux
+                                    Kernel</span>
+                                <span
+                                    class="px-2.5 py-1 rounded text-[11px] font-label-mono bg-[#eae2d0] text-[#2c2d30] font-medium border border-[#ded4c3]">Reverse
+                                    Eng</span>
+                            </div>
+                        </div>
+                        <div
+                            class="mt-4 pt-2.5 flex items-center justify-between text-[11px] font-label-mono text-[#633d09]">
+                            <span class="font-semibold italic font-serif">Original handwritten field briefing</span>
+                            <span class="text-primary font-bold hover:underline flex items-center gap-0.5">Click to read
+                                full dossier →</span>
+                        </div>
+                    </article>
+                    <!-- ITEM 02: SERVICE RECORD & CAREER PROGRESSION (Manila File Folder Card - overlapping top memo) -->
+                    <article
+                        class="evidence-card relative z-30 rounded-2xl bg-[#eadecb] text-[#1c1d20] p-6 sm:p-7 shadow-[0_24px_50px_rgba(0,0,0,0.75)] rotate-[1.9deg] hover:rotate-0 hover:scale-[1.02] border border-[#d2c3ac] lg:ml-2"
+                        id="node-timeline" onclick="openModal('timeline')">
+                        <!-- Red pushpin -->
+                        <div class="pushpin -top-3 left-10"></div>
+                        <!-- Manila File Tab -->
+                        <div
+                            class="absolute -top-3.5 right-8 px-4 py-0.5 rounded-t-md bg-[#d8c8b0] border-t border-x border-[#c4b196] font-label-mono text-[10px] text-[#4d4029] uppercase tracking-widest font-bold flex items-center gap-1.5">
+                            <span>DOSSIER FILE // RECORD 02</span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#006650]"></span>
+                        </div>
+                        <div class="flex items-center justify-between pb-3 mb-4 border-b border-[#cfbfa8]">
+                            <div class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[#633d09] text-[20px]">folder_shared</span>
+                                <h3
+                                    class="font-headline-md text-[17px] font-bold text-[#23201a] tracking-tight uppercase">
+                                    Service Record &amp; Timeline</h3>
+                            </div>
+                            <span
+                                class="px-2 py-0.5 rounded bg-[#dacbbe] text-[#554a36] font-label-mono text-[10px] font-bold">VERIFIED
+                                OPS</span>
+                        </div>
+                        <!-- Career Progression Timeline -->
+                        <div class="relative pl-5 space-y-4 text-left">
+                            <!-- Chrono Line -->
+                            <div class="absolute left-1.5 top-2.5 bottom-2.5 w-[2px] bg-[#b3a189]"></div>
+                            <!-- Entry 1 -->
+                            <div class="relative">
+                                <div
+                                    class="absolute -left-[18px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#006650] ring-2 ring-[#eadecb]">
+                                </div>
+                                <div class="flex items-baseline justify-between">
+                                    <span class="font-label-mono text-[11px] font-bold text-[#006650]">2023 —
+                                        PRESENT</span>
+                                    <span class="text-[10px] font-label-mono text-[#6c614c]">Jakarta &amp; Remote</span>
+                                </div>
+                                <div class="font-headline-md text-[15px] font-bold text-[#1a1c20] leading-snug">Lead
+                                    Security Engineer</div>
+                                <div class="font-caption-editorial text-[13px] text-[#5b513e] italic">CyberGuard Defense
+                                    Labs</div>
+                                <p class="font-body-sm text-[12px] text-[#494132] mt-1 leading-relaxed">
+                                    Directing adversary simulation harnesses. Drove 68% MTTD reduction while ingesting
+                                    over 120M kernel events/day across enterprise nodes.
+                                </p>
+                            </div>
+                            <!-- Entry 2 -->
+                            <div class="relative">
+                                <div
+                                    class="absolute -left-[18px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#633d09] ring-2 ring-[#eadecb]">
+                                </div>
+                                <div class="flex items-baseline justify-between">
+                                    <span class="font-label-mono text-[11px] font-bold text-[#633d09]">2021 —
+                                        2023</span>
+                                    <span class="text-[10px] font-label-mono text-[#6c614c]">Offensive Unit</span>
+                                </div>
+                                <div class="font-headline-md text-[15px] font-bold text-[#1a1c20] leading-snug">Senior
+                                    Penetration Tester</div>
+                                <div class="font-caption-editorial text-[13px] text-[#5b513e] italic">Sentinel Tech
+                                    Security Group</div>
+                                <p class="font-body-sm text-[12px] text-[#494132] mt-1 leading-relaxed">
+                                    Executed 80+ penetration assessments against financial routing backbones. Discovered
+                                    and isolated 3 zero-day privilege escalations.
+                                </p>
+                            </div>
+                            <!-- Entry 3 -->
+                            <div class="relative">
+                                <div
+                                    class="absolute -left-[18px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#7a6d59] ring-2 ring-[#eadecb]">
+                                </div>
+                                <div class="flex items-baseline justify-between">
+                                    <span class="font-label-mono text-[11px] font-bold text-[#554b38]">2018 —
+                                        2021</span>
+                                    <span class="text-[10px] font-label-mono text-[#6c614c]">Infrastructure</span>
+                                </div>
+                                <div class="font-headline-md text-[15px] font-bold text-[#1a1c20] leading-snug">Security
+                                    Software Engineer</div>
+                                <div class="font-caption-editorial text-[13px] text-[#5b513e] italic">Apex Systems Core
+                                    Infrastructure</div>
+                                <p class="font-body-sm text-[12px] text-[#494132] mt-1 leading-relaxed">
+                                    Hardened distributed Go and Rust microservices. Configured memory-safe IPC channels
+                                    and secure enclave boundaries.
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="mt-4 pt-3 border-t border-[#cfbfa8] flex items-center justify-between text-[11px] font-label-mono text-[#633d09]">
+                            <span class="font-medium">Complete dossier records indexed</span>
+                            <span class="font-bold hover:underline inline-flex items-center gap-1 text-[#633d09]">
+                                CLICK TO EXPAND DOSSIER 🔍 →
+                            </span>
+                        </div>
+                    </article>
+                </div>
+                <!-- ========================================================================= -->
+                <!-- ZONE 2: CENTER HERO — Master Subject Dossier & Vintage Polaroid (Cols 5-8) -->
+                <!-- ========================================================================= -->
+                <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center relative z-35">
+                    <article
+                        class="evidence-card relative w-full rounded-3xl bg-[#1a1c22]/95 backdrop-blur-xl p-6 sm:p-7 shadow-[0_35px_80px_rgba(0,0,0,0.92)] border border-outline-variant/50 rotate-[-0.6deg] hover:rotate-0 hover:scale-[1.02]"
+                        id="node-principal" onclick="openModal('principal')">
+                        <!-- Realistic 3D Red Pushpin centered on top -->
+                        <div class="pushpin -top-3.5 left-1/2 -translate-x-1/2"></div>
+                        <!-- Subject Stamp & Tape -->
+                        <div class="tape-strip absolute -top-3 left-8 w-20 h-6 -rotate-12"></div>
+                        <div class="absolute top-5 right-5 z-20 rotate-[9deg] pointer-events-none">
+                            <span
+                                class="px-3 py-1 rounded border-2 border-red-500/80 text-[#ffb4ab] font-label-mono text-[11px] font-bold tracking-widest uppercase bg-red-950/70 shadow-md flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                                SUBJECT // 01 [INSPECT]
+                            </span>
+                        </div>
+                        <!-- POLAROID PHOTO FRAME (Vintage Matte Finish) -->
+                        <div
+                            class="relative w-full rounded-2xl bg-[#0e1014] p-3 shadow-xl mb-6 border border-surface-container">
+                            <!-- Paperclip accent top right -->
+                            <div
+                                class="absolute top-2 right-4 w-4 h-9 rounded-full border-2 border-[#d4c4b5]/60 z-20 pointer-events-none rotate-6">
+                            </div>
+                            <div
+                                class="relative h-64 sm:h-72 w-full rounded-xl overflow-hidden bg-surface-container-low">
+                                <img class="w-full h-full object-cover grayscale contrast-125 brightness-95 group-hover:scale-105 transition-transform duration-700"
+                                    data-alt="Cinematic portrait of Kevin Cipher Ardian in dark noir ambiance"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuALvH7ZgPu397yiCLHvCK92ucdJ0kLnjOkbJLbAzfHg_hpWV-5D_O6-FXa7aAQTKpV9m_WepzNs41oQw6b1Txot0a8fIKB202OHLg4DaAMoLV0d6zMUytPKGuelQnwCimi5ydm-6RbSnEH2K-avw9hXrYcmRugRr8BzLmLLPsyzDaNR2jihcBRtVHHWFMOHEi6X6Smu-VHp3PGJw9ku2reWY9mwftknbRwh1wAKwRoJYt8Y2Qlzrob5" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-[#0e1014] via-transparent to-transparent opacity-85">
+                                </div>
+                                <div
+                                    class="absolute bottom-3 left-3 flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-[11px] font-label-mono text-tertiary border border-outline-variant/30">
+                                    <span
+                                        class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(133,214,187,0.8)]"></span>
+                                    <span>LOCATION: JAKARTA // REMOTE GLOBAL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Profile Info & Identity -->
+                        <div class="flex flex-col gap-1.5 mb-5">
+                            <div class="flex items-center justify-between">
+                                <span
+                                    class="font-label-mono text-[11px] text-primary uppercase tracking-widest font-bold">PRINCIPAL
+                                    SUBJECT</span>
+                                <span class="font-label-mono text-[11px] text-secondary font-medium">SECURITY
+                                    ARCHITECT</span>
+                            </div>
+                            <h1
+                                class="font-headline-lg text-[30px] sm:text-[32px] text-on-surface font-semibold tracking-tight leading-tight">
+                                Kevin “Cipher” Ardian
+                            </h1>
+                            <p class="font-caption-editorial text-[17px] text-primary italic leading-snug">
+                                Principal Security Researcher &amp; Adversary Emulation Specialist
+                            </p>
+                            <p class="font-body-sm text-[13.5px] text-on-surface-variant mt-2 leading-relaxed">
+                                6+ years of specialized field experience leading red team operations, zero-overhead
+                                kernel telemetry harnesses, and distributed vulnerability discovery across Tier-1
+                                financial networks and industrial SCADA infrastructure.
+                            </p>
+                        </div>
+                        <!-- KEY IMPACT METRICS BAR -->
+                        <div
+                            class="grid grid-cols-3 gap-2 py-3.5 rounded-2xl bg-surface-container-low/90 px-3 mb-5 text-center border border-outline-variant/30 shadow-inner">
+                            <div>
+                                <div class="font-headline-md text-[24px] text-primary font-bold">6+</div>
+                                <div class="font-label-mono text-[10px] text-outline uppercase tracking-wider">Years
+                                    Field Ops</div>
+                            </div>
+                            <div class="border-x border-outline-variant/30">
+                                <div class="font-headline-md text-[24px] text-secondary font-bold">14</div>
+                                <div class="font-label-mono text-[10px] text-outline uppercase tracking-wider">CVEs
+                                    Authored</div>
+                            </div>
+                            <div>
+                                <div class="font-headline-md text-[24px] text-tertiary font-bold">80+</div>
+                                <div class="font-label-mono text-[10px] text-outline uppercase tracking-wider">Red
+                                    Engagements</div>
+                            </div>
+                        </div>
+                        <!-- CREDENTIALS STRIP -->
+                        <div class="mb-5">
+                            <div class="text-[10px] font-label-mono uppercase tracking-widest text-outline mb-2">
+                                Verified Professional Certifications:</div>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span
+                                    class="px-2.5 py-1 rounded text-[11px] font-label-mono bg-surface-container text-on-surface border border-outline-variant/40">OSCP</span>
+                                <span
+                                    class="px-2.5 py-1 rounded text-[11px] font-label-mono bg-surface-container text-on-surface border border-outline-variant/40">CISSP</span>
+                                <span
+                                    class="px-2.5 py-1 rounded text-[11px] font-label-mono bg-surface-container text-on-surface border border-outline-variant/40">CEH
+                                    Master</span>
+                                <span
+                                    class="px-2.5 py-1 rounded text-[11px] font-label-mono bg-surface-container text-secondary border border-secondary/30">CISA
+                                    Coordinated</span>
+                            </div>
+                        </div>
+                        <!-- PRIMARY ACTION CTAS -->
+                        <div class="flex items-center gap-3" onclick="event.stopPropagation()">
+                            <button
+                                class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-mono text-[13px] font-bold text-center tracking-wider uppercase transition-all shadow-[0_4px_16px_rgba(254,196,134,0.3)] flex items-center justify-center gap-2"
+                                onclick="openModal('dispatch')">
+                                <span class="material-symbols-outlined text-[17px]">security</span>
+                                <span>Inspect Dossier 🔍</span>
+                            </button>
+                            <button
+                                class="px-4 py-3 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-mono text-[12px] transition-colors flex items-center justify-center gap-1.5 border border-outline-variant/40 shadow-sm"
+                                onclick="downloadDossier()">
+                                <span class="material-symbols-outlined text-[17px] text-secondary">download</span>
+                                <span>Full CV</span>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+                <!-- ========================================================================= -->
+                <!-- ZONE 3: RIGHT COLUMN — Case Files & Declassified Evidence (Cols 9-12) -->
+                <!-- ========================================================================= -->
+                <div class="md:col-span-12 lg:col-span-4 flex flex-col gap-0 relative" id="zone-evidence">
+                    <!-- CASE FILE 01: PROJECT OBSIDIAN (Overlaps SentinelScan below) -->
+                    <article
+                        class="evidence-card relative z-20 rounded-2xl bg-surface-container/95 backdrop-blur-md p-6 shadow-2xl transition-all duration-300 hover:rotate-0 hover:scale-[1.02] rotate-[2.4deg] border border-outline-variant/40 mb-[-24px] lg:ml-[-12px]"
+                        onclick="openModal('obsidian')">
+                        <div class="pushpin -top-3 right-10"></div>
+                        <div class="tape-strip absolute -top-3 left-10 w-16 h-5 -rotate-6"></div>
+                        <div
+                            class="absolute -top-3 left-6 px-3 py-0.5 rounded-t-md bg-[#332213] font-label-mono text-[10px] text-primary uppercase tracking-widest font-semibold flex items-center gap-1.5 border-t border-x border-primary/30">
+                            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                            CASE FILE #01 // KERNEL HARNESS
+                        </div>
+                        <!-- Zoom badge -->
+                        <div
+                            class="inspect-hover-badge absolute top-3.5 right-16 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-lowest text-primary font-label-mono text-[10px] tracking-wide border border-primary/30">
+                            <span class="material-symbols-outlined text-[12px]">search</span>
+                            <span>Zoom 🔍</span>
+                        </div>
+                        <div class="flex items-start justify-between gap-3 pt-2 mb-2">
+                            <div>
+                                <span
+                                    class="font-label-mono text-[11px] text-primary font-semibold uppercase tracking-wider">PROJECT
+                                    OBSIDIAN</span>
+                                <h3 class="font-headline-md text-[18px] text-on-surface leading-tight mt-0.5 font-bold">
+                                    C2 &amp; Stealth Kernel Probing
+                                </h3>
+                            </div>
+                            <span
+                                class="px-2.5 py-0.5 rounded-full bg-secondary-container/30 text-secondary font-label-mono text-[11px] font-bold shrink-0 border border-secondary/30">
+                                1.2k ★ Stars
+                            </span>
+                        </div>
+                        <p class="font-body-sm text-[13px] text-on-surface-variant mb-3 leading-relaxed">
+                            Zero-overhead telemetry harness written in Go and eBPF/C. Captures arbitrary Linux namespace
+                            transitions directly from the kernel ring-buffer prior to userland LD_PRELOAD spoofing.
+                        </p>
+                        <!-- Minimal Code Snippet File Memo -->
+                        <div
+                            class="rounded-xl bg-surface-container-lowest p-3 font-label-mono text-[11px] text-tertiary shadow-inner mb-3 border border-surface-container-high/80">
+                            <div
+                                class="flex items-center justify-between text-outline text-[10px] pb-1.5 mb-1.5 border-b border-surface-container-high">
+                                <span>obsidian_kprobe.c</span>
+                                <span class="text-secondary font-semibold">OVERHEAD: &lt;1.2%</span>
+                            </div>
+                            <p class="text-on-surface-variant"><span
+                                    class="text-primary">SEC</span>("kprobe/sys_execve")</p>
+                            <p class="text-on-surface">int <span class="text-secondary">probe_exec</span>(struct pt_regs
+                                *ctx) {</p>
+                            <p class="pl-3 text-tertiary">bpf_ringbuf_output(&amp;events, &amp;data, sizeof(data), 0);
+                            </p>
+                            <p class="text-on-surface">}</p>
+                        </div>
+                        <div class="flex items-center justify-between text-[11px] font-label-mono text-outline pt-1">
+                            <span class="text-secondary flex items-center gap-1 font-medium">
+                                <span class="material-symbols-outlined text-[14px]">code</span> Go / eBPF / Rust
+                            </span>
+                            <span class="text-primary group-hover:underline flex items-center gap-1 font-medium">
+                                CLICK TO INSPECT FULL FILE 🔍 →
+                            </span>
+                        </div>
+                    </article>
+                    <!-- CASE FILE 02: SENTINELSCAN (Overlapped between Case 1 and Case 3) -->
+                    <article
+                        class="evidence-card relative z-25 rounded-2xl bg-surface-container/95 backdrop-blur-md p-6 shadow-2xl transition-all duration-300 hover:rotate-0 hover:scale-[1.02] rotate-[-2.1deg] border border-outline-variant/40 mb-[-24px] lg:mr-[-10px]"
+                        onclick="openModal('sentinel')">
+                        <div class="pushpin -top-3 left-8"></div>
+                        <div
+                            class="absolute -top-3 right-6 px-3 py-0.5 rounded-t-md bg-[#192b23] font-label-mono text-[10px] text-secondary uppercase tracking-widest font-semibold flex items-center gap-1.5 border-t border-x border-secondary/30">
+                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                            CASE FILE #02 // ACTIVE DEFENSE
+                        </div>
+                        <!-- Zoom badge -->
+                        <div
+                            class="inspect-hover-badge absolute top-3.5 left-14 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-lowest text-secondary font-label-mono text-[10px] tracking-wide border border-secondary/30">
+                            <span class="material-symbols-outlined text-[12px]">search</span>
+                            <span>Zoom 🔍</span>
+                        </div>
+                        <div class="flex items-start justify-between gap-3 pt-2 mb-2">
+                            <div>
+                                <span
+                                    class="font-label-mono text-[11px] text-secondary font-semibold uppercase tracking-wider">SENTINELSCAN</span>
+                                <h3 class="font-headline-md text-[18px] text-on-surface leading-tight mt-0.5 font-bold">
+                                    Cloud Defense Asset Engine
+                                </h3>
+                            </div>
+                            <span
+                                class="px-2.5 py-0.5 rounded-full bg-primary-container/20 text-primary font-label-mono text-[11px] font-bold shrink-0 border border-primary/30">
+                                99.4% Accuracy
+                            </span>
+                        </div>
+                        <p class="font-body-sm text-[13px] text-on-surface-variant mb-3 leading-relaxed">
+                            Distributed asynchronous scanner orchestrating parallel multi-cloud asset verification.
+                            Audits AWS, Azure, and bare-metal edge nodes for shadow API gateways and unauthenticated
+                            storage buckets.
+                        </p>
+                        <div
+                            class="grid grid-cols-2 gap-2 py-2 px-3 rounded-lg bg-surface-container-lowest/80 text-[11px] font-label-mono mb-3 border border-surface-container-high">
+                            <div><span class="text-outline">SCAN VELOCITY:</span> <span
+                                    class="text-on-surface font-semibold">14,000 req/s</span></div>
+                            <div><span class="text-outline">FALSE POSITIVES:</span> <span
+                                    class="text-secondary font-semibold">&lt; 0.6%</span></div>
+                        </div>
+                        <div class="flex items-center justify-between text-[11px] font-label-mono text-outline pt-1">
+                            <span class="text-secondary flex items-center gap-1 font-medium">
+                                <span class="material-symbols-outlined text-[14px]">cloud_sync</span> Cloud
+                                Infrastructure
+                            </span>
+                            <span class="text-secondary group-hover:underline flex items-center gap-1 font-medium">
+                                INSPECT BENCHMARKS 🔍 →
+                            </span>
+                        </div>
+                    </article>
+                    <!-- CASE FILE 03: INDUSTRIAL SCADA ZERO-DAY ADVISORY -->
+                    <article
+                        class="evidence-card relative z-30 rounded-2xl bg-surface-container-high/95 backdrop-blur-md p-6 shadow-2xl transition-all duration-300 hover:rotate-0 hover:scale-[1.02] rotate-[2.8deg] border border-outline-variant/40"
+                        onclick="openModal('scada')">
+                        <div class="pushpin -top-3 right-12"></div>
+                        <div class="tape-strip absolute -top-3 left-8 w-14 h-5 rotate-[12deg]"></div>
+                        <!-- Zoom badge -->
+                        <div
+                            class="inspect-hover-badge absolute top-3.5 right-20 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-red-950 text-[#ffb4ab] font-label-mono text-[10px] tracking-wide border border-red-500/30">
+                            <span class="material-symbols-outlined text-[12px]">search</span>
+                            <span>Zoom 🔍</span>
+                        </div>
+                        <div
+                            class="flex items-center justify-between pb-2 mb-2 border-b border-surface-container pr-24">
+                            <div class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[#ffb4ab] text-[18px]">emergency</span>
+                                <span
+                                    class="font-label-mono text-[11px] text-[#ffb4ab] uppercase font-bold tracking-wider">
+                                    CASE FILE #03 // ADVISORY
+                                </span>
+                            </div>
+                            <span
+                                class="px-2.5 py-0.5 rounded bg-red-950/80 text-[#ffb4ab] font-label-mono text-[10px] font-bold border border-red-500/40 animate-pulse">
+                                CVSS 9.8 CRITICAL
+                            </span>
+                        </div>
+                        <div class="font-headline-md text-[17px] text-on-surface font-bold leading-snug mb-1">
+                            CVE-2024-29188: Industrial SCADA Remote Bypass
+                        </div>
+                        <div class="font-label-mono text-[10px] text-outline mb-2">TARGET: MODBUS/TCP GATEWAY HARDWARE
+                        </div>
+                        <p class="font-body-sm text-[13px] text-on-surface-variant mb-3 leading-relaxed">
+                            Discovered unauthenticated remote memory corruption flaw enabling arbitrary register
+                            overwrite in regional grid controllers. Coordinated remediation through national CERT and
+                            CISA warning bulletins.
+                        </p>
+                        <!-- Warm Tactile Sticky Note Memo -->
+                        <div
+                            class="relative p-3 rounded-xl bg-[#fcf8e3] text-[#3c3822] shadow-md rotate-[-1.5deg] my-2 border border-[#ded3be]">
+                            <div class="font-caption-editorial italic text-[12.5px] leading-snug">
+                                “Vendor firmware patch certified across lab regression suites. Zero exploitation
+                                observed post-patch.”
+                            </div>
+                            <div class="text-right font-label-mono text-[10px] text-[#7d754b] mt-1 font-semibold">
+                                — CISA Coordination Note 14
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center justify-between pt-2 border-t border-surface-container text-[11px] font-label-mono text-outline">
+                            <span class="text-secondary flex items-center gap-1 font-medium">
+                                <span class="material-symbols-outlined text-[14px]">verified</span> CISA ACKNOWLEDGED
+                            </span>
+                            <span class="text-primary group-hover:underline flex items-center gap-1 font-medium">
+                                READ DECLASSIFIED BRIEF 🔍 →
+                            </span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!-- ========================================================================= -->
+            <!-- ZONE 4: BOTTOM OVERLAY / PINNED DISPATCH NOTE (Full Width 1440px Stage) -->
+            <!-- ========================================================================= -->
+            <div class="relative z-20 mt-10 pt-6" id="dispatch-card">
+                <div
+                    class="relative w-full rounded-2xl bg-[#1a1c22]/95 backdrop-blur-xl p-6 sm:p-8 shadow-2xl border border-outline-variant/40">
+                    <!-- Pushpins on both ends -->
+                    <div class="pushpin -top-3 left-10"></div>
+                    <div class="pushpin -top-3 right-10"></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                        <!-- Left Info Block -->
+                        <div class="lg:col-span-5">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="material-symbols-outlined text-primary text-[22px]">mark_email_read</span>
+                                <span
+                                    class="font-label-mono text-[11px] uppercase tracking-widest text-primary font-bold">DISPATCH
+                                    TELEGRAM</span>
+                            </div>
+                            <h2 class="font-headline-lg text-[22px] sm:text-[24px] text-on-surface font-semibold">
+                                Initiate Secure Consultation
+                            </h2>
+                            <p class="font-body-sm text-[13.5px] text-on-surface-variant mt-1 leading-relaxed">
+                                Available for adversary emulation engagements, architecture security reviews, and
+                                low-level Linux/kernel telemetry consulting. Transmit your project requirements or reach
+                                out directly.
+                            </p>
+                            <!-- Contact Direct Details -->
+                            <div class="flex flex-wrap items-center gap-3 mt-4 pt-3 border-t border-outline-variant/30">
+                                <div class="flex items-center gap-1.5 font-label-mono text-[12px] text-secondary">
+                                    <span class="material-symbols-outlined text-[16px]">alternate_email</span>
+                                    <a class="hover:underline"
+                                        href="mailto:kevin.ardian@cipher-sec.io">kevin.ardian@cipher-sec.io</a>
+                                </div>
+                                <div
+                                    class="px-2.5 py-1 rounded bg-surface-container font-label-mono text-[11px] text-outline border border-outline-variant/30">
+                                    PGP: 9F84 ... C19D
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right Dispatch Form -->
+                        <form class="lg:col-span-7 flex flex-col sm:flex-row gap-3 items-stretch"
+                            onsubmit="handleDispatch(event)">
+                            <div class="flex-1">
+                                <label class="sr-only" for="contact-email">Your Email</label>
+                                <input
+                                    class="w-full px-4 py-3 rounded-xl bg-surface-container-lowest text-on-surface placeholder:text-outline font-label-mono text-[13px] border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-inner"
+                                    id="contact-email" placeholder="your.email@organization.com" required=""
+                                    type="email" />
+                            </div>
+                            <div class="flex-1">
+                                <label class="sr-only" for="contact-scope">Project Scope</label>
+                                <input
+                                    class="w-full px-4 py-3 rounded-xl bg-surface-container-lowest text-on-surface placeholder:text-outline font-label-mono text-[13px] border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-inner"
+                                    id="contact-scope" placeholder="Scope (e.g., eBPF Audit, Red Team)" required=""
+                                    type="text" />
+                            </div>
+                            <button
+                                class="px-6 py-3 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-mono text-[12px] font-bold tracking-wider uppercase transition-all shadow-md shrink-0 flex items-center justify-center gap-2"
+                                type="submit">
+                                <span class="material-symbols-outlined text-[16px]">send</span>
+                                <span>TRANSMIT</span>
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Success notification banner -->
+                    <div class="hidden mt-4 p-3 rounded-xl bg-secondary-container/30 text-secondary font-label-mono text-[12px] items-center gap-2 border border-secondary/30"
+                        id="dispatch-success">
+                        <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                        <span>DISPATCH CONFIRMED // MESSAGE ROUTED TO CIPHER-SEC ENCRYPTED INBOX.</span>
+                    </div>
+                </div>
+                <!-- Canvas Status Footer Strip -->
+                <div
+                    class="flex flex-wrap items-center justify-between gap-4 font-label-mono text-[11px] text-outline px-3 pt-5">
+                    <div class="flex items-center gap-3">
+                        <span class="text-on-surface-variant">CRIMSON THREADS: <span
+                                class="text-secondary font-semibold" id="threads-status-label">ACTIVE (6
+                                CORRELATIONS)</span></span>
+                        <span>•</span>
+                        <span>BOARD: 1440PX FULL DESK VIEW</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-tertiary">LOCATION: JAKARTA &amp; WORLDWIDE REMOTE</span>
+                        <span class="hidden sm:inline">•</span>
+                        <span class="text-secondary">ENCRYPTED TELEMETRY VERIFIED</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- FOOTER -->
+    <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-6">
+        <div
+            class="max-w-[1440px] mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-on-surface-variant font-label-mono text-[12px]">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[18px]">fingerprint</span>
+                <span class="text-on-surface font-semibold">CASE ARCHIVE 01:</span>
+                <span>KEVIN "CIPHER" ARDIAN PORTFOLIO</span>
+            </div>
+            <div class="flex items-center gap-4 text-outline">
+                <span>© 2025 ALL RIGHTS RESERVED</span>
+                <span>•</span>
+                <span class="text-secondary">SECURITY RESEARCHER &amp; ARCHITECT</span>
+            </div>
+        </div>
+    </footer>
+    <!-- ========================================================================= -->
+    <!-- HIGH-CONTRAST DETECTIVE DOSSIER INSPECT MODAL (Click to Read) -->
+    <!-- ========================================================================= -->
+    <div class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 md:p-10 transition-opacity duration-300 backdrop-blur-md bg-black/80"
+        id="dossier-modal" onclick="handleBackdropClick(event)">
+        <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#14161b] border-2 border-outline-variant/60 shadow-[0_25px_80px_rgba(0,0,0,0.95)] text-on-surface p-6 sm:p-8"
+            id="modal-container">
+            <!-- Top Action Bar -->
+            <div class="flex items-center justify-between pb-4 mb-5 border-b border-outline-variant/40">
+                <div class="flex items-center gap-2.5">
+                    <span
+                        class="w-3 h-3 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span>
+                    <span class="font-label-mono text-[12px] font-bold uppercase tracking-widest text-primary"
+                        id="modal-ref">REF: PHIL-01 // DECLASSIFIED</span>
+                </div>
+                <button
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-on-surface border border-outline-variant/40 font-label-mono text-[12px] transition-colors"
+                    onclick="closeModal()">
+                    <span class="material-symbols-outlined text-[16px]">close</span>
+                    <span>Close (Esc)</span>
+                </button>
+            </div>
+            <!-- Dynamic Modal Body Content -->
+            <div class="space-y-6" id="modal-content">
+                <!-- Injected via JavaScript -->
+            </div>
+            <!-- Modal Footer Actions -->
+            <div class="mt-8 pt-5 border-t border-outline-variant/40 flex flex-wrap items-center justify-between gap-4">
+                <div class="font-label-mono text-[11px] text-outline flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[15px] text-secondary">verified_user</span>
+                    <span>INTEGRITY VERIFIED // SHA-256: e8f92...c90a</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                    <button
+                        class="px-4 py-2 rounded-xl bg-surface-container hover:bg-surface-bright border border-outline-variant/40 font-label-mono text-[12px] text-on-surface transition-colors"
+                        onclick="downloadDossier()">
+                        Download File
+                    </button>
+                    <button
+                        class="px-4 py-2 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-mono text-[12px] font-bold tracking-wider uppercase transition-colors"
+                        onclick="closeModal()">
+                        Done Reading
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- LIGHTWEIGHT BOARD & MODAL SCRIPT -->
+    <script>
+        let yarnActive = true;
+
+        // Dossier Modal Data Store
+        const caseData = {
+            philosophy: {
+                ref: "EXHIBIT // AXIOM MEMO [REF: PHIL-01]",
+                tag: "CORE PHILOSOPHY & METHODOLOGY",
+                title: "Kernel-Level Adversary Modeling Axiom",
+                quote: "“Defense that lacks offensive fluency is merely security theater. True resilience requires active adversary modeling at the kernel boundary.”",
+                body: `
+          <div class="space-y-4 font-body-md text-[14.5px] leading-relaxed text-on-surface-variant">
+            <p>
+              In contemporary defensive postures, enterprise security teams frequently rely on perimeter log aggregators, heuristic signature matchers, and application-layer runtime warnings. However, sophisticated modern threat actors routinely operate below libc, executing via raw system call vectors, in-memory bytecode injectors, and kernel ring-0 evasion mechanisms.
+            </p>
+            <p>
+              My security philosophy centers on <strong>Active Adversary Emulation</strong>. Every defensive detection rule must be synthesized from a weaponized offensive proof-of-concept. If our engineering teams cannot reliably trigger, trace, and reverse an adversary's execution hook at the assembly instruction level, our monitoring systems cannot be trusted.
+            </p>
+            <div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-2 font-label-mono text-[12.5px]">
+              <div class="text-primary font-bold">CORE METHODOLOGICAL PILLARS:</div>
+              <ul class="list-disc pl-5 space-y-1 text-on-surface">
+                <li>Zero assumptions on userland runtime integrity (Assume LD_PRELOAD compromise).</li>
+                <li>Real-time ring-buffer sampling utilizing low-overhead eBPF probes.</li>
+                <li>Continuous adversarial testing against live production shadow graphs.</li>
+                <li>Memory-safe systems programming in Rust to preclude memory corruption exploits.</li>
+              </ul>
+            </div>
+          </div>
+        `
+            },
+            timeline: {
+                ref: "DOSSIER FILE // RECORD 02 [CAREER TIMELINE]",
+                tag: "OPERATIONAL CAREER PROGRESSION",
+                title: "Service Record, Engagements & Impact",
+                quote: "Verified operational track record leading high-consequence offensive testing and resilient detection engineering.",
+                body: `
+          <div class="space-y-6">
+            <div class="border-l-2 border-secondary/60 pl-4 space-y-6">
+              <div class="space-y-1">
+                <div class="flex items-center justify-between text-secondary font-label-mono text-[12px] font-bold">
+                  <span>2023 — PRESENT</span>
+                  <span>JAKARTA & REMOTE</span>
+                </div>
+                <h4 class="text-on-surface font-bold text-[18px]">Lead Security Engineer — CyberGuard Defense Labs</h4>
+                <p class="text-on-surface-variant text-[14px]">
+                  Directed an elite squad of 8 adversary emulation specialists and detection engineers. Architected an enterprise-wide Linux telemetry pipeline that decreased Mean Time to Detect (MTTD) from 4.2 hours to 8 minutes across 14,000 production microservices.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2 py-0.5 rounded bg-surface-container font-label-mono text-[11px] text-tertiary">eBPF / Go</span>
+                  <span class="px-2 py-0.5 rounded bg-surface-container font-label-mono text-[11px] text-tertiary">Threat Modeling</span>
+                  <span class="px-2 py-0.5 rounded bg-surface-container font-label-mono text-[11px] text-tertiary">Kernel Internals</span>
+                </div>
+              </div>
+
+              <div class="space-y-1">
+                <div class="flex items-center justify-between text-primary font-label-mono text-[12px] font-bold">
+                  <span>2021 — 2023</span>
+                  <span>OFFENSIVE UNIT</span>
+                </div>
+                <h4 class="text-on-surface font-bold text-[18px]">Senior Penetration Tester — Sentinel Tech Security Group</h4>
+                <p class="text-on-surface-variant text-[14px]">
+                  Led 80+ black-box offensive operations for Tier-1 financial institutions, SWIFT switch interfaces, and core banking backbones. Directly discovered 3 zero-day privilege escalation bugs in enterprise container orchestration runtimes.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2 py-0.5 rounded bg-surface-container font-label-mono text-[11px] text-tertiary">Red Teaming</span>
+                  <span class="px-2 py-0.5 rounded bg-surface-container font-label-mono text-[11px] text-tertiary">Active Directory</span>
+                  <span class="px-2 py-0.5 rounded bg-surface-container font-label-mono text-[11px] text-tertiary">Zero-Day Research</span>
+                </div>
+              </div>
+
+              <div class="space-y-1">
+                <div class="flex items-center justify-between text-outline font-label-mono text-[12px] font-bold">
+                  <span>2018 — 2021</span>
+                  <span>INFRASTRUCTURE</span>
+                </div>
+                <h4 class="text-on-surface font-bold text-[18px]">Security Software Engineer — Apex Systems Core</h4>
+                <p class="text-on-surface-variant text-[14px]">
+                  Engineered distributed crypto and key management gateways in Rust and Go. Hardened Linux IPC primitives, memory enclaves, and implemented zero-trust mutual TLS service meshes.
+                </p>
+              </div>
+            </div>
+          </div>
+        `
+            },
+            principal: {
+                ref: "PRINCIPAL SUBJECT // CIPHER-01 [EXPANDED]",
+                tag: "SUBJECT BIOGRAPHY & CAPABILITIES",
+                title: "Kevin “Cipher” Ardian",
+                quote: "Principal Security Researcher, Adversary Emulation Specialist & Systems Security Architect.",
+                body: `
+          <div class="space-y-5 font-body-md text-[14.5px] leading-relaxed text-on-surface-variant">
+            <p>
+              Kevin “Cipher” Ardian operates at the intersection of offensive red teaming, Linux kernel internals, and distributed systems defense. With more than six years of proven field experience, Kevin is renowned for dissecting adversarial tradecraft and formulating hardware-level and ring-0 countermeasures.
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-3 font-label-mono text-center">
+              <div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30">
+                <div class="text-[22px] font-bold text-primary">6+</div>
+                <div class="text-[11px] text-outline">Years Experience</div>
+              </div>
+              <div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30">
+                <div class="text-[22px] font-bold text-secondary">14</div>
+                <div class="text-[11px] text-outline">CVEs Published</div>
+              </div>
+              <div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30">
+                <div class="text-[22px] font-bold text-tertiary">80+</div>
+                <div class="text-[11px] text-outline">Engagements</div>
+              </div>
+              <div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30">
+                <div class="text-[22px] font-bold text-primary-fixed">100%</div>
+                <div class="text-[11px] text-outline">Verified Audits</div>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div class="font-label-mono text-[12px] uppercase tracking-wider text-on-surface font-bold">Key Domains of Expertise:</div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[13px] font-label-mono">
+                <div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant/30 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary text-[18px]">terminal</span>
+                  <span>Kernel Telemetry (eBPF / kprobes)</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant/30 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-secondary text-[18px]">shield</span>
+                  <span>Enterprise Red Teaming & C2</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant/30 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-tertiary text-[18px]">memory</span>
+                  <span>Binary Exploitation & Reverse Eng</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant/30 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary text-[18px]">settings_input_component</span>
+                  <span>SCADA / Industrial Protocol Auditing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+            },
+            obsidian: {
+                ref: "CASE FILE #01 // REPO OBSIDIAN [CONFIDENTIAL]",
+                tag: "OPEN SOURCE SECURITY TOOLING",
+                title: "Project Obsidian: C2 & Stealth Kernel Probing Harness",
+                quote: "Zero-overhead telemetry engine capturing stealth Linux namespace escapes before userland tampering occurs.",
+                body: `
+          <div class="space-y-4 font-body-md text-[14.5px] leading-relaxed text-on-surface-variant">
+            <p>
+              Traditional runtime security agents intercepting userspace system calls are vulnerable to memory injection or library tampering via <code>LD_PRELOAD</code>. Project Obsidian attaches dynamic eBPF probes straight to <code>sys_enter_execve</code> and namespace pivot kernel entrypoints, streaming raw event packets straight through ring-buffers with less than 1.2% CPU overhead under sustained 100k ops/sec loads.
+            </p>
+            <div class="rounded-xl bg-surface-container-lowest p-4 font-label-mono text-[12px] border border-surface-container-high">
+              <div class="flex items-center justify-between text-outline text-[11px] pb-2 mb-2 border-b border-surface-container-high">
+                <span>obsidian_kprobe.c — Kernel Probe Handler</span>
+                <span class="text-secondary font-bold">STATUS: PRODUCTION TESTED</span>
+              </div>
+              <pre class="text-tertiary overflow-x-auto"><code>SEC("kprobe/sys_execve")
+int probe_exec(struct pt_regs *ctx) {
+    struct event_data data = {};
+    data.pid = bpf_get_current_pid_tgid() >> 32;
+    data.uid = bpf_get_current_uid_gid();
+    bpf_get_current_comm(&data.comm, sizeof(data.comm));
+    bpf_ringbuf_output(&events, &data, sizeof(data), 0);
+    return 0;
+}</code></pre>
+            </div>
+            <div class="flex items-center justify-between font-label-mono text-[12px] pt-2">
+              <span class="text-secondary">Open Source: 1,200+ Stars on GitHub</span>
+              <a href="https://github.com" target="_blank" class="text-primary font-bold hover:underline flex items-center gap-1">
+                Open GitHub Repository →
+              </a>
+            </div>
+          </div>
+        `
+            },
+            sentinel: {
+                ref: "CASE FILE #02 // ACTIVE DEFENSE ENGINE",
+                tag: "CLOUD INFRASTRUCTURE RECONNAISSANCE",
+                title: "SentinelScan: Cloud Defense Asset Engine",
+                quote: "Ultra-fast asynchronous engine auditing enterprise attack surfaces with 99.4% precision.",
+                body: `
+          <div class="space-y-4 font-body-md text-[14.5px] leading-relaxed text-on-surface-variant">
+            <p>
+              SentinelScan was engineered to eliminate shadow IT blind spots across hybrid multicloud estates (AWS, Azure, GCP, and bare-metal colocation servers). Driven by a custom non-blocking Golang worker pool, SentinelScan concurrently interrogates over 14,000 assets per second.
+            </p>
+            <div class="grid grid-cols-2 gap-3 p-3 rounded-xl bg-surface-container-low font-label-mono text-[12px]">
+              <div><span class="text-outline">SCAN THROUGHPUT:</span> <span class="text-on-surface font-bold">14,000 req/sec</span></div>
+              <div><span class="text-outline">FALSE-POSITIVE RATE:</span> <span class="text-secondary font-bold">&lt; 0.6% verified</span></div>
+              <div><span class="text-outline">DNS RESOLUTION:</span> <span class="text-on-surface font-bold">Distributed Anycast</span></div>
+              <div><span class="text-outline">CLOUD PROVIDERS:</span> <span class="text-primary font-bold">AWS, Azure, GCP</span></div>
+            </div>
+            <p>
+              Employs TLS SNI fingerprinting and asynchronous banner synthesis to discover unauthenticated staging buckets, exposed GraphQL endpoints, and abandoned management panels before unauthorized adversaries locate them.
+            </p>
+          </div>
+        `
+            },
+            scada: {
+                ref: "CASE FILE #03 // CVE-2024-29188 [CRITICAL ADVISORY]",
+                tag: "CRITICAL INFRASTRUCTURE DISCLOSURE",
+                title: "CVE-2024-29188: Industrial SCADA Remote Gateway Bypass",
+                quote: "Coordinated vulnerability disclosure impacting regional electric distribution automation units.",
+                body: `
+          <div class="space-y-4 font-body-md text-[14.5px] leading-relaxed text-on-surface-variant">
+            <div class="p-3 rounded-xl bg-red-950/40 border border-red-500/40 text-[13px] font-label-mono text-[#ffdad6] flex items-center justify-between">
+              <span>SEVERITY: CVSS v3 9.8 (CRITICAL)</span>
+              <span class="text-red-400 font-bold">REMEDIATED & PATCHED</span>
+            </div>
+            <p>
+              During an adversary simulation targeting critical utility automation hardware, Kevin identified a heap-buffer overflow in the proprietary Modbus/TCP translating daemon of a predominant industrial gateway.
+            </p>
+            <p>
+              The vulnerability enabled an unauthenticated remote attacker within the management subnet to transmit specially malformed function-code packets, forcing execution control hijacking and enabling arbitrary overwrite of physical actuator registers.
+            </p>
+            <div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 font-label-mono text-[12px] space-y-1">
+              <div class="text-primary font-bold">COORDINATION TIMELINE:</div>
+              <div>• Day 0: Flaw discovered in hardware lab testbed.</div>
+              <div>• Day 3: Coordinated disclosure transmitted to CISA & CERT-In.</div>
+              <div>• Day 45: Vendor firmware hotfix validated and pushed to operators globally.</div>
+            </div>
+          </div>
+        `
+            },
+            dispatch: {
+                ref: "SECURE INTAKE // TELEGRAM CIPHER-SEC",
+                tag: "CONSULTATION & RED TEAM ENGAGEMENTS",
+                title: "Initiate Secure Consultation Engagement",
+                quote: "Confidential adversary simulation, vulnerability research, and low-level Linux systems auditing.",
+                body: `
+          <div class="space-y-4 font-body-md text-[14.5px] leading-relaxed text-on-surface-variant">
+            <p>
+              Accepting advisory and technical leadership engagements for Q2/Q3 2025:
+            </p>
+            <ul class="list-disc pl-5 font-label-mono text-[13px] text-on-surface space-y-1.5">
+              <li>Full-Scope Enterprise Adversary Emulation (Red Teaming)</li>
+              <li>Kernel Telemetry & eBPF Threat Detection Architecture</li>
+              <li>Embedded Device & Industrial SCADA Protocol Security Audits</li>
+              <li>Executive Security Advisory & Post-Breach Root Cause Analysis</li>
+            </ul>
+            <div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 font-label-mono text-[12px]">
+              <div class="text-secondary font-bold mb-1">Direct Encrypted Communication:</div>
+              <div class="text-on-surface">Email: kevin.ardian@cipher-sec.io</div>
+              <div class="text-outline">PGP Fingerprint: 9F84 219B A019 44DC 9981 E8FA C19D 3302</div>
+            </div>
+          </div>
+        `
+            }
+        };
+
+        function openModal(caseKey) {
+            const data = caseData[caseKey] || caseData.principal;
+            const modal = document.getElementById('dossier-modal');
+            const refEl = document.getElementById('modal-ref');
+            const contentEl = document.getElementById('modal-content');
+
+            refEl.innerText = data.ref;
+            contentEl.innerHTML = `
+        <div class="space-y-2">
+          <div class="inline-block px-3 py-1 rounded bg-secondary-container/20 text-secondary font-label-mono text-[11px] font-bold border border-secondary/30">
+            ${data.tag}
+          </div>
+          <h2 class="font-headline-lg text-[26px] sm:text-[30px] font-bold text-on-surface leading-snug">
+            ${data.title}
+          </h2>
+          <p class="font-caption-editorial text-[17px] text-primary italic leading-snug pb-2 border-b border-outline-variant/30">
+            ${data.quote}
+          </p>
+        </div>
+        ${data.body}
+      `;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('dossier-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function handleBackdropClick(e) {
+            if (e.target.id === 'dossier-modal') {
+                closeModal();
+            }
+        }
+
+        // Keyboard navigation (Esc closes modal)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        function toggleYarn() {
+            const svg = document.getElementById('crimson-threads');
+            const btnText = document.getElementById('yarn-btn-text');
+            const statusLabel = document.getElementById('threads-status-label');
+
+            yarnActive = !yarnActive;
+            if (yarnActive) {
+                svg.style.opacity = '1';
+                btnText.innerText = 'Hide Crimson Threads';
+                statusLabel.innerText = 'ACTIVE (6 CORRELATIONS)';
+                statusLabel.className = 'text-secondary font-semibold';
+            } else {
+                svg.style.opacity = '0';
+                btnText.innerText = 'Show Crimson Threads';
+                statusLabel.innerText = 'SUPPRESSED';
+                statusLabel.className = 'text-outline font-semibold';
+            }
+        }
+
+        function resetBoardHighlight() {
+            if (!yarnActive) {
+                toggleYarn();
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function handleDispatch(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('dispatch-success');
+            alertBox.classList.remove('hidden');
+            alertBox.classList.add('flex');
+
+            setTimeout(() => {
+                document.getElementById('contact-email').value = '';
+                document.getElementById('contact-scope').value = '';
+            }, 600);
+        }
+
+        function downloadDossier() {
+            alert("Fetching encrypted dossier file: 'Kevin_Cipher_Ardian_Portfolio_Dossier_2025.pdf' [SHA256: 8a4c...d921]");
+        }
+    </script>
+</body>
+
+</html>

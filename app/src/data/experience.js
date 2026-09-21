@@ -1,0 +1,29 @@
+export const experiences = [
+  {
+    period: '2023 — PRESENT',
+    location: 'Jakarta & Remote',
+    role: 'Lead Security Engineer',
+    company: 'CyberGuard Defense Labs',
+    description: 'Directing adversary simulation harnesses. Drove 68% MTTD reduction while ingesting over 120M kernel events/day across enterprise nodes.',
+    tags: ['eBPF / Go', 'Threat Modeling', 'Kernel Internals'],
+    color: 'secondary'
+  },
+  {
+    period: '2021 — 2023',
+    location: 'Offensive Unit',
+    role: 'Senior Penetration Tester',
+    company: 'Sentinel Tech Security Group',
+    description: 'Executed 80+ penetration assessments against financial routing backbones. Discovered and isolated 3 zero-day privilege escalations.',
+    tags: ['Red Teaming', 'Active Directory', 'Zero-Day Research'],
+    color: 'primary'
+  },
+  {
+    period: '2018 — 2021',
+    location: 'Infrastructure',
+    role: 'Security Software Engineer',
+    company: 'Apex Systems Core Infrastructure',
+    description: 'Hardened distributed Go and Rust microservices. Configured memory-safe IPC channels and secure enclave boundaries.',
+    tags: ['Rust', 'Go', 'Linux IPC'],
+    color: 'outline'
+  }
+];
