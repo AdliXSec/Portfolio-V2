@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex items-center gap-2">
           <Fingerprint className="w-5 h-5 text-primary" />
           <span className="text-on-surface font-semibold">CASE ARCHIVE 01:</span>
-          <span>KEVIN &quot;CIPHER&quot; ARDIAN PORTFOLIO</span>
+          <span>Naufal Syahruradli | Portfolio</span>
         </div>
         <div className="flex items-center gap-4 text-outline">
           <span>© 2025 ALL RIGHTS RESERVED</span>

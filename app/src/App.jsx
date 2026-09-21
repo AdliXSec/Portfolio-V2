@@ -73,7 +73,7 @@ export default function App() {
   }, [yarnActive]);
 
   const downloadCV = useCallback(() => {
-    alert("Fetching encrypted dossier file: 'Kevin_Cipher_Ardian_Portfolio_Dossier_2025.pdf' [SHA256: 8a4c...d921]");
+    alert("Fetching encrypted dossier file: 'Naufal-Syahruradli.pdf' [SHA256: 8a4c...d921]");
   }, []);
 
   return (

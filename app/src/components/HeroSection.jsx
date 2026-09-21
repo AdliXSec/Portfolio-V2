@@ -16,7 +16,7 @@ export default function HeroSection({ id, onOpenModal, onDownloadCV }) {
       <div className="absolute top-5 right-5 z-20 pointer-events-none">
         <span className="px-3 py-1 rounded border-2 border-red-500/80 text-error font-mono text-[11px] font-bold tracking-widest uppercase bg-red-950/70 shadow-md flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-red-500 " />
-          SUBJECT // 01 [INSPECT]
+          SUBJECT 101 [INSPECT]
         </span>
       </div>
 
@@ -26,7 +26,7 @@ export default function HeroSection({ id, onOpenModal, onDownloadCV }) {
         <div className="relative h-64 sm:h-72 w-full rounded-xl overflow-hidden bg-surface-container-low">
           <img
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            alt="Cinematic portrait of Kevin Cipher Ardian"
+            alt={`Cinematic portrait of ${profile.name}`}
             src={profile.imageUrl}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0e1014] via-transparent to-transparent opacity-85" />
