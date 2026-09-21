@@ -4,7 +4,7 @@ import { techCategories } from './techstack';
 import { achievements } from './achievements';
 import { projects } from './projects';
 
-export const generateCaseData = () => {
+export const generateCaseData = (onImageClick = () => {}) => {
   const caseData = {
     principal: {
       ref: 'PRINCIPAL SUBJECT // CIPHER-01 [EXPANDED]',
@@ -13,7 +13,14 @@ export const generateCaseData = () => {
       quote: profile.subtitle,
       body: (
         <div className="space-y-5 font-body text-[14.5px] leading-relaxed text-on-surface-variant">
-          <p>{profile.extendedBio}</p>
+          <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
+            {profile.imageUrl && (
+              <div className="shrink-0 w-32 h-32 sm:w-40 sm:h-40 rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm opacity-90 hover:opacity-100 transition-opacity">
+                <img src={profile.imageUrl} alt={profile.name} className="w-full h-full object-cover cursor-pointer" onClick={() => onImageClick(profile.imageUrl)} />
+              </div>
+            )}
+            <p className="flex-1 text-justify leading-relaxed">{profile.extendedBio}</p>
+          </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-3 font-mono text-center">
             {profile.stats.map(s => (
               <div key={s.label} className="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30">
@@ -131,7 +138,7 @@ export const generateCaseData = () => {
                   </div>
                   {a.image && (
                     <div className="shrink-0 w-24 sm:w-32 aspect-[1.414/1] rounded shadow-sm border border-outline-variant/30 overflow-hidden opacity-90 hover:opacity-100 transition-opacity">
-                      <img src={a.image} alt={a.title} className="w-full h-full object-cover" />
+                      <img src={a.image} alt={a.title} className="w-full h-full object-cover cursor-pointer" onClick={() => onImageClick(a.image)} />
                     </div>
                   )}
                 </div>
@@ -152,7 +159,7 @@ export const generateCaseData = () => {
                   </div>
                   {a.image && (
                     <div className="shrink-0 w-24 sm:w-32 aspect-[1.414/1] rounded shadow-sm border border-outline-variant/30 overflow-hidden opacity-90 hover:opacity-100 transition-opacity">
-                      <img src={a.image} alt={a.title} className="w-full h-full object-cover" />
+                      <img src={a.image} alt={a.title} className="w-full h-full object-cover cursor-pointer" onClick={() => onImageClick(a.image)} />
                     </div>
                   )}
                 </div>
@@ -173,7 +180,7 @@ export const generateCaseData = () => {
                   </div>
                   {a.image && (
                     <div className="shrink-0 w-24 sm:w-32 aspect-[1.414/1] rounded shadow-sm border border-outline-variant/30 overflow-hidden opacity-90 hover:opacity-100 transition-opacity">
-                      <img src={a.image} alt={a.title} className="w-full h-full object-cover" />
+                      <img src={a.image} alt={a.title} className="w-full h-full object-cover cursor-pointer" onClick={() => onImageClick(a.image)} />
                     </div>
                   )}
                 </div>
@@ -220,7 +227,7 @@ export const generateCaseData = () => {
           
           {proj.image && (
             <div className="w-full rounded-xl overflow-hidden border border-outline-variant/30 my-4 shadow-sm">
-              <img src={proj.image} alt={proj.title} className="w-full h-auto max-h-72 object-cover opacity-90" />
+              <img src={proj.image} alt={proj.title} className="w-full h-auto max-h-72 object-cover opacity-90 cursor-pointer" onClick={() => onImageClick(proj.image)} />
             </div>
           )}
           
