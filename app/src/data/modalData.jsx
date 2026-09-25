@@ -43,8 +43,8 @@ export const generateCaseData = (onImageClick = () => {}) => {
           
           <div className="space-y-2">
             <div className="font-mono text-[12px] uppercase tracking-wider text-on-surface font-bold">Target Activity Log (GitHub):</div>
-            <div className="p-5 rounded-xl bg-[#0c0e12] border border-outline-variant/30 overflow-x-auto shadow-inner [scrollbar-width:none] [&::-webkit-scrollbar]:hidden flex justify-center">
-              <div className="min-w-[750px]">
+            <div className="p-5 rounded-xl bg-[#0c0e12] border border-outline-variant/30 overflow-x-auto shadow-inner [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <div className="min-w-[750px] w-max mx-auto">
                 <GitHubCalendar 
                   username={profile.githubUsername} 
                   colorScheme="dark"

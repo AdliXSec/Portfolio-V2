@@ -8,6 +8,7 @@ import ExperienceCard from './components/ExperienceCard';
 import ProjectCard from './components/ProjectCard';
 import TechStackSection from './components/TechStackSection';
 import AchievementsSection from './components/AchievementsSection';
+import ChatRoomMemo from './components/ChatRoomMemo';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import DossierModal from './components/DossierModal';
@@ -171,6 +172,7 @@ export default function App() {
                 />
               ))}
               <AchievementsSection id="node-achievements" onOpenModal={openModal} />
+              <ChatRoomMemo id="node-chat" />
             </div>
 
           </div>

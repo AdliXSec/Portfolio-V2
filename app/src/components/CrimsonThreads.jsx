@@ -19,6 +19,8 @@ export default function CrimsonThreads({ visible }) {
       { start: 'node-tech', end: 'node-project-2', weight: 1.8, dash: '5,5', opacity: 0.65 },
       { start: 'node-project-0', end: 'node-project-1', weight: 1.5, dash: '4,4', opacity: 0.5 },
       { start: 'node-philosophy', end: 'node-tech', weight: 1.8, dash: 'none', opacity: 0.7 },
+      { start: 'node-achievements', end: 'node-chat', weight: 1.7, dash: '6,4', opacity: 0.6 },
+      { start: 'node-hero', end: 'node-chat', weight: 1.4, dash: '4,4', opacity: 0.4 },
     ];
 
     // AUTO-DISCOVERY: Automatically find any new nodes added to the board

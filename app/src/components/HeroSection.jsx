@@ -73,8 +73,8 @@ export default function HeroSection({ id, onOpenModal, onDownloadCV }) {
           <span>Target Activity Log (GitHub)</span>
           <span className="text-primary font-bold">[{profile.githubUsername}]</span>
         </div>
-        <div className="w-full overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden flex justify-center">
-          <div className="min-w-[650px]">
+        <div className="w-full overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="min-w-[650px] w-max mx-auto">
             <GitHubCalendar 
               username={profile.githubUsername} 
               colorScheme="dark"
