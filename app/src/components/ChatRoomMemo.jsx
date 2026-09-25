@@ -1,11 +1,12 @@
 import { MessageSquare, Lock, Terminal } from 'lucide-react';
 import { profile } from '../data/profile';
 
-export default function ChatRoomMemo({ id }) {
+export default function ChatRoomMemo({ id, onOpenModal }) {
   return (
     <article 
       id={id}
-      className="evidence-card rotate-[2deg] relative w-full rounded-2xl bg-[#14161a] border border-outline-variant/40 shadow-xl p-5 flex flex-col h-full"
+      onClick={() => onOpenModal('chat')}
+      className="evidence-card rotate-[2deg] relative w-full rounded-2xl bg-[#14161a] border border-outline-variant/40 shadow-xl p-5 flex flex-col h-full cursor-pointer hover:border-primary/50 transition-colors"
     >
       {/* Paperclip */}
       <div className="absolute -top-3 left-10 w-4 h-10 rounded-full border-2 border-outline-variant/60 bg-transparent z-20 shadow-sm" />
@@ -44,7 +45,7 @@ export default function ChatRoomMemo({ id }) {
         <div className="w-full flex items-center justify-between bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-2.5 opacity-70">
           <span className="font-mono text-[11px] text-outline italic flex items-center gap-2">
             <MessageSquare className="w-3.5 h-3.5" />
-            LIVE CHAT CHANNEL <span className="text-primary font-bold">// ESTABLISHING CONNECTION SOON...</span>
+            LIVE CHAT CHANNEL <span className="text-primary font-bold">// CLICK TO OPEN COMMS</span>
           </span>
         </div>
       </div>

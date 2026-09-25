@@ -172,7 +172,7 @@ export default function App() {
                 />
               ))}
               <AchievementsSection id="node-achievements" onOpenModal={openModal} />
-              <ChatRoomMemo id="node-chat" />
+              <ChatRoomMemo id="node-chat" onOpenModal={openModal} />
             </div>
 
           </div>

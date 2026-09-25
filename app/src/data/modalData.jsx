@@ -61,6 +61,59 @@ export const generateCaseData = (onImageClick = () => {}) => {
         </div>
       ),
     },
+
+    chat: {
+      ref: 'SECURE COMMS // LIVE INTERCEPT',
+      tag: 'ENCRYPTED CHANNEL',
+      title: 'Terminal 0x0A: Direct Link',
+      quote: 'Establishing handshake protocol... connection secure.',
+      body: (
+        <div className="space-y-4 font-body text-[14.5px] leading-relaxed text-on-surface-variant flex flex-col h-[50vh] sm:h-[60vh]">
+          {/* Chat History Area */}
+          <div className="flex-1 rounded-xl bg-surface-container-low border border-outline-variant/30 p-4 sm:p-6 overflow-y-auto flex flex-col gap-5">
+            
+            {/* System Message */}
+            <div className="flex justify-center">
+              <span className="px-3 py-1 rounded-full bg-surface-container font-mono text-[10px] text-outline border border-outline-variant/20">
+                Connection established. P2P encryption active.
+              </span>
+            </div>
+
+            {/* Profile Message (Aligned Right) */}
+            <div className="flex flex-col items-end gap-1 self-end">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-mono text-[11px] text-primary font-bold">[{profile.name}]</span>
+                <div className="w-6 h-6 rounded-full overflow-hidden bg-surface-container border border-primary/30">
+                  <img src={profile.imageUrl} alt={profile.name} className="w-full h-full object-cover" />
+                </div>
+              </div>
+              <div className="bg-primary/10 border border-primary/30 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[85%] sm:max-w-[75%] shadow-sm">
+                <p className="font-body text-[14px] text-on-surface leading-relaxed">
+                  Halo! Terima kasih sudah menyempatkan waktu untuk mampir dan melihat isi "Case Archive" saya. Semoga Anda menemukan sesuatu yang menarik di sini. Mari terhubung dan berkolaborasi! 👋
+                </p>
+              </div>
+              <span className="font-mono text-[10px] text-outline-variant mr-1 mt-0.5">14:00 UTC</span>
+            </div>
+
+            {/* Simulated Reply Area */}
+            {/* You can add more mock messages here if needed */}
+          </div>
+
+          {/* Chat Input Area (Disabled) */}
+          <div className="flex gap-2">
+            <input 
+              type="text" 
+              disabled
+              placeholder="Backend connection pending... (Coming Soon)" 
+              className="flex-1 px-4 py-3 rounded-xl bg-surface-container-lowest text-on-surface font-mono text-[13px] border border-outline-variant/40 outline-none opacity-60 cursor-not-allowed"
+            />
+            <button disabled className="px-5 py-3 rounded-xl bg-primary/50 text-on-primary font-mono text-[12px] font-bold tracking-wider uppercase opacity-60 cursor-not-allowed border border-primary/20">
+              SEND
+            </button>
+          </div>
+        </div>
+      ),
+    },
     philosophy: {
       ref: 'EXHIBIT // AXIOM MEMO [REF: PHIL-01]',
       tag: 'CORE PHILOSOPHY & METHODOLOGY',
