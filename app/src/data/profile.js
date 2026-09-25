@@ -4,6 +4,7 @@ export const profile = {
   subtitle: 'Security Researcher, CTF Player & Backend Developer',
   location: 'Sidoarjo / Surabaya | Indonesia',
   email: 'naufalsyahruradli@gmail.com',
+  githubUsername: 'AdliXSec',
   pgp: 'N/A',
   imageUrl: 'https://i.postimg.cc/15SfVGZ0/adli.jpg',
   bio: 'Mahasiswa Sistem Informasi dengan minat mendalam di pengembangan aplikasi dan keamanan siber. Berpengalaman memecahkan masalah kompleks, berpikiran terbuka, dan memiliki passion kuat di dunia teknologi. Menggabungkan keahlian software development (backend/web) dengan analisis keamanan untuk membangun sistem yang tangguh dan aman.',

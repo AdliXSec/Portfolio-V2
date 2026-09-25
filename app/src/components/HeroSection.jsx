@@ -1,6 +1,7 @@
 import { profile } from '../data/profile';
 import { Shield, Download, MapPin } from 'lucide-react';
 import { certifications } from '../data/achievements';
+import { GitHubCalendar } from 'react-github-calendar';
 
 export default function HeroSection({ id, onOpenModal, onDownloadCV }) {
   return (
@@ -63,6 +64,28 @@ export default function HeroSection({ id, onOpenModal, onDownloadCV }) {
               {cert}
             </span>
           ))}
+        </div>
+      </div>
+
+      {/* GitHub Calendar */}
+      <div className="mb-6 p-4 rounded-xl bg-[#0c0e12] border border-outline-variant/30 flex flex-col gap-3 shadow-inner overflow-hidden">
+        <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-outline">
+          <span>Target Activity Log (GitHub)</span>
+          <span className="text-primary font-bold">[{profile.githubUsername}]</span>
+        </div>
+        <div className="w-full overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden flex justify-center">
+          <div className="min-w-[650px]">
+            <GitHubCalendar 
+              username={profile.githubUsername} 
+              colorScheme="dark"
+              theme={{
+                dark: ['#1e2024', '#5c3a21', '#965a25', '#c8863f', '#fec486']
+              }}
+              fontSize={11}
+              blockSize={10}
+              blockMargin={3}
+            />
+          </div>
         </div>
       </div>
 

@@ -3,6 +3,7 @@ import { experiences } from './experience';
 import { techCategories } from './techstack';
 import { achievements } from './achievements';
 import { projects } from './projects';
+import { GitHubCalendar } from 'react-github-calendar';
 
 export const generateCaseData = (onImageClick = () => {}) => {
   const caseData = {
@@ -37,6 +38,24 @@ export const generateCaseData = (onImageClick = () => {}) => {
                   <span>{d.icon}</span><span>{d.label}</span>
                 </div>
               ))}
+            </div>
+          </div>
+          
+          <div className="space-y-2">
+            <div className="font-mono text-[12px] uppercase tracking-wider text-on-surface font-bold">Target Activity Log (GitHub):</div>
+            <div className="p-5 rounded-xl bg-[#0c0e12] border border-outline-variant/30 overflow-x-auto shadow-inner [scrollbar-width:none] [&::-webkit-scrollbar]:hidden flex justify-center">
+              <div className="min-w-[750px]">
+                <GitHubCalendar 
+                  username={profile.githubUsername} 
+                  colorScheme="dark"
+                  theme={{
+                    dark: ['#1e2024', '#5c3a21', '#965a25', '#c8863f', '#fec486']
+                  }}
+                  fontSize={12}
+                  blockSize={12}
+                  blockMargin={4}
+                />
+              </div>
             </div>
           </div>
         </div>
