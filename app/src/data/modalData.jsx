@@ -100,21 +100,21 @@ export const generateCaseData = (onImageClick = () => {}) => {
           </div>
 
           {/* Chat Input Area (Disabled) */}
-          <div className="flex flex-col sm:flex-row gap-2">
+          <div className="flex flex-col sm:flex-row gap-2 items-stretch">
             <input 
               type="text" 
               disabled
               placeholder="Your Name" 
-              className="sm:w-1/4 px-4 py-3 rounded-xl bg-surface-container-lowest text-on-surface font-mono text-[13px] border border-outline-variant/40 outline-none opacity-60 cursor-not-allowed"
+              className="h-11 sm:h-auto sm:w-1/4 px-4 rounded-xl bg-surface-container-lowest text-on-surface font-mono text-[13px] border border-outline-variant/40 outline-none opacity-60 cursor-not-allowed"
             />
-            <div className="flex-1 flex gap-2">
+            <div className="flex-1 flex gap-2 items-stretch">
               <input 
                 type="text" 
                 disabled
                 placeholder="Backend connection pending... (Coming Soon)" 
-                className="flex-1 px-4 py-3 rounded-xl bg-surface-container-lowest text-on-surface font-mono text-[13px] border border-outline-variant/40 outline-none opacity-60 cursor-not-allowed"
+                className="h-11 sm:h-auto flex-1 px-4 rounded-xl bg-surface-container-lowest text-on-surface font-mono text-[13px] border border-outline-variant/40 outline-none opacity-60 cursor-not-allowed"
               />
-              <button disabled className="px-5 py-3 rounded-xl bg-primary/50 text-on-primary font-mono text-[12px] font-bold tracking-wider uppercase opacity-60 cursor-not-allowed border border-primary/20 shrink-0">
+              <button disabled className="h-11 sm:h-auto px-6 rounded-xl bg-primary/50 text-on-primary font-mono text-[12px] font-bold tracking-wider uppercase opacity-60 cursor-not-allowed border border-primary/20 shrink-0 flex items-center justify-center">
                 SEND
               </button>
             </div>
