@@ -1,7 +1,15 @@
-import { Search, PlusCircle, Filter, FileText, CheckCircle2 } from 'lucide-react';
+import { useState } from 'react';
+import { Search, PlusCircle, Filter, FileText, CheckCircle2, XCircle } from 'lucide-react';
 import { projects } from '../../data/projects';
 
 export default function AdminProjects() {
+  const [projectList, setProjectList] = useState(projects.map(p => ({...p, status: 'Tayang'})));
+
+  const toggleStatus = (idx) => {
+    const newList = [...projectList];
+    newList[idx].status = newList[idx].status === 'Tayang' ? 'Draft' : 'Tayang';
+    setProjectList(newList);
+  };
   return (
     <div className="py-6 flex flex-col gap-6 max-w-[1440px] mx-auto w-full">
       {/* Top Action & Intro Header */}
@@ -68,7 +76,7 @@ export default function AdminProjects() {
               </tr>
             </thead>
             <tbody className="divide-y divide-[#F0EAE1]">
-              {projects.map(proj => (
+              {projectList.map((proj, idx) => (
                 <tr key={proj.id} className="hover:bg-[#FAF4EE]/60 transition-colors">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-4">
@@ -86,10 +94,33 @@ export default function AdminProjects() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-center">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EBF5EE] border border-[#A7D7B5] text-[#227236] text-[11px] font-bold">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>Tayang</span>
-                    </div>
+                    <button 
+                      onClick={() => toggleStatus(idx)}
+                      className={`relative inline-flex items-center w-[90px] h-8 rounded-full border transition-all overflow-hidden ${
+                        proj.status === 'Tayang' 
+                          ? 'bg-[#EBF5EE] border-[#A7D7B5]' 
+                          : 'bg-[#FAF4EE] border-[#E8DFD5]'
+                      }`}
+                    >
+                      {/* Text Tayang (Left) */}
+                      <span className={`absolute left-2 text-[10px] font-bold uppercase tracking-wider transition-opacity ${
+                        proj.status === 'Tayang' ? 'opacity-100 text-[#227236]' : 'opacity-0'
+                      }`}>Tayang</span>
+                      
+                      {/* Text Draft (Right) */}
+                      <span className={`absolute right-3 text-[10px] font-bold uppercase tracking-wider transition-opacity ${
+                        proj.status === 'Draft' ? 'opacity-100 text-[#837466]' : 'opacity-0'
+                      }`}>Draft</span>
+
+                      {/* The Toggle Knob */}
+                      <div className={`absolute top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-6 rounded-full shadow-sm transition-all duration-300 ${
+                        proj.status === 'Tayang'
+                          ? 'left-[62px] bg-[#227236] text-white'
+                          : 'left-1 bg-[#685E55] text-white'
+                      }`}>
+                        {proj.status === 'Tayang' ? <CheckCircle2 className="w-3.5 h-3.5" /> : <XCircle className="w-3.5 h-3.5" />}
+                      </div>
+                    </button>
                   </td>
                   <td className="px-6 py-4 text-right">
                     <div className="flex flex-col items-end gap-1">

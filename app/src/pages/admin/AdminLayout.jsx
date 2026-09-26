@@ -15,95 +15,86 @@ export default function AdminLayout() {
             <div className="w-8 h-8 rounded-lg bg-[#C88238] flex items-center justify-center text-white shadow-sm">
               <Pin className="w-4 h-4" />
             </div>
-            <span className="font-bold text-[18px] text-[#2C2520] tracking-tight">KreatorHub</span>
+            <span className="font-bold text-[18px] text-[#2C2520] tracking-tight">CMS - Naufal Adli</span>
           </div>
 
           {/* Navigation Menu */}
           <nav className="px-4 py-4 flex flex-col gap-1.5">
             <span className="px-4 text-[11px] font-bold text-[#837466] uppercase tracking-wider mb-1 mt-2">Utama</span>
-            <Link 
-              to="/admin/dashboard" 
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${
-                path.includes('/dashboard') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
-              }`}
+            <Link
+              to="/admin/dashboard"
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/dashboard') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
+                }`}
             >
               <LayoutDashboard className="w-5 h-5" />
               <span>Dashboard</span>
             </Link>
-            
+
             <span className="px-4 text-[11px] font-bold text-[#837466] uppercase tracking-wider mb-1 mt-4">Manajemen Konten</span>
-            <Link 
-              to="/admin/profile" 
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${
-                path.includes('/profile') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
-              }`}
+            <Link
+              to="/admin/profile"
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/profile') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
+                }`}
             >
               <User className="w-5 h-5" />
               <span>Profil & Biodata</span>
             </Link>
-            <Link 
-              to="/admin/projects" 
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${
-                path.includes('/projects') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
-              }`}
+            <Link
+              to="/admin/projects"
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/projects') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
+                }`}
             >
               <FolderOpen className="w-5 h-5" />
               <span>Proyek & Portofolio</span>
             </Link>
-            <Link 
-              to="/admin/experience" 
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${
-                path.includes('/experience') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
-              }`}
+            <Link
+              to="/admin/experience"
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/experience') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
+                }`}
             >
               <Briefcase className="w-5 h-5" />
               <span>Pengalaman Kerja</span>
             </Link>
-            <Link 
-              to="/admin/techstack" 
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${
-                path.includes('/techstack') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
-              }`}
+            <Link
+              to="/admin/techstack"
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/techstack') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
+                }`}
             >
               <Code2 className="w-5 h-5" />
               <span>Tech Stack</span>
             </Link>
-            <Link 
-              to="/admin/achievements" 
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${
-                path.includes('/achievements') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
-              }`}
+            <Link
+              to="/admin/achievements"
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/achievements') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
+                }`}
             >
               <Award className="w-5 h-5" />
               <span>Sertifikasi & Prestasi</span>
             </Link>
-            <Link 
-              to="/admin/contact" 
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${
-                path.includes('/contact') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
-              }`}
+            <Link
+              to="/admin/contact"
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/contact') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
+                }`}
             >
               <Phone className="w-5 h-5" />
               <span>Kontak & Layanan</span>
             </Link>
 
             <span className="px-4 text-[11px] font-bold text-[#837466] uppercase tracking-wider mb-1 mt-4">Komunikasi</span>
-            <Link 
-              to="/admin/messages" 
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${
-                path.includes('/messages') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
-              }`}
+            <Link
+              to="/admin/messages"
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/messages') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
+                }`}
             >
               <MessageSquare className="w-5 h-5" />
               <span>Pesan Masuk</span>
             </Link>
-            
+
             <span className="px-4 text-[11px] font-bold text-[#837466] uppercase tracking-wider mb-1 mt-4">Sistem</span>
-            <Link 
-              to="/admin/settings" 
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${
-                path.includes('/settings') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
-              }`}
+            <Link
+              to="/admin/settings"
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/settings') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'
+                }`}
             >
               <Settings className="w-5 h-5" />
               <span>Pengaturan</span>
@@ -122,7 +113,7 @@ export default function AdminLayout() {
               <span>Lihat Website</span>
             </Link>
           </div>
-          
+
           <div className="flex items-center gap-4">
             <button className="w-9 h-9 rounded-lg flex items-center justify-center text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-colors relative border border-transparent hover:border-[#E8DFD5]">
               <Bell className="w-5 h-5" />
