@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { profile } from '../data/profile';
 import { contactData } from '../data/contact';
-import { Mail, Send, AtSign, ExternalLink, Shield, Box, CheckCircle, Link2Icon, Link2, Link2OffIcon } from 'lucide-react';
+import { Mail, Send, AtSign, ExternalLink, Shield, Box, CheckCircle, Link2, Link2OffIcon } from 'lucide-react';
 
-const socialIconMap = { Github: ExternalLink, Linkedin: ExternalLink, Shield, Box, Link2Icon, Link2OffIcon, Link2 };
+const socialIconMap = { Github: ExternalLink, Linkedin: ExternalLink, Shield, Box, Link2 };
 
 export default function ContactSection({ onOpenModal }) {
   const [email, setEmail] = useState('');

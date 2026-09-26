@@ -10,12 +10,12 @@ export default function Footer() {
         <div className="flex items-center gap-2">
           <Fingerprint className="w-5 h-5 text-primary" />
           <span className="text-on-surface font-semibold">CASE ARCHIVE 101:</span>
-          <span>{profile.name} | {profile.title}</span>
+          <span>{profile.name}</span>
         </div>
         <div className="flex items-center gap-4 text-outline">
           <span>© {currentYear} ALL RIGHTS RESERVED</span>
           <span>•</span>
-          <span className="text-secondary">SECURITY RESEARCHER &amp; SOFTWARE ENGINEER</span>
+          <span className="text-secondary">{profile.title}</span>
         </div>
       </div>
     </footer>

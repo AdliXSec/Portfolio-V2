@@ -102,7 +102,14 @@ export default function CrimsonThreads({ visible }) {
     const timer2 = setTimeout(updatePaths, 300);
     const timer3 = setTimeout(updatePaths, 1000);
 
-    window.addEventListener('resize', updatePaths);
+    let resizeTimeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        updatePaths();
+      }, 150); // Debounce resize to prevent layout thrashing
+    };
+    window.addEventListener('resize', handleResize);
     
     // Optional: MutationObserver or ResizeObserver on the board could make it 100% robust,
     // but a resize event is usually enough for responsive layouts.
@@ -110,7 +117,8 @@ export default function CrimsonThreads({ visible }) {
       clearTimeout(timer1);
       clearTimeout(timer2);
       clearTimeout(timer3);
-      window.removeEventListener('resize', updatePaths);
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout);
     };
   }, [updatePaths]);
 

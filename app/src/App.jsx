@@ -20,7 +20,6 @@ export default function App() {
   const [yarnActive, setYarnActive] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalKey, setModalKey] = useState('principal');
-  const [stampActive, setStampActive] = useState(false);
 
   // Dynamic Title, Meta Description, SEO, and Favicon
   useEffect(() => {
@@ -68,9 +67,13 @@ export default function App() {
 
   // Flashlight cursor effect & GSAP initializations
   useEffect(() => {
+    let rafId = null;
     const handleMouseMove = (e) => {
-      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+        document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+      });
     };
     window.addEventListener('mousemove', handleMouseMove);
 
@@ -83,6 +86,7 @@ export default function App() {
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
       timers.forEach(clearTimeout);
     };
   }, [yarnActive]);

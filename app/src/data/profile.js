@@ -43,7 +43,7 @@ export const profile = {
   socials: [
     { platform: 'GitHub', url: 'https://github.com/AdliXSec', icon: 'Github' },
     { platform: 'LinkedIn', url: 'https://linkedin.com/in/naufal-syahruradli', icon: 'Linkedin' },
-    { platform: 'TokTok', url: 'https://www.tiktok.com/@dlixonly._', icon: 'Link2' },
+    { platform: 'TikTok', url: 'https://www.tiktok.com/@dlixonly._', icon: 'Link2' },
     { platform: 'HackTheBox', url: 'https://hackthebox.com/', icon: 'Box' }
   ]
 };

@@ -5,11 +5,10 @@ import { useEffect, useRef } from 'react';
 const iconMap = { Code2, Shield, Database, Cpu };
 
 export default function TechStackSection({ id, onOpenModal }) {
-  const sectionRef = useRef(null);
 
   return (
     <article id={id} 
-      ref={sectionRef} 
+      
       className="evidence-card rotate-[1.9deg] relative z-30 rounded-2xl bg-[#15171c] p-6 sm:p-7 shadow-[0_24px_50px_rgba(0,0,0,0.75)] border border-outline-variant/40"
       onClick={() => onOpenModal && onOpenModal('tech')}
     >
