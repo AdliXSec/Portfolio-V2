@@ -1,4 +1,5 @@
 import { profile } from './profile';
+import { contactData } from './contact';
 import { experiences } from './experience';
 import { techCategories } from './techstack';
 import { achievements } from './achievements';
@@ -272,17 +273,16 @@ export const generateCaseData = (onImageClick = () => {}) => {
     },
     dispatch: {
       ref: 'SECURE INTAKE // TELEGRAM CIPHER-SEC',
-      tag: 'CONSULTATION & RED TEAM ENGAGEMENTS',
-      title: 'Initiate Secure Consultation Engagement',
-      quote: 'Confidential adversary simulation, vulnerability research, and low-level Linux systems auditing.',
+      tag: contactData.modalTag,
+      title: contactData.modalTitle,
+      quote: contactData.modalQuote,
       body: (
         <div className="space-y-4 font-body text-[14.5px] leading-relaxed text-on-surface-variant">
-          <p>Accepting advisory and technical leadership engagements for Q2/Q3 2025:</p>
+          <p>{contactData.modalDescription}</p>
           <ul className="list-disc pl-5 font-mono text-[13px] text-on-surface space-y-1.5">
-            <li>Full-Scope Enterprise Adversary Emulation (Red Teaming)</li>
-            <li>Kernel Telemetry & eBPF Threat Detection Architecture</li>
-            <li>Embedded Device & Industrial SCADA Protocol Security Audits</li>
-            <li>Executive Security Advisory & Post-Breach Root Cause Analysis</li>
+            {contactData.modalServices.map((service, idx) => (
+              <li key={idx}>{service}</li>
+            ))}
           </ul>
           <div className="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 font-mono text-[12px]">
             <div className="text-secondary font-bold mb-1">Direct Encrypted Communication:</div>

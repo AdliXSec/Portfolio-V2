@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { profile } from '../data/profile';
+import { contactData } from '../data/contact';
 import { Mail, Send, AtSign, ExternalLink, Shield, Box, CheckCircle, Link2Icon, Link2, Link2OffIcon } from 'lucide-react';
 
 const socialIconMap = { Github: ExternalLink, Linkedin: ExternalLink, Shield, Box, Link2Icon, Link2OffIcon, Link2 };
@@ -34,7 +35,7 @@ export default function ContactSection({ onOpenModal }) {
           <div className="lg:col-span-5">
             <div className="flex items-center gap-2 mb-1.5">
               <Mail className="w-5 h-5 text-primary" />
-              <span className="font-mono text-[11px] uppercase tracking-widest text-primary font-bold">DISPATCH TELEGRAM</span>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-primary font-bold">{contactData.cardOverline}</span>
             </div>
             <div className="flex flex-wrap items-center gap-3">
               <h2 className="font-headline text-[22px] sm:text-[24px] text-on-surface font-semibold">
@@ -48,8 +49,7 @@ export default function ContactSection({ onOpenModal }) {
               </button>
             </div>
             <p className="font-body text-[13.5px] text-on-surface-variant mt-1 leading-relaxed">
-              Available for adversary emulation engagements, architecture security reviews, and
-              low-level Linux/kernel telemetry consulting. Transmit your project requirements or reach out directly.
+              {contactData.cardDescription}
             </p>
 
             <div className="flex flex-wrap items-center gap-3 mt-4 pt-3 border-t border-outline-variant/30">

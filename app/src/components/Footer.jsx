@@ -1,4 +1,5 @@
 import { Fingerprint } from 'lucide-react';
+import { profile } from '../data/profile';
 
 const currentYear = new Date().getFullYear();
 
@@ -9,7 +10,7 @@ export default function Footer() {
         <div className="flex items-center gap-2">
           <Fingerprint className="w-5 h-5 text-primary" />
           <span className="text-on-surface font-semibold">CASE ARCHIVE 101:</span>
-          <span>Naufal Syahruradli | Portfolio</span>
+          <span>{profile.name} | {profile.title}</span>
         </div>
         <div className="flex items-center gap-4 text-outline">
           <span>© {currentYear} ALL RIGHTS RESERVED</span>
