@@ -1,3 +1,10 @@
+export const achievementsModal = {
+  ref: 'RECORD // COMMENDATIONS & CLEARANCE',
+  tag: 'VERIFIED CREDENTIALS & VICTORIES',
+  title: 'Commendations & Certifications',
+  quote: 'Industry-standard validations of offensive mastery and defensive architectural capability.'
+};
+
 export const achievements = [
   { type: 'competition', title: 'Juara 1 CTF National — Best Defense Strategy', organization: 'CyberSec Indonesia Summit', year: '2023', icon: 'Trophy', image: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&q=80' },
   { type: 'competition', title: 'Runner-up Software Development Competition', organization: 'National IT Innovation Challenge', year: '2022', icon: 'Award' },

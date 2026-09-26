@@ -1,3 +1,10 @@
+export const experienceModal = {
+  ref: 'DOSSIER FILE // RECORD 02 [CAREER TIMELINE]',
+  tag: 'OPERATIONAL CAREER PROGRESSION',
+  title: 'Service Record, Engagements & Impact',
+  quote: 'Verified operational track record leading high-consequence offensive testing and resilient detection engineering.'
+};
+
 export const experiences = [
   {
     period: '2023 — PRESENT',

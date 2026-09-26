@@ -1,3 +1,10 @@
+export const techstackModal = {
+  ref: 'INVENTORY // CAPABILITIES MATRIX',
+  tag: 'TACTICAL TOOLSET & INFRASTRUCTURE',
+  title: 'Tech Stack & Weaponized Instrumentation',
+  quote: 'Comprehensive mastery over languages, frameworks, security tooling, and high-availability infrastructure.'
+};
+
 export const techCategories = [
   {
     category: 'Languages & Frameworks',

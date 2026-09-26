@@ -6,6 +6,7 @@ export const contactData = {
   cardDescription: 'Available for adversary emulation engagements, architecture security reviews, and low-level Linux/kernel telemetry consulting. Transmit your project requirements or reach out directly.',
 
   // Dispatch Detail Modal Info
+  modalRef: 'SECURE INTAKE // TELEGRAM CIPHER-SEC',
   modalTag: 'CONSULTATION & RED TEAM ENGAGEMENTS',
   modalTitle: 'Initiate Secure Consultation Engagement',
   modalQuote: 'Confidential adversary simulation, vulnerability research, and low-level Linux systems auditing.',

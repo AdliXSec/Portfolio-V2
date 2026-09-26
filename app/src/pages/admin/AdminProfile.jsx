@@ -3,6 +3,11 @@ import { Globe, User, Mail, MapPin, Save, Shield, Key, Terminal, AlignLeft, Hash
 import { profile } from '../../data/profile';
 
 export default function AdminProfile() {
+  const [modalRef] = useState(profile.modalConfig?.ref || '');
+  const [modalTag] = useState(profile.modalConfig?.tag || '');
+  const [modalTitle] = useState(profile.modalConfig?.title || '');
+  const [modalQuote] = useState(profile.modalConfig?.quote || '');
+
   // Local state for dynamic lists
   const [socials, setSocials] = useState(profile.socials || []);
   const [stats, setStats] = useState(profile.stats || []);
@@ -49,6 +54,29 @@ export default function AdminProfile() {
           <Save className="w-4 h-4" />
           <span>Simpan Perubahan</span>
         </button>
+      </div>
+
+            {/* Modal Header Configuration */}
+      <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm mb-2">
+        <h2 className="text-[16px] font-bold text-[#2C2520] mb-4">Header Modal (Tampil saat node diklik)</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Referensi (Ref)</label>
+            <input type="text" defaultValue={modalRef} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+          </div>
+          <div>
+            <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Kategori / Tag</label>
+            <input type="text" defaultValue={modalTag} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+          </div>
+          <div>
+            <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Judul Modal (Title)</label>
+            <input type="text" defaultValue={modalTitle} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+          </div>
+          <div>
+            <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Kutipan (Quote)</label>
+            <input type="text" defaultValue={modalQuote} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

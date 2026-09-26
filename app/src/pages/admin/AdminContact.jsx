@@ -3,6 +3,7 @@ import { Phone, Save, Briefcase, FileText, PlusCircle, Trash2 } from 'lucide-rea
 import { contactData as initialContactData } from '../../data/contact';
 
 export default function AdminContact() {
+
   const [services, setServices] = useState(initialContactData.modalServices || []);
 
   const addService = () => setServices([...services, '']);
@@ -67,6 +68,10 @@ export default function AdminContact() {
             </h2>
           </div>
           
+          <div>
+            <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Referensi Header (Ref)</label>
+            <input type="text" defaultValue={initialContactData.modalRef} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238] mb-3" />
+          </div>
           <div>
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Tag Layanan</label>
             <input type="text" defaultValue={initialContactData.modalTag} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />

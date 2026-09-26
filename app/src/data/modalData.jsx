@@ -1,9 +1,8 @@
 import { profile } from './profile';
+import { experiences, experienceModal } from './experience';
+import { techCategories, techstackModal } from './techstack';
+import { achievements, achievementsModal } from './achievements';
 import { contactData } from './contact';
-import { experiences } from './experience';
-import { techCategories } from './techstack';
-import { achievements } from './achievements';
-import { projects } from './projects';
 import { GitHubCalendar } from 'react-github-calendar';
 
 export const generateCaseData = (onImageClick = () => {}) => {
@@ -124,10 +123,10 @@ export const generateCaseData = (onImageClick = () => {}) => {
       ),
     },
     philosophy: {
-      ref: 'EXHIBIT // AXIOM MEMO [REF: PHIL-01]',
-      tag: 'CORE PHILOSOPHY & METHODOLOGY',
-      title: 'Kernel-Level Adversary Modeling Axiom',
-      quote: profile.philosophy,
+      ref: profile.modalConfig.ref,
+      tag: profile.modalConfig.tag,
+      title: profile.modalConfig.title,
+      quote: profile.modalConfig.quote,
       body: (
         <div className="space-y-4 font-body text-[14.5px] leading-relaxed text-on-surface-variant">
           {profile.extendedPhilosophy.map((p, i) => (
@@ -145,10 +144,10 @@ export const generateCaseData = (onImageClick = () => {}) => {
       ),
     },
     timeline: {
-      ref: 'DOSSIER FILE // RECORD 02 [CAREER TIMELINE]',
-      tag: 'OPERATIONAL CAREER PROGRESSION',
-      title: 'Service Record, Engagements & Impact',
-      quote: 'Verified operational track record leading high-consequence offensive testing and resilient detection engineering.',
+      ref: experienceModal.ref,
+      tag: experienceModal.tag,
+      title: experienceModal.title,
+      quote: experienceModal.quote,
       body: (
         <div className="space-y-6">
           <div className="border-l-2 border-secondary/60 pl-4 space-y-6">
@@ -171,10 +170,10 @@ export const generateCaseData = (onImageClick = () => {}) => {
       ),
     },
     tech: {
-      ref: 'INVENTORY // CAPABILITIES MATRIX',
-      tag: 'TACTICAL TOOLSET & INFRASTRUCTURE',
-      title: 'Tech Stack & Weaponized Instrumentation',
-      quote: 'Comprehensive mastery over languages, frameworks, security tooling, and high-availability infrastructure.',
+      ref: techstackModal.ref,
+      tag: techstackModal.tag,
+      title: techstackModal.title,
+      quote: techstackModal.quote,
       body: (
         <div className="space-y-4 font-body text-[14.5px] leading-relaxed text-on-surface-variant">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -199,10 +198,10 @@ export const generateCaseData = (onImageClick = () => {}) => {
       ),
     },
     achievements: {
-      ref: 'RECORD // COMMENDATIONS & CLEARANCE',
-      tag: 'VERIFIED CREDENTIALS & VICTORIES',
-      title: 'Commendations & Certifications',
-      quote: 'Industry-standard validations of offensive mastery and defensive architectural capability.',
+      ref: achievementsModal.ref,
+      tag: achievementsModal.tag,
+      title: achievementsModal.title,
+      quote: achievementsModal.quote,
       body: (
         <div className="space-y-6 font-body text-[14.5px] leading-relaxed text-on-surface-variant">
           <div className="space-y-3">
@@ -272,7 +271,7 @@ export const generateCaseData = (onImageClick = () => {}) => {
       ),
     },
     dispatch: {
-      ref: 'SECURE INTAKE // TELEGRAM CIPHER-SEC',
+      ref: contactData.modalRef,
       tag: contactData.modalTag,
       title: contactData.modalTitle,
       quote: contactData.modalQuote,

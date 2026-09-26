@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Briefcase, PlusCircle, Calendar, MapPin, Building2, Trash2 } from 'lucide-react';
-import { experiences as initialExperiences } from '../../data/experience';
+import { experiences as initialExperiences, experienceModal } from '../../data/experience';
 
 function ExperienceCard({ exp, onRemove, onUpdate }) {
   const [tags, setTags] = useState(exp.tags || []);
@@ -100,6 +100,7 @@ function ExperienceCard({ exp, onRemove, onUpdate }) {
 }
 
 export default function AdminExperience() {
+
   const [experiences, setExperiences] = useState(initialExperiences || []);
 
   const addExperience = () => {
@@ -131,6 +132,29 @@ export default function AdminExperience() {
           <PlusCircle className="w-5 h-5" />
           <span>Tambah Pengalaman</span>
         </button>
+      </div>
+
+            {/* Modal Header Configuration */}
+      <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm mb-2">
+        <h2 className="text-[16px] font-bold text-[#2C2520] mb-4">Header Modal (Tampil saat node diklik)</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Referensi (Ref)</label>
+            <input type="text" defaultValue={experienceModal.ref} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+          </div>
+          <div>
+            <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Kategori / Tag</label>
+            <input type="text" defaultValue={experienceModal.tag} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+          </div>
+          <div>
+            <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Judul Modal (Title)</label>
+            <input type="text" defaultValue={experienceModal.title} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+          </div>
+          <div>
+            <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Kutipan (Quote)</label>
+            <input type="text" defaultValue={experienceModal.quote} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+          </div>
+        </div>
       </div>
 
       <div className="flex flex-col gap-4">

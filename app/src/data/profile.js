@@ -26,6 +26,13 @@ export const profile = {
     "Eksperimentasi sistem perangkat keras (IoT) dengan mikrokontroler untuk deteksi anomali."
   ],
 
+    modalConfig: {
+    ref: 'EXHIBIT // AXIOM MEMO [REF: PHIL-01]',
+    tag: 'CORE PHILOSOPHY & METHODOLOGY',
+    title: 'Kernel-Level Adversary Modeling Axiom',
+    quote: '"Keamanan sejati bukan sekadar menambal celah, melainkan merancang arsitektur sistem yang tangguh sejak baris kode pertama ditulis hingga tahap deployment."'
+  },
+
   stats: [
     { value: 'C3SA', label: 'Certified Cyber Security Analyst' },
     { value: 'HOF', label: 'CSIRT Kutai Kartanegara' },
