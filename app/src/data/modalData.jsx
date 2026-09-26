@@ -157,6 +157,17 @@ export const generateCaseData = (onImageClick = () => {}) => {
                 <div className={`flex items-center justify-between text-${exp.color || 'outline'} font-mono text-[12px] font-bold`}>
                   <span>{exp.period}</span><span className="uppercase">{exp.location}</span>
                 </div>
+                
+                {exp.images && exp.images.length > 0 && (
+                  <div className={`grid gap-2 pt-2 pb-1 ${exp.images.length === 1 ? 'grid-cols-1' : exp.images.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
+                    {exp.images.map((img, imgIdx) => (
+                      <div key={imgIdx} className="w-full h-24 sm:h-32 rounded-lg overflow-hidden border border-outline-variant/30 shadow-sm opacity-90 hover:opacity-100 transition-opacity">
+                        <img src={img} alt="Experience proof" className="w-full h-full object-cover cursor-pointer" onClick={() => onImageClick(img)} />
+                      </div>
+                    ))}
+                  </div>
+                )}
+                
                 <h4 className="text-on-surface font-bold text-[18px]">{exp.role} — {exp.company}</h4>
                 <p className="text-on-surface-variant text-[14px]">{exp.description}</p>
                 <div className="flex flex-wrap gap-1.5 pt-1">
