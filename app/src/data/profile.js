@@ -17,14 +17,12 @@ export const profile = {
 
   extendedPhilosophy: [
     "Dalam lanskap digital saat ini, mengandalkan pemindaian keamanan otomatis tidaklah cukup. Ancaman modern mengeksploitasi logika bisnis dan kerentanan API yang kompleks. Pengalaman membangun sistem secara utuh—dari backend, integrasi database, hingga antarmuka—memberikan keunggulan krusial dalam memahami cara penyerang berpikir dan membongkar sistem.",
-    "Fokus utama saya adalah menciptakan ekosistem keamanan yang proaktif. Hal ini diwujudkan melalui penggabungan alat investigasi OSINT, pengembangan platform SecOps terintegrasi dengan API intelijen ancaman (seperti VirusTotal dan NVD NIST), serta inovasi IoT untuk memantau kerentanan lingkungan dunia nyata.",
     "Fokus utama saya adalah menciptakan ekosistem keamanan yang proaktif. Hal ini diwujudkan melalui penggabungan alat investigasi OSINT, pengembangan platform SecOps terintegrasi dengan API intelijen ancaman (seperti VirusTotal dan NVD NIST), serta inovasi IoT untuk memantau kerentanan lingkungan dunia nyata."
   ],
   methodologyPillars: [
     "Pengujian penetrasi aplikasi web berbasis logika kerentanan mendalam (Vulnerability Assessment).",
     "Pengembangan arsitektur backend dan REST API yang efisien, aman, dan dapat diskalakan.",
     "Integrasi Threat Intelligence dan OSINT ke dalam alur kerja operasi keamanan modern.",
-    "Eksperimentasi sistem perangkat keras (IoT) dengan mikrokontroler untuk deteksi anomali.",
     "Eksperimentasi sistem perangkat keras (IoT) dengan mikrokontroler untuk deteksi anomali."
   ],
 
@@ -32,7 +30,6 @@ export const profile = {
     { value: 'C3SA', label: 'Certified Cyber Security Analyst' },
     { value: 'HOF', label: 'CSIRT Kutai Kartanegara' },
     { value: 'WEB-RTA', label: 'Certified Web Red Team An.' },
-    { value: '(1st)', label: 'Best Defender Cyber Combat' },
     { value: '(1st)', label: 'Best Defender Cyber Combat' }
   ],
 
@@ -40,7 +37,6 @@ export const profile = {
     { label: 'Web App Security & Pentesting', icon: '🛡️' },
     { label: 'Backend & API Development', icon: '💻' },
     { label: 'OSINT & Threat Intelligence', icon: '🔍' },
-    { label: 'IoT & Hardware Integration', icon: '⚙️' },
     { label: 'IoT & Hardware Integration', icon: '⚙️' }
   ],
 
@@ -48,7 +44,6 @@ export const profile = {
     { platform: 'GitHub', url: 'https://github.com/AdliXSec', icon: 'Github' },
     { platform: 'LinkedIn', url: 'https://linkedin.com/in/naufal-syahruradli', icon: 'Linkedin' },
     { platform: 'TikTok', url: 'https://www.tiktok.com/@dlixonly._', icon: 'Link2' },
-    { platform: 'HackTheBox', url: 'https://hackthebox.com/', icon: 'Box' },
     { platform: 'HackTheBox', url: 'https://hackthebox.com/', icon: 'Box' }
   ]
 };
