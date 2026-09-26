@@ -233,10 +233,7 @@ export default function AdminProjects() {
             </div>
 
             <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm space-y-4">
-              <div className="flex items-center justify-between border-b border-[#F0EAE1] pb-3 mb-2">
-                <h2 className="text-[16px] font-bold text-[#2C2520]">Statistik & Metrik</h2>
-                <button onClick={addStat} className="text-[#C88238] hover:text-[#B86F28]"><PlusCircle className="w-4 h-4" /></button>
-              </div>
+              <h2 className="text-[16px] font-bold text-[#2C2520] border-b border-[#F0EAE1] pb-3 mb-2">Statistik & Metrik</h2>
               <div className="space-y-3">
                 {statsEntries.map(([key, val]) => (
                   <div key={key} className="flex items-center gap-2 relative group">
@@ -248,6 +245,9 @@ export default function AdminProjects() {
                   </div>
                 ))}
                 {statsEntries.length === 0 && <div className="text-[12px] text-[#837466] italic text-center py-2">Belum ada metrik.</div>}
+                <button onClick={addStat} className="w-full py-1.5 mt-2 flex items-center justify-center gap-1 bg-white border border-dashed border-[#C88238] text-[#C88238] rounded-lg text-[12px] font-bold hover:bg-[#FAF4EE] transition-colors">
+                  <PlusCircle className="w-4 h-4" /> Tambah Metrik
+                </button>
               </div>
             </div>
 
