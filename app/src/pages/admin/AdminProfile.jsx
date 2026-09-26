@@ -1,4 +1,4 @@
-import { User, Mail, MapPin, Save, Shield, Key, Terminal, AlignLeft, Hash, BarChart3, Crosshair } from 'lucide-react';
+import { Globe, User, Mail, MapPin, Save, Shield, Key, Terminal, AlignLeft, Hash, BarChart3, Crosshair } from 'lucide-react';
 import { profile } from '../../data/profile';
 
 export default function AdminProfile() {
