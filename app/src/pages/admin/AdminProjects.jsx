@@ -93,7 +93,7 @@ export default function AdminProjects() {
                   </td>
                   <td className="px-6 py-4 text-right">
                     <div className="flex flex-col items-end gap-1">
-                      {proj.tech.slice(0, 2).map((t, i) => (
+                      {proj.techStack.slice(0, 2).map((t, i) => (
                         <span key={i} className="inline-block px-2.5 py-0.5 rounded-md bg-[#FAF4EE] border border-[#E8DFD5] text-[11px] font-medium text-[#685E55]">
                           {t}
                         </span>
