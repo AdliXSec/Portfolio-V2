@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Briefcase, PlusCircle, Calendar, MapPin, Building2, Trash2 } from 'lucide-react';
+import { Link, Upload, Briefcase, PlusCircle, Calendar, MapPin, Building2, Trash2 } from 'lucide-react';
 import { experiences as initialExperiences, experienceModal } from '../../data/experience';
 
 function ExperienceCard({ exp, onRemove, onUpdate }) {
@@ -18,6 +18,20 @@ function ExperienceCard({ exp, onRemove, onUpdate }) {
     setImages(newImages);
     onUpdate({ ...exp, images: newImages });
   };
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (file && images.length < 3) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const newImages = [...images, reader.result];
+        setImages(newImages);
+        onUpdate({ ...exp, images: newImages });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
 
 
   const addTag = () => setTags([...tags, '']);
@@ -91,11 +105,15 @@ function ExperienceCard({ exp, onRemove, onUpdate }) {
           <div className="space-y-2">
             {images.map((img, i) => (
               <div key={i} className="flex items-center bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg pl-3 pr-1 py-1">
+                {img.startsWith('data:image') || img.startsWith('http') ? (
+                  <img src={img} alt="preview" className="w-6 h-6 rounded object-cover mr-2 shrink-0 border border-[#E8DFD5]" />
+                ) : null}
                 <input 
                   type="text" 
-                  value={img} 
+                  value={img.startsWith('data:image') ? 'Base64 Encoded Image Data...' : img} 
                   onChange={(e) => updateImage(i, e.target.value)}
-                  className="w-full bg-transparent text-[12px] text-[#2C2520] focus:outline-none" 
+                  disabled={img.startsWith('data:image')}
+                  className={`w-full bg-transparent text-[12px] focus:outline-none ${img.startsWith('data:image') ? 'text-[#837466] italic' : 'text-[#2C2520]'}`} 
                   placeholder="URL Foto (https://...)"
                 />
                 <button onClick={() => removeImage(i)} className="p-1.5 rounded text-[#D32F2F] hover:bg-[#FFF0F0] shrink-0">
@@ -104,9 +122,15 @@ function ExperienceCard({ exp, onRemove, onUpdate }) {
               </div>
             ))}
             {images.length < 3 && (
-              <button onClick={addImage} className="w-full py-1.5 flex items-center justify-center gap-1 bg-white border border-dashed border-[#C88238] text-[#C88238] rounded-lg text-[12px] font-bold hover:bg-[#FAF4EE] transition-colors">
-                <PlusCircle className="w-4 h-4" /> Tambah Foto
-              </button>
+              <div className="flex gap-2">
+                <button onClick={addImage} className="flex-1 py-1.5 flex items-center justify-center gap-1 bg-white border border-dashed border-[#C88238] text-[#C88238] rounded-lg text-[12px] font-bold hover:bg-[#FAF4EE] transition-colors">
+                  <Link className="w-3.5 h-3.5" /> Tambah URL
+                </button>
+                <label className="flex-1 py-1.5 flex items-center justify-center gap-1 bg-white border border-dashed border-[#C88238] text-[#C88238] rounded-lg text-[12px] font-bold hover:bg-[#FAF4EE] transition-colors cursor-pointer">
+                  <Upload className="w-3.5 h-3.5" /> Upload File
+                  <input type="file" accept="image/*" className="hidden" onChange={handleFileUpload} />
+                </label>
+              </div>
             )}
           </div>
         </div>
