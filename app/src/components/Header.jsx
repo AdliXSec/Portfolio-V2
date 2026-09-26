@@ -49,16 +49,18 @@ export default function Header({ onOpenModal, onDownloadCV }) {
                     {link.label} <ChevronDown className="w-3 h-3" />
                   </button>
                   {projectDropdownOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-48 py-2 rounded-xl bg-surface-container-high border border-outline-variant/30 overflow-hidden shadow-xl z-50">
-                      {projects.map(proj => (
-                        <button
-                          key={proj.id}
-                          onClick={() => { onOpenModal(proj.id); setProjectDropdownOpen(false); }}
-                          className="w-full text-left px-4 py-2 font-mono text-[11px] text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors"
-                        >
-                          {proj.codename}
-                        </button>
-                      ))}
+                    <div className="absolute top-full left-0 pt-2 w-48 z-50">
+                      <div className="w-full py-2 rounded-xl bg-surface-container-high border border-outline-variant/30 overflow-hidden shadow-xl">
+                        {projects.map(proj => (
+                          <button
+                            key={proj.id}
+                            onClick={() => { onOpenModal(proj.id); setProjectDropdownOpen(false); }}
+                            className="w-full text-left px-4 py-2 font-mono text-[11px] text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors"
+                          >
+                            {proj.codename}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
