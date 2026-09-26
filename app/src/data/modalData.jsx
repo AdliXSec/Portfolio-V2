@@ -1,3 +1,4 @@
+import { projects } from './projects';
 import { profile } from './profile';
 import { experiences, experienceModal } from './experience';
 import { techCategories, techstackModal } from './techstack';
