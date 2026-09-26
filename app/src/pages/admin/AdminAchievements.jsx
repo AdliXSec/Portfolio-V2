@@ -52,7 +52,7 @@ export default function AdminAchievements() {
                 </div>
                 <div className="w-1/2">
                   <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Lokasi / Penyelenggara</label>
-                  <input type="text" defaultValue={item.location} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+                  <input type="text" defaultValue={item.organization} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
                 </div>
               </div>
             </div>
