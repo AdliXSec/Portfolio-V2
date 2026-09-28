@@ -2,6 +2,7 @@ export const projects = [
   {
     id: 'obsidian',
     caseNumber: '01',
+    viewCount: 1245,
     label: 'KERNEL HARNESS',
     codename: 'PROJECT OBSIDIAN',
     title: 'C2 & Stealth Kernel Probing',
@@ -16,6 +17,7 @@ export const projects = [
   {
     id: 'sentinel',
     caseNumber: '02',
+    viewCount: 843,
     label: 'ACTIVE DEFENSE',
     codename: 'SENTINELSCAN',
     title: 'Cloud Defense Asset Engine',
@@ -28,6 +30,7 @@ export const projects = [
   {
     id: 'scada',
     caseNumber: '03',
+    viewCount: 3102,
     label: 'ADVISORY',
     codename: 'CVE-2024-29188',
     title: 'Industrial SCADA Remote Bypass',
@@ -42,6 +45,7 @@ export const projects = [
   {
     id: 'threatintel',
     caseNumber: '04',
+    viewCount: 512,
     label: 'INTELLIGENCE',
     codename: 'DARKPULSE',
     title: 'Threat Intelligence Platform',

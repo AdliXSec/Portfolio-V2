@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, PlusCircle, Filter, FileText, CheckCircle2, XCircle, ArrowLeft, Save, Trash2, Link, Upload, Code2 } from 'lucide-react';
+import { Search, PlusCircle, Filter, FileText, CheckCircle2, XCircle, ArrowLeft, Save, Trash2, Link, Upload, Code2, Eye } from 'lucide-react';
 import { projects } from '../../data/projects';
 
 export default function AdminProjects() {
@@ -326,6 +326,7 @@ export default function AdminProjects() {
               <tr className="bg-[#FAF7F2] border-b border-[#E8DFD5]">
                 <th className="px-6 py-4 text-[12px] font-semibold text-[#685E55] uppercase tracking-wider">Judul & Detail</th>
                 <th className="px-6 py-4 text-[12px] font-semibold text-[#685E55] uppercase tracking-wider text-center">Status</th>
+                <th className="px-6 py-4 text-[12px] font-semibold text-[#685E55] uppercase tracking-wider text-center">Views</th>
                 <th className="px-6 py-4 text-[12px] font-semibold text-[#685E55] uppercase tracking-wider text-right">Kategori / Topik</th>
                 <th className="px-6 py-4 text-[12px] font-semibold text-[#685E55] uppercase tracking-wider text-right">Tindakan</th>
               </tr>
@@ -369,6 +370,12 @@ export default function AdminProjects() {
                         {proj.status === 'Tayang' ? <CheckCircle2 className="w-3.5 h-3.5" /> : <XCircle className="w-3.5 h-3.5" />}
                       </div>
                     </button>
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <div className="flex items-center justify-center gap-1.5 text-[#685E55]">
+                      <Eye className="w-4 h-4" />
+                      <span className="text-[13px] font-semibold">{proj.viewCount !== undefined ? proj.viewCount : 0}</span>
+                    </div>
                   </td>
                   <td className="px-6 py-4 text-right">
                     <div className="flex flex-col items-end gap-1">
