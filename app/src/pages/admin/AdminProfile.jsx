@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { Globe, User, Mail, MapPin, Save, Shield, Key, Terminal, AlignLeft, Hash, BarChart3, Crosshair, PlusCircle, Trash2, PenTool } from 'lucide-react';
 import { profile } from '../../data/profile';
+import LivePreviewWrapper from './LivePreviewWrapper';
+import HeroSection from '../../components/HeroSection';
+import PhilosophyMemo from '../../components/PhilosophyMemo';
+
 
 export default function AdminProfile() {
   const [modalRef] = useState(profile.modalConfig?.ref || '');
@@ -309,6 +313,21 @@ export default function AdminProfile() {
           </div>
         </div>
       </div>
+
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Profil & Filosofi">
+        {({ onOpenModal }) => (
+          <>
+            <div className="max-w-md w-full shrink-0">
+              <HeroSection id="node-hero-preview" onOpenModal={onOpenModal} onDownloadCV={() => {}} />
+            </div>
+            <div className="max-w-sm w-full shrink-0">
+              <PhilosophyMemo id="node-philosophy-preview" onOpenModal={onOpenModal} />
+            </div>
+          </>
+        )}
+      </LivePreviewWrapper>
+
     </div>
   );
 }

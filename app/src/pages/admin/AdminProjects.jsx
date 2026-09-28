@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Search, PlusCircle, Filter, FileText, CheckCircle2, XCircle, ArrowLeft, Save, Trash2, Link, Upload, Code2, Eye } from 'lucide-react';
 import { projects } from '../../data/projects';
+import LivePreviewWrapper from './LivePreviewWrapper';
+import ProjectCard from '../../components/ProjectCard';
 
 export default function AdminProjects() {
   const [projectList, setProjectList] = useState(projects.map(p => ({...p, status: 'Tayang'})));
@@ -397,6 +399,20 @@ export default function AdminProjects() {
           </table>
         </div>
       </div>
+
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Proyek">
+        {({ onOpenModal }) => (
+          <div className="flex flex-wrap gap-8 items-start justify-center w-full">
+            {projectList.filter(p => p.status === 'Tayang').slice(0, 2).map((proj, idx) => (
+              <div key={proj.id} className="max-w-sm w-full shrink-0">
+                <ProjectCard project={proj} index={idx} onOpenModal={onOpenModal} />
+              </div>
+            ))}
+          </div>
+        )}
+      </LivePreviewWrapper>
+
     </div>
   );
 }

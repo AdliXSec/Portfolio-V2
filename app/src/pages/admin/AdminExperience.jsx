@@ -166,6 +166,9 @@ function ExperienceCard({ exp, onRemove, onUpdate }) {
     </div>
   );
 }
+import LivePreviewWrapper from './LivePreviewWrapper';
+import ExperienceCardPublic from '../../components/ExperienceCard';
+
 
 export default function AdminExperience() {
 
@@ -235,6 +238,16 @@ export default function AdminExperience() {
           />
         ))}
       </div>
+
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Pengalaman Kerja">
+        {({ onOpenModal }) => (
+          <div className="max-w-lg w-full">
+            <ExperienceCardPublic id="node-experience-preview" onOpenModal={onOpenModal} />
+          </div>
+        )}
+      </LivePreviewWrapper>
+
     </div>
   );
 }

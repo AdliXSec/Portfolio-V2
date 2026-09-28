@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Award, PlusCircle, Trash2, Link, Upload } from 'lucide-react';
 import { achievements, achievementsModal } from '../../data/achievements';
+import LivePreviewWrapper from './LivePreviewWrapper';
+import AchievementsSection from '../../components/AchievementsSection';
+
 
 export default function AdminAchievements() {
   const [achvList, setAchvList] = useState(achievements || []);
@@ -134,6 +137,16 @@ export default function AdminAchievements() {
           </div>
         ))}
       </div>
+
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Sertifikasi & Prestasi">
+        {({ onOpenModal }) => (
+          <div className="max-w-lg w-full">
+            <AchievementsSection id="node-achievements-preview" onOpenModal={onOpenModal} />
+          </div>
+        )}
+      </LivePreviewWrapper>
+
     </div>
   );
 }

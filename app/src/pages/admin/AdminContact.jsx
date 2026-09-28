@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Phone, Save, Briefcase, FileText, PlusCircle, Trash2 } from 'lucide-react';
 import { contactData as initialContactData } from '../../data/contact';
+import LivePreviewWrapper from './LivePreviewWrapper';
+import ContactSection from '../../components/ContactSection';
+
 
 export default function AdminContact() {
 
@@ -122,6 +125,16 @@ export default function AdminContact() {
           </div>
         </div>
       </div>
+
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Kontak & Layanan">
+        {({ onOpenModal }) => (
+          <div className="w-full max-w-4xl">
+            <ContactSection onOpenModal={onOpenModal} />
+          </div>
+        )}
+      </LivePreviewWrapper>
+
     </div>
   );
 }

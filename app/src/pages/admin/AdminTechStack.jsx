@@ -70,6 +70,9 @@ function TechCategoryCard({ category, onRemove, onUpdate }) {
     </div>
   );
 }
+import LivePreviewWrapper from './LivePreviewWrapper';
+import TechStackSectionPublic from '../../components/TechStackSection';
+
 
 export default function AdminTechStack() {
 
@@ -137,6 +140,16 @@ export default function AdminTechStack() {
           />
         ))}
       </div>
+
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Tech Stack">
+        {({ onOpenModal }) => (
+          <div className="max-w-lg w-full">
+            <TechStackSectionPublic id="node-tech-preview" onOpenModal={onOpenModal} />
+          </div>
+        )}
+      </LivePreviewWrapper>
+
     </div>
   );
 }
