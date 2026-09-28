@@ -1,5 +1,6 @@
 import { MessageSquare, Lock, Terminal } from 'lucide-react';
 import { profile } from '../data/profile';
+import { livechatData } from '../data/livechat';
 
 export default function ChatRoomMemo({ id, onOpenModal }) {
   return (
@@ -33,7 +34,7 @@ export default function ChatRoomMemo({ id, onOpenModal }) {
           </div>
           <div className="bg-primary/10 border border-primary/30 rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[90%] shadow-sm">
             <p className="font-body text-[13px] text-on-surface leading-relaxed">
-              Halo! Terima kasih sudah menyempatkan waktu untuk mampir dan melihat isi "Case Archive" saya. Semoga Anda menemukan sesuatu yang menarik di sini. Mari terhubung dan berkolaborasi! 👋
+              {livechatData.find(m => m.role === 'admin' && !m.isSystem)?.message}
             </p>
           </div>
           <span className="font-mono text-[9px] text-outline-variant mt-0.5">14:00 UTC - ENCRYPTED</span>

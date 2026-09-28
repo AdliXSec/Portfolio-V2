@@ -1,9 +1,11 @@
+import { User, Send } from 'lucide-react';
 import { projects } from './projects';
 import { profile } from './profile';
 import { experiences, experienceModal } from './experience';
 import { techCategories, techstackModal } from './techstack';
 import { achievements, achievementsModal } from './achievements';
 import { contactData } from './contact';
+import { livechatModal, livechatData } from './livechat';
 import { GitHubCalendar } from 'react-github-calendar';
 
 export const generateCaseData = (onImageClick = () => {}) => {
@@ -64,40 +66,63 @@ export const generateCaseData = (onImageClick = () => {}) => {
     },
 
     chat: {
-      ref: 'SECURE COMMS // LIVE INTERCEPT',
-      tag: 'ENCRYPTED CHANNEL',
-      title: 'Terminal 0x0A: Direct Link',
-      quote: 'Establishing handshake protocol... connection secure.',
+      ref: livechatModal.ref,
+      tag: livechatModal.tag,
+      title: livechatModal.title,
+      quote: livechatModal.quote,
       body: (
         <div className="space-y-4 font-body text-[14.5px] leading-relaxed text-on-surface-variant flex flex-col h-[50vh] sm:h-[60vh]">
           {/* Chat History Area */}
           <div className="flex-1 rounded-xl bg-surface-container-low border border-outline-variant/30 p-4 sm:p-6 overflow-y-auto flex flex-col gap-5">
             
-            {/* System Message */}
-            <div className="flex justify-center">
-              <span className="px-3 py-1 rounded-full bg-surface-container font-mono text-[10px] text-outline border border-outline-variant/20">
-                Connection established. P2P encryption active.
-              </span>
-            </div>
+            {livechatData.map((msg) => {
+              if (msg.isSystem) {
+                return (
+                  <div key={msg.id} className="flex justify-center">
+                    <span className="px-3 py-1 rounded-full bg-surface-container font-mono text-[10px] text-outline border border-outline-variant/20">
+                      {msg.message}
+                    </span>
+                  </div>
+                );
+              }
 
-            {/* Profile Message (Aligned Right) */}
-            <div className="flex flex-col items-end gap-1 self-end">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="font-mono text-[11px] text-primary font-bold">[{profile.name}]</span>
-                <div className="w-6 h-6 rounded-full overflow-hidden bg-surface-container border border-primary/30">
-                  <img src={profile.imageUrl} alt={profile.name} className="w-full h-full object-cover" />
+              const isAdmin = msg.role === 'admin';
+              
+              return (
+                <div key={msg.id} className={`flex flex-col gap-1 ${isAdmin ? 'items-end self-end' : 'items-start self-start'}`}>
+                  <div className="flex items-center gap-2 mb-1">
+                    {isAdmin ? (
+                      <>
+                        <span className="font-mono text-[11px] text-primary font-bold">[{msg.sender}]</span>
+                        <div className="w-6 h-6 rounded-full overflow-hidden bg-surface-container border border-primary/30">
+                          <img src={profile.imageUrl} alt={msg.sender} className="w-full h-full object-cover" />
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-6 h-6 rounded-full bg-surface-container-high border border-outline-variant/40 flex items-center justify-center">
+                          <User className="w-3.5 h-3.5 text-outline" />
+                        </div>
+                        <span className="font-mono text-[11px] text-secondary font-bold">[{msg.sender}]</span>
+                      </>
+                    )}
+                  </div>
+                  
+                  <div className={`px-4 py-3 max-w-[85%] sm:max-w-[75%] shadow-sm ${
+                    isAdmin 
+                      ? 'bg-primary/10 border border-primary/30 rounded-2xl rounded-tr-sm' 
+                      : 'bg-surface-container border border-outline-variant/40 rounded-2xl rounded-tl-sm'
+                  }`}>
+                    <p className={`font-body text-[14px] leading-relaxed ${isAdmin ? 'text-on-surface' : 'text-on-surface-variant'}`}>
+                      {msg.message}
+                    </p>
+                  </div>
+                  <span className={`font-mono text-[10px] text-outline-variant mt-0.5 ${isAdmin ? 'mr-1' : 'ml-1'}`}>
+                    {msg.timestamp}
+                  </span>
                 </div>
-              </div>
-              <div className="bg-primary/10 border border-primary/30 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[85%] sm:max-w-[75%] shadow-sm">
-                <p className="font-body text-[14px] text-on-surface leading-relaxed">
-                  Halo! Terima kasih sudah menyempatkan waktu untuk mampir dan melihat isi "Case Archive" saya. Semoga Anda menemukan sesuatu yang menarik di sini. Mari terhubung dan berkolaborasi! 👋
-                </p>
-              </div>
-              <span className="font-mono text-[10px] text-outline-variant mr-1 mt-0.5">14:00 UTC</span>
-            </div>
-
-            {/* Simulated Reply Area */}
-            {/* You can add more mock messages here if needed */}
+              );
+            })}
           </div>
 
           {/* Chat Input Area (Disabled) */}
@@ -115,13 +140,13 @@ export const generateCaseData = (onImageClick = () => {}) => {
                 placeholder="Backend connection pending... (Coming Soon)" 
                 className="flex-1 px-4 py-3 rounded-xl bg-surface-container-lowest text-on-surface font-mono text-[13px] border border-outline-variant/40 outline-none opacity-60 cursor-not-allowed"
               />
-              <button disabled className="px-5 rounded-xl bg-primary/50 text-on-primary font-mono text-[12px] font-bold tracking-wider uppercase opacity-60 cursor-not-allowed border border-primary/20 shrink-0 flex items-center justify-center">
-                SEND
+              <button disabled className="px-5 rounded-xl bg-primary text-on-primary flex items-center justify-center opacity-60 cursor-not-allowed shadow-[0_4px_16px_rgba(254,196,134,0.3)]">
+                <Send className="w-4 h-4" />
               </button>
             </div>
           </div>
         </div>
-      ),
+      )
     },
     philosophy: {
       ref: profile.modalConfig.ref,
