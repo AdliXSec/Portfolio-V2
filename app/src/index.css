@@ -227,3 +227,12 @@
   --tw-scale-x: 1 !important;
   --tw-scale-y: 1 !important;
 }
+
+/* Toggle Switch CSS */
+.toggle-checkbox:checked {
+  right: 0;
+  border-color: #C88238;
+}
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #C88238;
+}

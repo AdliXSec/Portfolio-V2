@@ -10,6 +10,7 @@ import AdminAchievements from './pages/admin/AdminAchievements';
 import AdminContact from './pages/admin/AdminContact';
 import AdminMessages from './pages/admin/AdminMessages';
 import AdminSettings from './pages/admin/AdminSettings';
+import AdminLivechat from './pages/admin/AdminLivechat';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="achievements" element={<AdminAchievements />} />
           <Route path="contact" element={<AdminContact />} />
           <Route path="messages" element={<AdminMessages />} />
+          <Route path="livechat" element={<AdminLivechat />} />
           <Route path="settings" element={<AdminSettings />} />
           {/* We can add 'about' or other nodes here later */}
         </Route>

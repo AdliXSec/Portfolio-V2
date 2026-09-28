@@ -1,4 +1,10 @@
-import { useState, useEffect } from 'react';
+import re
+
+with open('/home/leexy/portfolio/app/src/pages/admin/AdminLayout.jsx', 'r') as f:
+    content = f.read()
+
+# Make it mobile responsive
+new_content = """import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Pin, LayoutDashboard, FolderOpen, MessageSquare, Settings, Globe, Bell, User, Briefcase, Code2, Award, Phone, Menu, X, Radio } from 'lucide-react';
 
@@ -163,3 +169,7 @@ export default function AdminLayout() {
     </div>
   );
 }
+"""
+
+with open('/home/leexy/portfolio/app/src/pages/admin/AdminLayout.jsx', 'w') as f:
+    f.write(new_content)
