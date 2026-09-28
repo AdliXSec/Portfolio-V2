@@ -27,12 +27,5 @@ export const livechatData = [
     role: 'visitor',
     message: 'Halo, saya sangat tertarik dengan arsitektur eBPF yang Anda buat di Project Obsidian. Boleh diskusi lebih lanjut?',
     timestamp: '10 minutes ago'
-  },
-  {
-    id: 3,
-    sender: 'Guest_0x8F9',
-    role: 'visitor',
-    message: 'Halo, saya sangat tertarik dengan arsitektur eBPF yang Anda buat di Project Obsidian. Boleh diskusi lebih lanjut?',
-    timestamp: '10 minutes ago'
   }
 ];

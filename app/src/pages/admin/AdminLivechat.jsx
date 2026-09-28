@@ -1,37 +1,13 @@
 import { Radio, Terminal, Trash2, Send, Clock, User, Shield } from 'lucide-react';
 import { useState } from 'react';
-
-// Dummy data for Livechat based on the SQL
-const dummyChats = [
-  {
-    id: 1,
-    sender: 'System',
-    role: 'admin',
-    message: 'Connection established. P2P encryption active.',
-    timestamp: '1 hour ago'
-  },
-  {
-    id: 2,
-    sender: 'Naufal Syahruradli',
-    role: 'admin',
-    message: 'Halo! Terima kasih sudah menyempatkan waktu untuk mampir dan melihat isi "Case Archive" saya. Semoga Anda menemukan sesuatu yang menarik di sini. Mari terhubung dan berkolaborasi! 👋',
-    timestamp: '55 minutes ago'
-  },
-  {
-    id: 3,
-    sender: 'Guest_0x8F9',
-    role: 'visitor',
-    message: 'Halo, saya sangat tertarik dengan arsitektur eBPF yang Anda buat di Project Obsidian. Boleh diskusi lebih lanjut?',
-    timestamp: '10 minutes ago'
-  }
-];
+import { livechatData } from '../../data/livechat';
 
 export default function AdminLivechat() {
-  const [messages, setMessages] = useState(dummyChats);
+  const [messages, setMessages] = useState(livechatData || []);
   const [reply, setReply] = useState('');
 
   const sendReply = () => {
-    if(!reply.trim()) return;
+    if (!reply.trim()) return;
     const newMsg = {
       id: Date.now(),
       sender: 'Naufal Syahruradli',
@@ -91,17 +67,16 @@ export default function AdminLivechat() {
                   </>
                 )}
               </div>
-              <div className={`relative group max-w-[90%] sm:max-w-[75%] px-4 py-2.5 rounded-2xl ${
-                msg.role === 'admin' 
-                  ? 'bg-[#fec486]/10 border border-[#fec486]/30 rounded-tr-sm' 
+              <div className={`relative group max-w-[90%] sm:max-w-[75%] px-4 py-2.5 rounded-2xl ${msg.role === 'admin'
+                  ? 'bg-[#fec486]/10 border border-[#fec486]/30 rounded-tr-sm'
                   : 'bg-[#85d6bb]/10 border border-[#85d6bb]/30 rounded-tl-sm'
-              }`}>
+                }`}>
                 <p className="font-sans text-[13px] sm:text-[14px] text-[#e2e2e8] leading-relaxed">
                   {msg.message}
                 </p>
-                
+
                 {/* Delete Button (Hover) */}
-                <button 
+                <button
                   onClick={() => deleteMsg(msg.id)}
                   className={`absolute top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-full bg-red-500/20 text-red-400 hover:bg-red-500/40 ${msg.role === 'admin' ? '-left-10' : '-right-10'}`}
                 >
@@ -118,15 +93,15 @@ export default function AdminLivechat() {
 
         {/* Input Area */}
         <div className="bg-[#111317] p-4 border-t border-[#2C2520] flex gap-3">
-          <input 
-            type="text" 
+          <input
+            type="text"
             value={reply}
             onChange={(e) => setReply(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && sendReply()}
-            placeholder="Ketik balasan sebagai Admin (Terminal Mode)..." 
+            placeholder="Ketik balasan sebagai Admin (Terminal Mode)..."
             className="flex-1 bg-[#1a1c20] text-[#e2e2e8] px-4 py-2.5 rounded-lg border border-[#2C2520] focus:border-[#fec486] focus:outline-none font-mono text-[13px]"
           />
-          <button 
+          <button
             onClick={sendReply}
             className="px-5 py-2.5 bg-[#fec486] hover:bg-[#e0a96d] text-[#111317] font-bold rounded-lg flex items-center justify-center transition-colors"
           >

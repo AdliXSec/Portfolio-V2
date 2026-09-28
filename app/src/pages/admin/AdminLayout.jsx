@@ -16,7 +16,7 @@ export default function AdminLayout() {
     <div className="font-jakarta min-h-screen bg-[#FAF7F2] text-[#2C2520]">
       {/* Mobile Overlay */}
       {isSidebarOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-[#2C2520]/50 z-40 lg:hidden backdrop-blur-sm transition-opacity"
           onClick={() => setIsSidebarOpen(false)}
         />
@@ -124,9 +124,9 @@ export default function AdminLayout() {
       {/* Main Content Wrapper */}
       <div className="lg:pl-64 w-full flex flex-col min-h-screen">
         {/* Top Header Bar */}
-        <header className="sticky top-0 h-16 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E8DFD5] z-30 flex items-center justify-between px-4 sm:px-6 shrink-0">
+        <header className="sticky top-0 h-16 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E8DFD5] z-100 flex items-center justify-between px-4 sm:px-6 shrink-0">
           <div className="flex items-center gap-3">
-            <button 
+            <button
               className="lg:hidden w-9 h-9 rounded-lg flex items-center justify-center text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-colors"
               onClick={() => setIsSidebarOpen(true)}
             >
