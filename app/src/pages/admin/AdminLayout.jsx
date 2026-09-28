@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, Save, Loader2, CheckCircle2, Pin, LayoutDashboard, FolderOpen, MessageSquare, Settings, Globe, Bell, User, Briefcase, Code2, Award, Phone, Menu, X, Radio } from 'lucide-react';
+import { LogOut, ChevronLeft, ChevronRight, Save, Loader2, CheckCircle2, Pin, LayoutDashboard, FolderOpen, MessageSquare, Settings, Globe, Bell, User, Briefcase, Code2, Award, Phone, Menu, X, Radio } from 'lucide-react';
 
 export default function AdminLayout() {
   const location = useLocation();
@@ -135,11 +135,21 @@ export default function AdminLayout() {
           </nav>
         </div>
 
-        {/* Collapse Toggle */}
-        <div className="p-4 border-t border-[#E8DFD5] hidden lg:flex justify-end">
+        {/* Sidebar Footer (Logout & Collapse) */}
+        <div className={`p-4 border-t border-[#E8DFD5] flex items-center ${isCollapsed ? 'justify-center flex-col-reverse gap-3' : 'justify-between'}`}>
+          <button 
+            onClick={() => alert('Fitur Logout akan berfungsi setelah backend terpasang!')}
+            className={`flex items-center gap-2 text-[#D32F2F] hover:bg-[#FFF0F0] rounded-lg transition-colors ${isCollapsed ? 'p-2' : 'px-3 py-2 flex-1'}`}
+            title="Keluar (Logout)"
+          >
+            <LogOut className="w-5 h-5 shrink-0" />
+            <span className={`font-bold text-[13px] whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'hidden opacity-0' : 'block opacity-100'}`}>Log Out</span>
+          </button>
+
           <button 
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="w-10 h-10 rounded-lg flex items-center justify-center text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-colors"
+            className={`w-9 h-9 rounded-lg hidden lg:flex items-center justify-center text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-colors shrink-0`}
+            title={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
           >
             {isCollapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
           </button>
