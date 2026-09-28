@@ -137,7 +137,7 @@ export default function AdminLayout() {
 
         {/* Sidebar Footer (Logout & Collapse) */}
         <div className={`p-4 border-t border-[#E8DFD5] flex items-center ${isCollapsed ? 'justify-center flex-col-reverse gap-3' : 'justify-between'}`}>
-          <button 
+          <button
             onClick={() => alert('Fitur Logout akan berfungsi setelah backend terpasang!')}
             className={`flex items-center gap-2 text-[#D32F2F] hover:bg-[#FFF0F0] rounded-lg transition-colors ${isCollapsed ? 'p-2' : 'px-3 py-2 flex-1'}`}
             title="Keluar (Logout)"
@@ -146,7 +146,7 @@ export default function AdminLayout() {
             <span className={`font-bold text-[13px] whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'hidden opacity-0' : 'block opacity-100'}`}>Log Out</span>
           </button>
 
-          <button 
+          <button
             onClick={() => setIsCollapsed(!isCollapsed)}
             className={`w-9 h-9 rounded-lg hidden lg:flex items-center justify-center text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-colors shrink-0`}
             title={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
@@ -160,7 +160,7 @@ export default function AdminLayout() {
       {/* Main Content Wrapper */}
       <div className={`w-full flex flex-col min-h-screen transition-all duration-300 ease-in-out ${isCollapsed ? 'lg:pl-20' : 'lg:pl-64'}`}>
         {/* Top Header Bar */}
-        <header className="sticky top-0 h-16 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E8DFD5] z-100 flex items-center justify-between px-4 sm:px-6 shrink-0">
+        <header className="sticky top-0 h-16 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E8DFD5] z-[100] flex items-center justify-between px-4 sm:px-6 shrink-0">
           <div className="flex items-center gap-3">
             <button
               className="lg:hidden w-9 h-9 rounded-lg flex items-center justify-center text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-colors"
@@ -172,13 +172,12 @@ export default function AdminLayout() {
               <Globe className="w-4 h-4" />
               <span>Lihat Website</span>
             </Link>
-            
-            <button 
+
+            <button
               onClick={handleGlobalSave}
               disabled={isSaving}
-              className={`hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13px] font-bold text-white transition-all shadow-sm ${
-                saveSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-[#C88238] hover:bg-[#B86F28]'
-              } disabled:opacity-70 disabled:cursor-wait`}
+              className={`hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13px] font-bold text-white transition-all shadow-sm ${saveSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-[#C88238] hover:bg-[#B86F28]'
+                } disabled:opacity-70 disabled:cursor-wait`}
             >
               {isSaving ? (
                 <Loader2 className="w-4 h-4 animate-spin" />
