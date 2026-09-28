@@ -26,26 +26,26 @@ function TechCategoryCard({ category, onRemove, onUpdate }) {
           <Trash2 className="w-4 h-4" />
         </button>
       </div>
-      
+
       <div className="mb-4 pr-24">
         <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Nama Kategori</label>
-        <input 
-          type="text" 
-          defaultValue={category.category} 
-          className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[14px] font-bold text-[#2C2520] focus:outline-none focus:border-[#C88238]" 
+        <input
+          type="text"
+          defaultValue={category.category}
+          className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[14px] font-bold text-[#2C2520] focus:outline-none focus:border-[#C88238]"
         />
       </div>
-      
+
       <div className="flex-1">
         <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Item (Tech Stack)</label>
         <div className="flex flex-wrap gap-2">
           {items.map((item, i) => (
             <div key={i} className="flex items-center bg-[#FAF7F2] border border-[#E8DFD5] rounded-full pl-3 pr-1 py-1">
-              <input 
-                type="text" 
-                value={item} 
+              <input
+                type="text"
+                value={item}
                 onChange={(e) => updateItem(i, e.target.value)}
-                className="bg-transparent text-[12px] font-bold text-[#2C2520] focus:outline-none min-w-[60px]" 
+                className="bg-transparent text-[12px] font-bold text-[#2C2520] focus:outline-none min-w-[60px]"
                 placeholder="Nama Item"
               />
               <button onClick={() => removeItem(i)} className="p-1 rounded-full text-[#D32F2F] hover:bg-[#FFF0F0]">
@@ -59,21 +59,12 @@ function TechCategoryCard({ category, onRemove, onUpdate }) {
         </div>
       </div>
 
-      {/* Live Preview */}
-      <LivePreviewWrapper title="Preview Node Tech Stack">
-        {({ onOpenModal }) => (
-          <div className="max-w-lg w-full">
-            <TechStackSectionPublic id="node-tech-preview" onOpenModal={onOpenModal} />
-          </div>
-        )}
-      </LivePreviewWrapper>
-      
       <div className="mt-5 pt-4 border-t border-[#F0EAE1]">
         <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Icon (Nama Icon Lucide)</label>
-        <input 
-          type="text" 
-          defaultValue={category.icon} 
-          className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" 
+        <input
+          type="text"
+          defaultValue={category.icon}
+          className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]"
         />
       </div>
     </div>
@@ -116,7 +107,8 @@ export default function AdminTechStack() {
         </button>
       </div>
 
-            {/* Modal Header Configuration */}
+
+      {/* Modal Header Configuration */}
       <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm mb-2">
         <h2 className="text-[16px] font-bold text-[#2C2520] mb-4">Header Modal (Tampil saat node diklik)</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -124,6 +116,17 @@ export default function AdminTechStack() {
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Referensi (Ref)</label>
             <input type="text" defaultValue={techstackModal.ref} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
           </div>
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Tech Stack">
+        {({ onOpenModal }) => (
+          <div className="disable-preview-hover flex justify-center w-full">
+            <div className="max-w-lg w-full">
+              <TechStackSectionPublic id="node-tech-preview" onOpenModal={onOpenModal} />
+            </div>
+          </div>
+        )}
+      </LivePreviewWrapper>
+
           <div>
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Kategori / Tag</label>
             <input type="text" defaultValue={techstackModal.tag} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
@@ -141,8 +144,8 @@ export default function AdminTechStack() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
         {techStack.map((category, index) => (
-          <TechCategoryCard 
-            key={index} 
+          <TechCategoryCard
+            key={index}
             category={category}
             onRemove={() => removeCategory(index)}
             onUpdate={(updated) => updateCategory(index, updated)}

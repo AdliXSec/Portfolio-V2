@@ -55,7 +55,7 @@ function ExperienceCard({ exp, onRemove, onUpdate }) {
           <Trash2 className="w-4 h-4" />
         </button>
       </div>
-      
+
       <div className="w-full md:w-1/3 space-y-4">
         <div>
           <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Peran / Jabatan</label>
@@ -95,17 +95,8 @@ function ExperienceCard({ exp, onRemove, onUpdate }) {
         </div>
       </div>
 
-      {/* Live Preview */}
-      <LivePreviewWrapper title="Preview Node Pengalaman Kerja">
-        {({ onOpenModal }) => (
-          <div className="max-w-lg w-full">
-            <ExperienceCardPublic id="node-experience-preview" onOpenModal={onOpenModal} />
-          </div>
-        )}
-      </LivePreviewWrapper>
-
       <div className="w-full md:w-2/3 space-y-4">
-        
+
         <div className="mb-4">
           <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5 flex justify-between items-center">
             <span>Foto / Bukti (Maks 3)</span>
@@ -117,12 +108,12 @@ function ExperienceCard({ exp, onRemove, onUpdate }) {
                 {img.startsWith('data:image') || img.startsWith('http') ? (
                   <img src={img} alt="preview" className="w-6 h-6 rounded object-cover mr-2 shrink-0 border border-[#E8DFD5]" />
                 ) : null}
-                <input 
-                  type="text" 
-                  value={img.startsWith('data:image') ? 'Base64 Encoded Image Data...' : img} 
+                <input
+                  type="text"
+                  value={img.startsWith('data:image') ? 'Base64 Encoded Image Data...' : img}
                   onChange={(e) => updateImage(i, e.target.value)}
                   disabled={img.startsWith('data:image')}
-                  className={`w-full bg-transparent text-[12px] focus:outline-none ${img.startsWith('data:image') ? 'text-[#837466] italic' : 'text-[#2C2520]'}`} 
+                  className={`w-full bg-transparent text-[12px] focus:outline-none ${img.startsWith('data:image') ? 'text-[#837466] italic' : 'text-[#2C2520]'}`}
                   placeholder="URL Foto (https://...)"
                 />
                 <button onClick={() => removeImage(i)} className="p-1.5 rounded text-[#D32F2F] hover:bg-[#FFF0F0] shrink-0">
@@ -154,11 +145,11 @@ function ExperienceCard({ exp, onRemove, onUpdate }) {
           <div className="flex flex-wrap gap-2">
             {tags.map((tag, i) => (
               <div key={i} className="flex items-center bg-[#FAF7F2] border border-[#E8DFD5] rounded-full pl-3 pr-1 py-1">
-                <input 
-                  type="text" 
-                  value={tag} 
+                <input
+                  type="text"
+                  value={tag}
                   onChange={(e) => updateTag(i, e.target.value)}
-                  className="bg-transparent text-[12px] font-bold text-[#2C2520] focus:outline-none min-w-[60px]" 
+                  className="bg-transparent text-[12px] font-bold text-[#2C2520] focus:outline-none min-w-[60px]"
                   placeholder="Nama Tag"
                 />
                 <button onClick={() => removeTag(i)} className="p-1 rounded-full text-[#D32F2F] hover:bg-[#FFF0F0]">
@@ -214,7 +205,7 @@ export default function AdminExperience() {
         </button>
       </div>
 
-            {/* Modal Header Configuration */}
+      {/* Modal Header Configuration */}
       <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm mb-2">
         <h2 className="text-[16px] font-bold text-[#2C2520] mb-4">Header Modal (Tampil saat node diklik)</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -222,6 +213,17 @@ export default function AdminExperience() {
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Referensi (Ref)</label>
             <input type="text" defaultValue={experienceModal.ref} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
           </div>
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Pengalaman Kerja">
+        {({ onOpenModal }) => (
+          <div className="disable-preview-hover flex justify-center w-full">
+            <div className="max-w-lg w-full">
+              <ExperienceCardPublic id="node-experience-preview" onOpenModal={onOpenModal} />
+            </div>
+          </div>
+        )}
+      </LivePreviewWrapper>
+
           <div>
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Kategori / Tag</label>
             <input type="text" defaultValue={experienceModal.tag} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
@@ -239,9 +241,9 @@ export default function AdminExperience() {
 
       <div className="flex flex-col gap-4">
         {experiences.map((exp, index) => (
-          <ExperienceCard 
-            key={index} 
-            exp={exp} 
+          <ExperienceCard
+            key={index}
+            exp={exp}
             onRemove={() => removeExperience(index)}
             onUpdate={(updatedExp) => updateExperience(index, updatedExp)}
           />

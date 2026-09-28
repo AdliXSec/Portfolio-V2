@@ -42,7 +42,7 @@ export default function AdminDashboard() {
             </div>
           </div>
         </div>
-        
+
         {/* Stat 2 */}
         <div className="bg-[#FFFFFF] border border-[#E8DFD5] rounded-xl p-5 shadow-sm flex flex-col justify-between hover:border-[#D6C3B3] transition-all">
           <div className="flex items-center justify-between mb-4">
@@ -98,7 +98,7 @@ export default function AdminDashboard() {
 
       {/* Grid for Table and Inquiries */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        
+
         {/* Left Column - Projects Table */}
         <div className="lg:col-span-8 flex flex-col gap-6">
           <div className="bg-[#FFFFFF] border border-[#E8DFD5] rounded-xl p-6 shadow-sm overflow-hidden">
@@ -185,7 +185,7 @@ export default function AdminDashboard() {
                   </button>
                 </div>
               </div>
-              
+
               <div className="p-3.5 rounded-lg border border-transparent hover:bg-[#FAF4EE]/70 transition-colors">
                 <div className="flex items-start justify-between gap-1 mb-1">
                   <div>
@@ -205,7 +205,7 @@ export default function AdminDashboard() {
                 </div>
               </div>
             </div>
-            
+
             <button className="w-full mt-4 py-2 rounded-lg bg-[#FAF4EE] border border-[#E8DFD5] text-[#2C2520] text-[13px] font-semibold hover:bg-[#F2EAE1] transition-colors text-center">
               Buka Kotak Masuk (18)
             </button>

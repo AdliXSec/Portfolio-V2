@@ -5,7 +5,7 @@ import LivePreviewWrapper from './LivePreviewWrapper';
 import ProjectCard from '../../components/ProjectCard';
 
 export default function AdminProjects() {
-  const [projectList, setProjectList] = useState(projects.map(p => ({...p, status: 'Tayang'})));
+  const [projectList, setProjectList] = useState(projects.map(p => ({ ...p, status: 'Tayang' })));
   const [editingProject, setEditingProject] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -48,14 +48,14 @@ export default function AdminProjects() {
   const handleSave = () => {
     const newList = [...projectList];
     const { originalIndex, ...projectData } = editingProject;
-    
+
     if (originalIndex !== undefined) {
       newList[originalIndex] = projectData;
     } else {
       projectData.status = 'Tayang'; // default
       newList.push(projectData);
     }
-    
+
     setProjectList(newList);
     closeForm();
   };
@@ -198,11 +198,11 @@ export default function AdminProjects() {
               <h2 className="text-[16px] font-bold text-[#2C2520] border-b border-[#F0EAE1] pb-3 mb-2 flex items-center gap-2"><Code2 className="w-4 h-4" /> Code Snippet (Opsional)</h2>
               <div>
                 <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Nama File</label>
-                <input type="text" value={editingProject.codeSnippet?.filename || ''} onChange={(e) => handleFieldChange('codeSnippet', {...editingProject.codeSnippet, filename: e.target.value})} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" placeholder="contoh: kprobe.c" />
+                <input type="text" value={editingProject.codeSnippet?.filename || ''} onChange={(e) => handleFieldChange('codeSnippet', { ...editingProject.codeSnippet, filename: e.target.value })} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" placeholder="contoh: kprobe.c" />
               </div>
               <div>
                 <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Kode Sumber</label>
-                <textarea rows="5" value={editingProject.codeSnippet?.code || ''} onChange={(e) => handleFieldChange('codeSnippet', {...editingProject.codeSnippet, code: e.target.value})} className="w-full px-3 py-2 bg-[#233143] border border-[#39485A] rounded-lg text-[12px] font-mono text-[#A4C2E6] focus:outline-none focus:border-[#C88238] resize-none" placeholder="Tulis kode di sini..."></textarea>
+                <textarea rows="5" value={editingProject.codeSnippet?.code || ''} onChange={(e) => handleFieldChange('codeSnippet', { ...editingProject.codeSnippet, code: e.target.value })} className="w-full px-3 py-2 bg-[#233143] border border-[#39485A] rounded-lg text-[12px] font-mono text-[#A4C2E6] focus:outline-none focus:border-[#C88238] resize-none" placeholder="Tulis kode di sini..."></textarea>
               </div>
             </div>
           </div>
@@ -298,7 +298,7 @@ export default function AdminProjects() {
       {/* Live Preview */}
       <LivePreviewWrapper title="Preview Node Proyek">
         {({ onOpenModal }) => (
-          <div className="flex flex-wrap gap-8 items-start justify-center w-full">
+          <div className="disable-preview-hover flex flex-wrap gap-8 items-start justify-center w-full">
             {projectList.filter(p => p.status === 'Tayang').map((proj, idx) => (
               <div key={proj.id} className="max-w-sm w-full shrink-0">
                 <ProjectCard project={proj} index={idx} onOpenModal={onOpenModal} />
@@ -366,23 +366,19 @@ export default function AdminProjects() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-center">
-                    <button 
+                    <button
                       onClick={() => toggleStatus(idx)}
-                      className={`relative inline-flex items-center w-[90px] h-8 rounded-full border transition-all overflow-hidden ${
-                        proj.status === 'Tayang' 
-                          ? 'bg-[#EBF5EE] border-[#A7D7B5]' 
-                          : 'bg-[#FAF4EE] border-[#E8DFD5]'
-                      }`}
+                      className={`relative inline-flex items-center w-[90px] h-8 rounded-full border transition-all overflow-hidden ${proj.status === 'Tayang'
+                        ? 'bg-[#EBF5EE] border-[#A7D7B5]'
+                        : 'bg-[#FAF4EE] border-[#E8DFD5]'
+                        }`}
                     >
-                      <span className={`absolute left-2 text-[10px] font-bold uppercase tracking-wider transition-opacity ${
-                        proj.status === 'Tayang' ? 'opacity-100 text-[#227236]' : 'opacity-0'
-                      }`}>Tayang</span>
-                      <span className={`absolute right-3 text-[10px] font-bold uppercase tracking-wider transition-opacity ${
-                        proj.status === 'Draft' ? 'opacity-100 text-[#837466]' : 'opacity-0'
-                      }`}>Draft</span>
-                      <div className={`absolute top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-6 rounded-full shadow-sm transition-all duration-300 ${
-                        proj.status === 'Tayang' ? 'left-[62px] bg-[#227236] text-white' : 'left-1 bg-[#685E55] text-white'
-                      }`}>
+                      <span className={`absolute left-2 text-[10px] font-bold uppercase tracking-wider transition-opacity ${proj.status === 'Tayang' ? 'opacity-100 text-[#227236]' : 'opacity-0'
+                        }`}>Tayang</span>
+                      <span className={`absolute right-3 text-[10px] font-bold uppercase tracking-wider transition-opacity ${proj.status === 'Draft' ? 'opacity-100 text-[#837466]' : 'opacity-0'
+                        }`}>Draft</span>
+                      <div className={`absolute top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-6 rounded-full shadow-sm transition-all duration-300 ${proj.status === 'Tayang' ? 'left-[62px] bg-[#227236] text-white' : 'left-1 bg-[#685E55] text-white'
+                        }`}>
                         {proj.status === 'Tayang' ? <CheckCircle2 className="w-3.5 h-3.5" /> : <XCircle className="w-3.5 h-3.5" />}
                       </div>
                     </button>

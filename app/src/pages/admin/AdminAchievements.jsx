@@ -36,16 +36,7 @@ export default function AdminAchievements() {
         </button>
       </div>
 
-      {/* Live Preview */}
-      <LivePreviewWrapper title="Preview Node Sertifikasi & Prestasi">
-        {({ onOpenModal }) => (
-          <div className="max-w-lg w-full">
-            <AchievementsSection id="node-achievements-preview" onOpenModal={onOpenModal} />
-          </div>
-        )}
-      </LivePreviewWrapper>
-
-            {/* Modal Header Configuration */}
+      {/* Modal Header Configuration */}
       <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm mb-2">
         <h2 className="text-[16px] font-bold text-[#2C2520] mb-4">Header Modal (Tampil saat node diklik)</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -53,6 +44,17 @@ export default function AdminAchievements() {
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Referensi (Ref)</label>
             <input type="text" defaultValue={achievementsModal.ref} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
           </div>
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Sertifikasi & Prestasi">
+        {({ onOpenModal }) => (
+          <div className="disable-preview-hover flex justify-center w-full">
+            <div className="max-w-lg w-full">
+              <AchievementsSection id="node-achievements-preview" onOpenModal={onOpenModal} />
+            </div>
+          </div>
+        )}
+      </LivePreviewWrapper>
+
           <div>
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Kategori / Tag</label>
             <input type="text" defaultValue={achievementsModal.tag} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
@@ -75,15 +77,15 @@ export default function AdminAchievements() {
               <button className="px-3 py-1.5 bg-[#FAF4EE] text-[#2C2520] text-[12px] font-bold rounded border border-[#E8DFD5] hover:bg-[#F2EAE1]">Simpan</button>
               <button onClick={() => removeAchievement(index)} className="p-1.5 bg-[#FFF0F0] text-[#D32F2F] rounded border border-[#FFCDD2] hover:bg-[#FFEBEE]"><Trash2 className="w-4 h-4" /></button>
             </div>
-            
+
             <div className="w-full md:w-1/3 space-y-4">
               <div>
                 <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Judul Prestasi / Sertifikasi</label>
-                <input type="text" value={item.title} onChange={(e) => updateAchievement(index, {...item, title: e.target.value})} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[14px] font-bold text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+                <input type="text" value={item.title} onChange={(e) => updateAchievement(index, { ...item, title: e.target.value })} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[14px] font-bold text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
               </div>
               <div>
                 <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Kategori Tipe</label>
-                <select value={item.type} onChange={(e) => updateAchievement(index, {...item, type: e.target.value})} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]">
+                <select value={item.type} onChange={(e) => updateAchievement(index, { ...item, type: e.target.value })} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]">
                   <option value="competition">Kompetisi (Competition)</option>
                   <option value="certification">Sertifikasi Profesional</option>
                   <option value="recognition">Penghargaan Publik (Recognition)</option>
@@ -92,11 +94,11 @@ export default function AdminAchievements() {
               <div className="flex gap-4">
                 <div className="w-1/2">
                   <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Tahun</label>
-                  <input type="text" value={item.year} onChange={(e) => updateAchievement(index, {...item, year: e.target.value})} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+                  <input type="text" value={item.year} onChange={(e) => updateAchievement(index, { ...item, year: e.target.value })} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
                 </div>
                 <div className="w-1/2">
                   <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Penyelenggara</label>
-                  <input type="text" value={item.organization} onChange={(e) => updateAchievement(index, {...item, organization: e.target.value})} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+                  <input type="text" value={item.organization} onChange={(e) => updateAchievement(index, { ...item, organization: e.target.value })} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
                 </div>
               </div>
             </div>
@@ -112,16 +114,16 @@ export default function AdminAchievements() {
                       <Award className="w-5 h-5 text-[#837466]" />
                     </div>
                   )}
-                  <input 
-                    type="text" 
-                    value={item.image?.startsWith('data:image') ? 'Base64 Encoded Image Data...' : (item.image || '')} 
-                    onChange={(e) => updateAchievement(index, {...item, image: e.target.value})}
+                  <input
+                    type="text"
+                    value={item.image?.startsWith('data:image') ? 'Base64 Encoded Image Data...' : (item.image || '')}
+                    onChange={(e) => updateAchievement(index, { ...item, image: e.target.value })}
                     disabled={item.image?.startsWith('data:image')}
-                    className={`w-full bg-transparent text-[13px] focus:outline-none ${item.image?.startsWith('data:image') ? 'text-[#837466] italic' : 'text-[#2C2520]'}`} 
+                    className={`w-full bg-transparent text-[13px] focus:outline-none ${item.image?.startsWith('data:image') ? 'text-[#837466] italic' : 'text-[#2C2520]'}`}
                     placeholder="Masukkan URL Foto (https://...)"
                   />
                   {item.image && (
-                    <button onClick={() => updateAchievement(index, {...item, image: ''})} className="p-1.5 rounded text-[#D32F2F] hover:bg-[#FFF0F0] shrink-0">
+                    <button onClick={() => updateAchievement(index, { ...item, image: '' })} className="p-1.5 rounded text-[#D32F2F] hover:bg-[#FFF0F0] shrink-0">
                       <Trash2 className="w-4 h-4" />
                     </button>
                   )}
@@ -134,7 +136,7 @@ export default function AdminAchievements() {
                       if (file) {
                         const reader = new FileReader();
                         reader.onloadend = () => {
-                          updateAchievement(index, {...item, image: reader.result});
+                          updateAchievement(index, { ...item, image: reader.result });
                         };
                         reader.readAsDataURL(file);
                       }

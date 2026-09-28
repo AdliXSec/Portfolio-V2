@@ -60,7 +60,7 @@ export default function AdminProfile() {
         </button>
       </div>
 
-            {/* Modal Header Configuration */}
+      {/* Modal Header Configuration */}
       <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm mb-2">
         <h2 className="text-[16px] font-bold text-[#2C2520] mb-4">Header Modal (Tampil saat node diklik)</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -68,6 +68,20 @@ export default function AdminProfile() {
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Referensi (Ref)</label>
             <input type="text" defaultValue={modalRef} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
           </div>
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Profil & Filosofi">
+        {({ onOpenModal }) => (
+          <div className="disable-preview-hover flex flex-wrap gap-8 items-start justify-center w-full">
+            <div className="max-w-md w-full shrink-0">
+              <HeroSection id="node-hero-preview" onOpenModal={onOpenModal} onDownloadCV={() => {}} />
+            </div>
+            <div className="max-w-sm w-full shrink-0">
+              <PhilosophyMemo id="node-philosophy-preview" onOpenModal={onOpenModal} />
+            </div>
+          </div>
+        )}
+      </LivePreviewWrapper>
+
           <div>
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Kategori / Tag</label>
             <input type="text" defaultValue={modalTag} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
@@ -83,20 +97,6 @@ export default function AdminProfile() {
         </div>
       </div>
 
-      {/* Live Preview */}
-      <LivePreviewWrapper title="Preview Node Profil & Filosofi">
-        {({ onOpenModal }) => (
-          <>
-            <div className="max-w-md w-full shrink-0">
-              <HeroSection id="node-hero-preview" onOpenModal={onOpenModal} onDownloadCV={() => {}} />
-            </div>
-            <div className="max-w-sm w-full shrink-0">
-              <PhilosophyMemo id="node-philosophy-preview" onOpenModal={onOpenModal} />
-            </div>
-          </>
-        )}
-      </LivePreviewWrapper>
-
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Column - Image, Basic Info, Socials */}
         <div className="lg:col-span-1 flex flex-col gap-6">
@@ -107,7 +107,7 @@ export default function AdminProfile() {
             <button className="px-4 py-2 rounded-lg bg-[#FAF4EE] border border-[#E8DFD5] text-[#2C2520] text-[12px] font-bold hover:bg-[#F2EAE1] transition-colors w-full mb-6">
               Ubah Foto Profil
             </button>
-            
+
             <div className="w-full space-y-4">
               <div>
                 <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Nama Lengkap</label>
@@ -147,7 +147,7 @@ export default function AdminProfile() {
                 <Globe className="w-4 h-4 text-[#C88238]" /> Media Sosial & Tautan
               </h2>
             </div>
-            
+
             <div className="space-y-4">
               {socials.map((social, index) => (
                 <div key={index} className="p-3 bg-[#FAF7F2] rounded-lg border border-[#E8DFD5] relative group">
@@ -210,7 +210,7 @@ export default function AdminProfile() {
                 Peran & Headline Utama
               </h2>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-[12px] font-bold text-[#2C2520] mb-1.5">Jabatan Utama (Title)</label>
@@ -239,7 +239,7 @@ export default function AdminProfile() {
                   <textarea rows="2" defaultValue={profile.philosophyShortBody} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238] resize-none"></textarea>
                 </div>
               </div>
-              
+
               {/* Philosophy Instruments (Dynamic) */}
               <div className="mt-4">
                 <label className="block text-[12px] font-bold text-[#2C2520] mb-2">Instrumen & Tools (Pillars di Memo)</label>
@@ -265,7 +265,7 @@ export default function AdminProfile() {
               <div className="space-y-3">
                 {extendedPhilosophy.map((p, i) => (
                   <div key={i} className="relative group">
-                    <label className="block text-[11px] font-bold text-[#865305] uppercase mb-1">Paragraf Filosofi {i+1}</label>
+                    <label className="block text-[11px] font-bold text-[#865305] uppercase mb-1">Paragraf Filosofi {i + 1}</label>
                     <textarea rows="3" defaultValue={p} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238] resize-none pr-10"></textarea>
                     <button onClick={() => removeExtendedPhilosophy(i)} className="absolute right-2 top-6 p-1.5 text-[#D32F2F] hover:bg-[#FFF0F0] rounded opacity-0 group-hover:opacity-100 transition-opacity">
                       <Trash2 className="w-4 h-4" />

@@ -34,7 +34,6 @@ export default function AdminContact() {
         </button>
       </div>
 
-      
       {/* Modal Header Configuration */}
       <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm mb-2">
         <h2 className="text-[16px] font-bold text-[#2C2520] mb-4">Header Modal (Tampil saat node diklik)</h2>
@@ -43,6 +42,17 @@ export default function AdminContact() {
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Referensi (Ref)</label>
             <input type="text" defaultValue={initialContactData.modalRef} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
           </div>
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Kontak & Layanan">
+        {({ onOpenModal }) => (
+          <div className="disable-preview-hover flex justify-center w-full">
+            <div className="w-full max-w-4xl">
+              <ContactSection onOpenModal={onOpenModal} />
+            </div>
+          </div>
+        )}
+      </LivePreviewWrapper>
+
           <div>
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Kategori / Tag</label>
             <input type="text" defaultValue={initialContactData.modalTag} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
@@ -58,15 +68,6 @@ export default function AdminContact() {
         </div>
       </div>
 
-      {/* Live Preview */}
-      <LivePreviewWrapper title="Preview Node Kontak & Layanan">
-        {({ onOpenModal }) => (
-          <div className="w-full max-w-4xl">
-            <ContactSection onOpenModal={onOpenModal} />
-          </div>
-        )}
-      </LivePreviewWrapper>
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
         {/* Contact Node (Card) Info */}
         <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm space-y-4">
@@ -76,7 +77,7 @@ export default function AdminContact() {
               Kartu Kontak (Bagian Bawah Web)
             </h2>
           </div>
-          
+
           <div>
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Label Kategori (Overline)</label>
             <input type="text" defaultValue={initialContactData.cardOverline} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
@@ -103,7 +104,7 @@ export default function AdminContact() {
               Detail Penawaran Layanan (Modal Dispatch)
             </h2>
           </div>
-          
+
           <div>
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Pengantar Layanan (Description)</label>
             <textarea rows="3" defaultValue={initialContactData.modalDescription} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238] resize-none"></textarea>
@@ -114,9 +115,9 @@ export default function AdminContact() {
               {services.map((service, i) => (
                 <div key={i} className="relative group">
                   <div className="flex items-center w-full bg-[#FAF7F2] border border-[#E8DFD5] rounded-full pl-4 pr-1 py-1">
-                    <input 
-                      type="text" 
-                      value={service} 
+                    <input
+                      type="text"
+                      value={service}
                       onChange={(e) => updateService(i, e.target.value)}
                       className="w-full bg-transparent text-[12px] font-bold text-[#2C2520] focus:outline-none"
                       placeholder="Nama layanan (contoh: Red Teaming)"

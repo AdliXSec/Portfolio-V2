@@ -210,3 +210,20 @@
   --font-jakarta: 'Plus Jakarta Sans', sans-serif;
 
 }
+
+
+/* Admin Live Preview Specific Overrides */
+.disable-preview-hover .evidence-card {
+  transition: none !important;
+}
+
+.disable-preview-hover .evidence-card:hover {
+  z-index: auto !important;
+}
+
+/* Force Tailwind variables to ignore hover states inside the preview */
+.disable-preview-hover *:hover {
+  --tw-translate-y: 0 !important;
+  --tw-scale-x: 1 !important;
+  --tw-scale-y: 1 !important;
+}
