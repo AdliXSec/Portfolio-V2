@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-tint": "#865305",
+            "surface-container-highest": "#ECE0D8",
+            "error": "#BA1A1A",
+            "surface-dim": "#E4D8D0",
+            "primary": "#865305",
+            "primary-container": "#C88238",
+            "primary-hover": "#B86F28",
+            "surface-variant": "#F2EAE1",
+            "secondary-container": "#ECDDD0",
+            "surface-container-high": "#F2E6DE",
+            "surface-container": "#F8ECE3",
+            "on-background": "#2C2520",
+            "outline": "#837466",
+            "outline-light": "#E8DFD5",
+            "surface-container-low": "#FAF4EE",
+            "on-surface-variant": "#685E55",
+            "background": "#FAF7F2",
+            "surface": "#FAF7F2",
+            "surface-container-lowest": "#FFFFFF",
+            "on-surface": "#2C2520",
+            "surface-bright": "#FFFBF8",
+            "tertiary": "#904D00",
+            "warm-amber": "#C88238",
+            "warm-amber-dark": "#B86F28",
+            "warm-amber-soft": "#FBF2E7",
+            "warm-green": "#2E7D32",
+            "warm-green-soft": "#EDF7ED",
+            "warm-badge": "#F5ECE1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem"
+          },
+          fontFamily: {
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#FAF7F2] font-body-md text-body-md text-[#2C2520] antialiased">
+<!-- Left Sidebar -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-[#FFFFFF] border-r border-[#E8DFD5] z-50 flex flex-col justify-between">
+<div class="flex flex-col">
+<!-- Logo / Brand -->
+<div class="h-16 px-space-lg flex items-center gap-space-sm border-b border-[#F0EAE1]">
+<div class="w-8 h-8 rounded-lg bg-[#C88238] flex items-center justify-center text-white shadow-sm">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+</div>
+<span class="font-headline-sm font-bold text-[18px] text-[#2C2520] tracking-tight">KreatorHub</span>
+</div>
+<!-- Navigation Menu -->
+<nav class="px-space-md py-space-md flex flex-col gap-1.5">
+<a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg bg-[#FAF4EE] text-[#C88238] font-label-lg font-semibold transition-colors" data-path="dashboard" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-[#685E55] font-label-lg hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-colors" data-path="proyek-portofolio" href="#">
+<span class="material-symbols-outlined text-[20px]">folder_open</span>
+<span>Proyek &amp; Portofolio</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-[#685E55] font-label-lg hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-colors" data-path="pesan-masuk" href="#">
+<span class="material-symbols-outlined text-[20px]">chat_bubble_outline</span>
+<span>Pesan Masuk</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-[#685E55] font-label-lg hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-colors" data-path="pengaturan" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span>Pengaturan</span>
+</a>
+</nav>
+</div>
+<!-- Help Box in Sidebar -->
+<div class="p-space-md m-space-md rounded-xl bg-[#FAF4EE] border border-[#E8DFD5] flex flex-col gap-1.5">
+<span class="text-[11px] font-bold text-[#865305] uppercase tracking-wider">Bantuan</span>
+<p class="text-[13px] text-[#685E55] leading-snug">Butuh panduan pengaturan situs?</p>
+<a class="inline-flex items-center gap-1 text-[#C88238] font-label-md font-semibold hover:underline mt-1" href="#">
+<span>Pusat Bantuan</span>
+<span class="material-symbols-outlined text-[15px]">north_east</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="pl-64">
+<!-- Top Header Bar -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E8DFD5] z-40 flex items-center justify-between px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs px-3 py-1.5 rounded-lg bg-[#FAF4EE] border border-[#E8DFD5] hover:bg-[#F2EAE1] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px] text-[#685E55]">language</span>
+<span class="text-[13px] font-semibold text-[#2C2520]">studiodigital.id</span>
+<span class="material-symbols-outlined text-[16px] text-[#685E55]">unfold_more</span>
+</div>
+<a class="inline-flex items-center gap-1 text-[13px] font-medium text-[#685E55] hover:text-[#2C2520] transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+<span>Lihat Website</span>
+</a>
+</div>
+<div class="flex items-center gap-space-md">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-colors relative border border-transparent hover:border-[#E8DFD5]" type="button">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#C88238]"></span>
+</button>
+<div class="flex items-center gap-space-sm pl-space-sm border-l border-[#E8DFD5]">
+<div class="text-right hidden sm:block">
+<div class="text-[13px] font-bold text-[#2C2520]">Rian Ardiansyah</div>
+<div class="text-[11px] text-[#685E55]">Administrator</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-[#F2EAE1] border border-[#E8DFD5] text-[#865305] flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="w-full pt-16 bg-[#FAF7F2] px-space-lg">
+<div class="flex flex-col w-full py-space-lg">
+<!-- Top Greeting & Action Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
+<div>
+<div class="flex items-center gap-space-xs">
+<h1 class="text-[28px] font-bold text-[#2C2520] tracking-tight">Halo, Kevin!</h1>
+<span class="text-[28px] select-none">👋</span>
+</div>
+<p class="text-[14px] text-[#685E55] mt-0.5">Berikut ringkasan performa portofolio Anda bulan ini.</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="inline-flex items-center justify-center gap-space-xs px-3.5 py-2 rounded-lg bg-[#FFFFFF] border border-[#E8DFD5] text-[#2C2520] text-[13px] font-medium hover:bg-[#FAF4EE] transition-all shadow-xs" type="button">
+<span class="material-symbols-outlined text-[17px] text-[#685E55]">calendar_today</span>
+<span>Maret 2025</span>
+</button>
+<button class="inline-flex items-center justify-center gap-space-xs px-4 py-2 rounded-lg bg-[#C88238] hover:bg-[#B86F28] text-white text-[13px] font-semibold shadow-sm hover:shadow active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[19px]">add</span>
+<span>Tambah Proyek Baru</span>
+</button>
+</div>
+</div>
+<!-- 4 Key Stat Metric Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-lg">
+<!-- Stat 1: Total Pengunjung -->
+<div class="bg-[#FFFFFF] border border-[#E8DFD5] rounded-xl p-5 shadow-xs flex flex-col justify-between hover:border-[#D6C3B3] transition-all">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[13px] text-[#685E55] font-medium">Total Pengunjung</span>
+<div class="w-9 h-9 rounded-lg bg-[#FAF4EE] text-[#C88238] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</div>
+</div>
+<div>
+<div class="text-[32px] font-bold text-[#2C2520] tracking-tight leading-none mb-2">12.450</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#EBF5EE] text-[#227236] text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+<span>+12% dari bulan lalu</span>
+</div>
+</div>
+</div>
+<!-- Stat 2: CV Diunduh -->
+<div class="bg-[#FFFFFF] border border-[#E8DFD5] rounded-xl p-5 shadow-xs flex flex-col justify-between hover:border-[#D6C3B3] transition-all">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[13px] text-[#685E55] font-medium">CV Diunduh</span>
+<div class="w-9 h-9 rounded-lg bg-[#FAF4EE] text-[#C88238] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</div>
+</div>
+<div>
+<div class="text-[32px] font-bold text-[#2C2520] tracking-tight leading-none mb-2">
+                340 <span class="text-[15px] font-normal text-[#685E55]">kali</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#EBF5EE] text-[#227236] text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+8% peningkatan</span>
+</div>
+</div>
+</div>
+<!-- Stat 3: Pesan Masuk -->
+<div class="bg-[#FFFFFF] border border-[#E8DFD5] rounded-xl p-5 shadow-xs flex flex-col justify-between hover:border-[#D6C3B3] transition-all">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[13px] text-[#685E55] font-medium">Pesan Masuk</span>
+<div class="w-9 h-9 rounded-lg bg-[#FAF4EE] text-[#C88238] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+</div>
+<div>
+<div class="text-[32px] font-bold text-[#2C2520] tracking-tight leading-none mb-2">
+                18 <span class="text-[15px] font-normal text-[#685E55]">pesan</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FDF2E7] text-[#9A5410] text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#C88238]"></span>
+<span>3 belum dibaca</span>
+</div>
+</div>
+</div>
+<!-- Stat 4: Proyek Aktif -->
+<div class="bg-[#FFFFFF] border border-[#E8DFD5] rounded-xl p-5 shadow-xs flex flex-col justify-between hover:border-[#D6C3B3] transition-all">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[13px] text-[#685E55] font-medium">Proyek Aktif</span>
+<div class="w-9 h-9 rounded-lg bg-[#FAF4EE] text-[#C88238] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">folder</span>
+</div>
+</div>
+<div>
+<div class="text-[32px] font-bold text-[#2C2520] tracking-tight leading-none mb-2">
+                8 <span class="text-[15px] font-normal text-[#685E55]">proyek</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FAF4EE] text-[#685E55] text-[11px] font-semibold border border-[#E8DFD5]">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span>2 draft tersimpan</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Section: 2 Columns (65% / 35%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column (8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Interactive Area Chart Card -->
+<div class="bg-[#FFFFFF] border border-[#E8DFD5] rounded-xl p-space-lg shadow-xs">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-6">
+<div>
+<h2 class="text-[18px] font-bold text-[#2C2520]">Grafik Pengunjung</h2>
+<p class="text-[13px] text-[#685E55] mt-0.5">Tren lalu lintas kunjungan situs Anda dalam 30 hari terakhir</p>
+</div>
+<!-- Time Range Toggle -->
+<div class="inline-flex p-1 bg-[#FAF4EE] rounded-lg border border-[#E8DFD5] self-start sm:self-auto">
+<button class="px-3 py-1 rounded-md text-[12px] text-[#685E55] hover:text-[#2C2520] transition-colors" type="button">7 Hari</button>
+<button class="px-3 py-1 rounded-md text-[12px] bg-[#FFFFFF] shadow-xs text-[#C88238] font-bold border border-[#E8DFD5]/60" type="button">30 Hari</button>
+<button class="px-3 py-1 rounded-md text-[12px] text-[#685E55] hover:text-[#2C2520] transition-colors" type="button">Tahun Ini</button>
+</div>
+</div>
+<!-- SVG Line/Area Chart with Warm Minimalist Styling -->
+<div class="relative w-full h-64 pt-4">
+<!-- Background Grid lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-40">
+<div class="w-full h-px bg-[#E8DFD5]"></div>
+<div class="w-full h-px bg-[#E8DFD5]"></div>
+<div class="w-full h-px bg-[#E8DFD5]"></div>
+<div class="w-full h-px bg-[#E8DFD5]"></div>
+</div>
+<!-- Responsive SVG Curve -->
+<svg class="w-full h-48 overflow-visible" preserveaspectratio="none" viewbox="0 0 600 180">
+<defs>
+<lineargradient id="warmChartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#C88238" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#FAF7F2" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Area Fill -->
+<path d="M 0,140 C 60,135 100,105 150,110 C 210,115 250,75 300,60 C 350,45 400,90 450,50 C 500,20 550,30 600,15 L 600,180 L 0,180 Z" fill="url(#warmChartGradient)"></path>
+<!-- Line Stroke -->
+<path d="M 0,140 C 60,135 100,105 150,110 C 210,115 250,75 300,60 C 350,45 400,90 450,50 C 500,20 550,30 600,15" fill="none" stroke="#C88238" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Highlight Point -->
+<circle class="transition-transform duration-200 hover:scale-125 cursor-pointer" cx="450" cy="50" fill="#C88238" r="5" stroke="#FFFFFF" stroke-width="2.5"></circle>
+</svg>
+<!-- Floating Tooltip Mockup -->
+<div class="absolute left-[72%] top-2 -translate-x-1/2 bg-[#2C2520] text-white px-3 py-1.5 rounded-lg shadow-md pointer-events-none flex flex-col items-center">
+<span class="text-[10px] text-[#FAF4EE]/70 font-medium">22 Maret 2025</span>
+<span class="text-[12px] font-bold text-white">580 Pengunjung</span>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex justify-between items-center text-[#685E55] text-[11px] font-medium pt-4">
+<span>1 Mar</span>
+<span>8 Mar</span>
+<span>15 Mar</span>
+<span>22 Mar</span>
+<span>29 Mar</span>
+</div>
+</div>
+</div>
+<!-- Most Viewed Projects Table Card -->
+<div class="bg-[#FFFFFF] border border-[#E8DFD5] rounded-xl p-space-lg shadow-xs">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<h2 class="text-[18px] font-bold text-[#2C2520]">Proyek Paling Sering Dilihat</h2>
+<p class="text-[13px] text-[#685E55] mt-0.5">Karya Anda yang paling banyak menarik atensi calon klien</p>
+</div>
+<a class="text-[13px] font-semibold text-[#C88238] hover:text-[#B86F28] hover:underline inline-flex items-center gap-1" href="#">
+<span>Semua Portofolio</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-[#685E55] text-[11px] font-bold uppercase tracking-wider border-b border-[#E8DFD5]">
+<th class="pb-3">PROYEK</th>
+<th class="pb-3 text-center">KATEGORI</th>
+<th class="pb-3 text-right">DILIHAT</th>
+<th class="pb-3 text-right">AKSI</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#F2EAE1]">
+<!-- Item 1 -->
+<tr class="hover:bg-[#FAF4EE]/60 transition-colors">
+<td class="py-3.5">
+<div class="flex items-center gap-space-sm">
+<img class="w-12 h-12 rounded-lg object-cover bg-[#FAF4EE] border border-[#E8DFD5]" data-alt="A clean, minimalist UI design mockup of a SaaS dashboard displayed on a high-resolution laptop screen with gentle natural side lighting and soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCGmScXtWsPKYLgaObbhwM5krAuA_pqwQA9PSdVtShgJPEMR6qKR0cX1feZKR-htjwJ_cb6OTVCtzu51fFgb13_0FfTYx90li3hc22IfQBCdMIcLTj88cV3pCRZTMBd2cUePE1o4p1nxHnOCxuUTkZeoEf5rHmkc68kq9Fotf2-4f1I4or34oaNOvjT5KWlDgLtic8Qdf0cXfhBWwE12SVO7RZNtpzmWZwxSz_pERtWtMUqZSy4_gP"/>
+<div>
+<div class="text-[14px] text-[#2C2520] font-semibold">Redesign Finansial App</div>
+<div class="text-[12px] text-[#685E55]">Mobile banking &amp; web dashboard</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 text-center">
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-[#FAF4EE] border border-[#E8DFD5] text-[11px] font-medium text-[#685E55]">UI/UX Design</span>
+</td>
+<td class="py-3.5 text-right">
+<span class="text-[14px] font-bold text-[#2C2520]">4.820</span>
+<span class="text-[11px] text-[#685E55] block">kali</span>
+</td>
+<td class="py-3.5 text-right">
+<button class="px-3 py-1.5 rounded-lg bg-[#FAF4EE] hover:bg-[#F2EAE1] text-[#2C2520] border border-[#E8DFD5] text-[12px] font-medium transition-colors" type="button">
+                          Edit Proyek
+                        </button>
+</td>
+</tr>
+<!-- Item 2 -->
+<tr class="hover:bg-[#FAF4EE]/60 transition-colors">
+<td class="py-3.5">
+<div class="flex items-center gap-space-sm">
+<img class="w-12 h-12 rounded-lg object-cover bg-[#FAF4EE] border border-[#E8DFD5]" data-alt="A sophisticated luxury brand identity mockup featuring textured business cards, sleek typography, and warm earthy minimalist studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVsDbGiEKxFhnBPKu1ZkRZc7x0Fupph_AkYl1D3iSWDbkS7FHp83O3eias2Pxk33ZSb9XYw0Jr6alefeOJ7FXYGrtZNYRW3BQ37oDKDyzwjcnBMB322xBBhGbYUdDj5T5KjwFV16Yt_KxaSMDPiBpLxZp7x6ecaK87cTjVbRRpId5RDy26Ixu8cML3Kykc4Hb2HhDwOlXdHhKZrwH8FHPgpfnRRNABzT3OPzOusH-yFYOHwFkhq9qH"/>
+<div>
+<div class="text-[14px] text-[#2C2520] font-semibold">Branding Studio Kopi Senja</div>
+<div class="text-[12px] text-[#685E55]">Identitas visual, logo, &amp; packaging</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 text-center">
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-[#FAF4EE] border border-[#E8DFD5] text-[11px] font-medium text-[#685E55]">Branding</span>
+</td>
+<td class="py-3.5 text-right">
+<span class="text-[14px] font-bold text-[#2C2520]">3.210</span>
+<span class="text-[11px] text-[#685E55] block">kali</span>
+</td>
+<td class="py-3.5 text-right">
+<button class="px-3 py-1.5 rounded-lg bg-[#FAF4EE] hover:bg-[#F2EAE1] text-[#2C2520] border border-[#E8DFD5] text-[12px] font-medium transition-colors" type="button">
+                          Edit Proyek
+                        </button>
+</td>
+</tr>
+<!-- Item 3 -->
+<tr class="hover:bg-[#FAF4EE]/60 transition-colors">
+<td class="py-3.5">
+<div class="flex items-center gap-space-sm">
+<img class="w-12 h-12 rounded-lg object-cover bg-[#FAF4EE] border border-[#E8DFD5]" data-alt="An isometric 3D architectural render of a modern minimalist eco-friendly interior with plants, sleek concrete, and soft afternoon sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHgP0G_Tx46vHGiP33XEtfTmLHuoMC558qouF89O-l_F2D_tByhd9bqnz_IY4ToRDM2n0HPNYHBhYJA5lVV0MFb3Olh-UkNXoUcqzP0zBttucjtP-K2j1Hlz5hJjgwS57LkzCZN8Cq_rFwO8ecQFO9AFJuYqvFx0emMMB879dSTYdF3qVJzE_oV2dyMN_W4IyM6f3_YVqCM1ExQnxgXr4AP71nCM9kVVPMhfniy4r6QFq4e6ktGuSE"/>
+<div>
+<div class="text-[14px] text-[#2C2520] font-semibold">3D Ilustrasi Eco Living</div>
+<div class="text-[12px] text-[#685E55]">Aset promosi komersial digital</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 text-center">
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-[#FAF4EE] border border-[#E8DFD5] text-[11px] font-medium text-[#685E55]">3D &amp; Motion</span>
+</td>
+<td class="py-3.5 text-right">
+<span class="text-[14px] font-bold text-[#2C2520]">2.140</span>
+<span class="text-[11px] text-[#685E55] block">kali</span>
+</td>
+<td class="py-3.5 text-right">
+<button class="px-3 py-1.5 rounded-lg bg-[#FAF4EE] hover:bg-[#F2EAE1] text-[#2C2520] border border-[#E8DFD5] text-[12px] font-medium transition-colors" type="button">
+                          Edit Proyek
+                        </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right Column (4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Recent Inquiries Card -->
+<div class="bg-[#FFFFFF] border border-[#E8DFD5] rounded-xl p-space-lg shadow-xs">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<h2 class="text-[18px] font-bold text-[#2C2520]">Pesan Masuk Terbaru</h2>
+<p class="text-[13px] text-[#685E55]">Dari calon klien via formulir kontak</p>
+</div>
+<span class="w-2.5 h-2.5 rounded-full bg-[#C88238]"></span>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Message 1 (Unread) -->
+<div class="p-3.5 rounded-lg bg-[#FAF4EE] border border-[#E8DFD5]/70 hover:border-[#D6C3B3] transition-colors">
+<div class="flex items-start justify-between gap-space-xs mb-1">
+<div>
+<span class="text-[13px] text-[#2C2520] font-bold">Dimas Pratama</span>
+<span class="text-[11px] text-[#685E55] block">PT Kreasi Nusantara</span>
+</div>
+<span class="text-[11px] text-[#C88238] font-semibold">2 jam lalu</span>
+</div>
+<p class="text-[13px] text-[#2C2520] line-clamp-2 mb-2 leading-relaxed">
+                    "Halo Kevin, kami tertarik dengan portofolio Finansial App Anda. Apakah ada waktu luang untuk eksplorasi proyek kami minggu depan?"
+                  </p>
+<div class="flex justify-end">
+<button class="inline-flex items-center gap-1 text-[12px] text-[#C88238] font-bold hover:underline" type="button">
+<span>Balas Pesan</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Message 2 (Unread) -->
+<div class="p-3.5 rounded-lg bg-[#FAF4EE] border border-[#E8DFD5]/70 hover:border-[#D6C3B3] transition-colors">
+<div class="flex items-start justify-between gap-space-xs mb-1">
+<div>
+<span class="text-[13px] text-[#2C2520] font-bold">Sarah Amalia</span>
+<span class="text-[11px] text-[#685E55] block">sarah.design@gmail.com</span>
+</div>
+<span class="text-[11px] text-[#685E55]">5 jam lalu</span>
+</div>
+<p class="text-[13px] text-[#2C2520] line-clamp-2 mb-2 leading-relaxed">
+                    "Selamat sore! Saya ingin menanyakan rate card untuk pembuatan identitas visual brand fashion baru kami."
+                  </p>
+<div class="flex justify-end">
+<button class="inline-flex items-center gap-1 text-[12px] text-[#C88238] font-bold hover:underline" type="button">
+<span>Balas Pesan</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Message 3 -->
+<div class="p-3.5 rounded-lg border border-transparent hover:bg-[#FAF4EE]/70 transition-colors">
+<div class="flex items-start justify-between gap-space-xs mb-1">
+<div>
+<span class="text-[13px] text-[#2C2520] font-bold">Budi Santoso</span>
+<span class="text-[11px] text-[#685E55] block">budi@techin.id</span>
+</div>
+<span class="text-[11px] text-[#685E55]">Kemarin</span>
+</div>
+<p class="text-[13px] text-[#685E55] line-clamp-2 mb-2 leading-relaxed">
+                    "Terima kasih atas respons cepatnya Mas Kevin. Proposal kerjasama sudah kami terima dan sedang ditinjau tim internal."
+                  </p>
+<div class="flex justify-end">
+<button class="inline-flex items-center gap-1 text-[12px] text-[#685E55] hover:text-[#2C2520] transition-colors" type="button">
+<span>Lihat Detail</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<button class="w-full mt-4 py-2 rounded-lg bg-[#FAF4EE] border border-[#E8DFD5] text-[#2C2520] text-[13px] font-semibold hover:bg-[#F2EAE1] transition-colors text-center" type="button">
+                Buka Kotak Masuk (18)
+              </button>
+</div>
+<!-- Quick Helpful Tip Banner -->
+<div class="bg-gradient-to-br from-[#FAF4EE] to-[#F2EAE1] border border-[#E8DFD5] rounded-xl p-space-lg shadow-xs relative overflow-hidden">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-[#C88238] text-white flex items-center justify-center shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+</div>
+<div>
+<span class="text-[11px] font-bold text-[#865305] uppercase tracking-wider">Tips Cepat Admin</span>
+<p class="text-[13px] text-[#2C2520] mt-1 leading-relaxed">
+                    Proyek dengan <strong class="text-[#2C2520]">gambar preview berkualitas tinggi</strong> terbukti mendapatkan <span class="text-[#C88238] font-bold">40% lebih banyak klik</span> dari calon klien.
+                  </p>
+<a class="inline-flex items-center gap-1 text-[#C88238] hover:text-[#B86F28] text-[12px] font-bold mt-2.5 hover:underline" href="#">
+<span>Perbarui Galeri</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

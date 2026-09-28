@@ -60,20 +60,12 @@ export default function AdminProfile() {
         </button>
       </div>
 
-      {/* Modal Header Configuration */}
-      <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm mb-2">
-        <h2 className="text-[16px] font-bold text-[#2C2520] mb-4">Header Modal (Tampil saat node diklik)</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Referensi (Ref)</label>
-            <input type="text" defaultValue={modalRef} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
-          </div>
       {/* Live Preview */}
       <LivePreviewWrapper title="Preview Node Profil & Filosofi">
         {({ onOpenModal }) => (
           <div className="disable-preview-hover flex flex-wrap gap-8 items-start justify-center w-full">
             <div className="max-w-md w-full shrink-0">
-              <HeroSection id="node-hero-preview" onOpenModal={onOpenModal} onDownloadCV={() => {}} />
+              <HeroSection id="node-hero-preview" onOpenModal={onOpenModal} onDownloadCV={() => { }} />
             </div>
             <div className="max-w-sm w-full shrink-0">
               <PhilosophyMemo id="node-philosophy-preview" onOpenModal={onOpenModal} />
@@ -82,6 +74,14 @@ export default function AdminProfile() {
         )}
       </LivePreviewWrapper>
 
+      {/* Modal Header Configuration */}
+      <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm mb-2">
+        <h2 className="text-[16px] font-bold text-[#2C2520] mb-4">Header Modal (Tampil saat node diklik)</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Referensi (Ref)</label>
+            <input type="text" defaultValue={modalRef} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
+          </div>
           <div>
             <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Kategori / Tag</label>
             <input type="text" defaultValue={modalTag} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
