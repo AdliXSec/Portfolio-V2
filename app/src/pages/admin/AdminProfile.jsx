@@ -83,6 +83,20 @@ export default function AdminProfile() {
         </div>
       </div>
 
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Profil & Filosofi">
+        {({ onOpenModal }) => (
+          <>
+            <div className="max-w-md w-full shrink-0">
+              <HeroSection id="node-hero-preview" onOpenModal={onOpenModal} onDownloadCV={() => {}} />
+            </div>
+            <div className="max-w-sm w-full shrink-0">
+              <PhilosophyMemo id="node-philosophy-preview" onOpenModal={onOpenModal} />
+            </div>
+          </>
+        )}
+      </LivePreviewWrapper>
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Column - Image, Basic Info, Socials */}
         <div className="lg:col-span-1 flex flex-col gap-6">
@@ -314,19 +328,6 @@ export default function AdminProfile() {
         </div>
       </div>
 
-      {/* Live Preview */}
-      <LivePreviewWrapper title="Preview Node Profil & Filosofi">
-        {({ onOpenModal }) => (
-          <>
-            <div className="max-w-md w-full shrink-0">
-              <HeroSection id="node-hero-preview" onOpenModal={onOpenModal} onDownloadCV={() => {}} />
-            </div>
-            <div className="max-w-sm w-full shrink-0">
-              <PhilosophyMemo id="node-philosophy-preview" onOpenModal={onOpenModal} />
-            </div>
-          </>
-        )}
-      </LivePreviewWrapper>
 
     </div>
   );

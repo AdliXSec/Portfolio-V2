@@ -58,6 +58,15 @@ function TechCategoryCard({ category, onRemove, onUpdate }) {
           </button>
         </div>
       </div>
+
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Tech Stack">
+        {({ onOpenModal }) => (
+          <div className="max-w-lg w-full">
+            <TechStackSectionPublic id="node-tech-preview" onOpenModal={onOpenModal} />
+          </div>
+        )}
+      </LivePreviewWrapper>
       
       <div className="mt-5 pt-4 border-t border-[#F0EAE1]">
         <label className="block text-[11px] font-bold text-[#865305] uppercase tracking-wider mb-1.5">Icon (Nama Icon Lucide)</label>
@@ -141,14 +150,6 @@ export default function AdminTechStack() {
         ))}
       </div>
 
-      {/* Live Preview */}
-      <LivePreviewWrapper title="Preview Node Tech Stack">
-        {({ onOpenModal }) => (
-          <div className="max-w-lg w-full">
-            <TechStackSectionPublic id="node-tech-preview" onOpenModal={onOpenModal} />
-          </div>
-        )}
-      </LivePreviewWrapper>
 
     </div>
   );

@@ -267,6 +267,7 @@ export default function AdminProjects() {
           </div>
         </div>
       </div>
+
     );
   }
 
@@ -293,6 +294,19 @@ export default function AdminProjects() {
           </button>
         </div>
       </div>
+
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Proyek">
+        {({ onOpenModal }) => (
+          <div className="flex flex-wrap gap-8 items-start justify-center w-full">
+            {projectList.filter(p => p.status === 'Tayang').map((proj, idx) => (
+              <div key={proj.id} className="max-w-sm w-full shrink-0">
+                <ProjectCard project={proj} index={idx} onOpenModal={onOpenModal} />
+              </div>
+            ))}
+          </div>
+        )}
+      </LivePreviewWrapper>
 
       {/* Filter & Utility Bar */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-[#E8DFD5] shadow-sm">
@@ -400,18 +414,6 @@ export default function AdminProjects() {
         </div>
       </div>
 
-      {/* Live Preview */}
-      <LivePreviewWrapper title="Preview Node Proyek">
-        {({ onOpenModal }) => (
-          <div className="flex flex-wrap gap-8 items-start justify-center w-full">
-            {projectList.filter(p => p.status === 'Tayang').slice(0, 2).map((proj, idx) => (
-              <div key={proj.id} className="max-w-sm w-full shrink-0">
-                <ProjectCard project={proj} index={idx} onOpenModal={onOpenModal} />
-              </div>
-            ))}
-          </div>
-        )}
-      </LivePreviewWrapper>
 
     </div>
   );

@@ -36,6 +36,15 @@ export default function AdminAchievements() {
         </button>
       </div>
 
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Sertifikasi & Prestasi">
+        {({ onOpenModal }) => (
+          <div className="max-w-lg w-full">
+            <AchievementsSection id="node-achievements-preview" onOpenModal={onOpenModal} />
+          </div>
+        )}
+      </LivePreviewWrapper>
+
             {/* Modal Header Configuration */}
       <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm mb-2">
         <h2 className="text-[16px] font-bold text-[#2C2520] mb-4">Header Modal (Tampil saat node diklik)</h2>
@@ -138,14 +147,6 @@ export default function AdminAchievements() {
         ))}
       </div>
 
-      {/* Live Preview */}
-      <LivePreviewWrapper title="Preview Node Sertifikasi & Prestasi">
-        {({ onOpenModal }) => (
-          <div className="max-w-lg w-full">
-            <AchievementsSection id="node-achievements-preview" onOpenModal={onOpenModal} />
-          </div>
-        )}
-      </LivePreviewWrapper>
 
     </div>
   );

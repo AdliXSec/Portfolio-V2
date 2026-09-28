@@ -58,6 +58,15 @@ export default function AdminContact() {
         </div>
       </div>
 
+      {/* Live Preview */}
+      <LivePreviewWrapper title="Preview Node Kontak & Layanan">
+        {({ onOpenModal }) => (
+          <div className="w-full max-w-4xl">
+            <ContactSection onOpenModal={onOpenModal} />
+          </div>
+        )}
+      </LivePreviewWrapper>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
         {/* Contact Node (Card) Info */}
         <div className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm space-y-4">
@@ -126,14 +135,6 @@ export default function AdminContact() {
         </div>
       </div>
 
-      {/* Live Preview */}
-      <LivePreviewWrapper title="Preview Node Kontak & Layanan">
-        {({ onOpenModal }) => (
-          <div className="w-full max-w-4xl">
-            <ContactSection onOpenModal={onOpenModal} />
-          </div>
-        )}
-      </LivePreviewWrapper>
 
     </div>
   );
