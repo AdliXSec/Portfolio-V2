@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Save, Loader2, CheckCircle2, Pin, LayoutDashboard, FolderOpen, MessageSquare, Settings, Globe, Bell, User, Briefcase, Code2, Award, Phone, Menu, X, Radio } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Save, Loader2, CheckCircle2, Pin, LayoutDashboard, FolderOpen, MessageSquare, Settings, Globe, Bell, User, Briefcase, Code2, Award, Phone, Menu, X, Radio } from 'lucide-react';
 
 export default function AdminLayout() {
   const location = useLocation();
   const path = location.pathname;
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
 
@@ -37,15 +38,15 @@ export default function AdminLayout() {
       )}
 
       {/* Left Sidebar */}
-      <aside className={`fixed left-0 top-0 h-full w-64 bg-[#FFFFFF] border-r border-[#E8DFD5] z-50 flex flex-col justify-between overflow-y-auto transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+      <aside className={`fixed left-0 top-0 h-full bg-[#FFFFFF] border-r border-[#E8DFD5] z-50 flex flex-col justify-between overflow-x-hidden overflow-y-auto transition-all duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0 w-64' : '-translate-x-full lg:translate-x-0'} ${isCollapsed ? 'lg:w-20' : 'lg:w-64'}`}>
         <div className="flex flex-col pb-6">
           {/* Logo / Brand */}
-          <div className="h-16 px-6 flex items-center justify-between border-b border-[#F0EAE1] sticky top-0 bg-white z-10">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#C88238] flex items-center justify-center text-white shadow-sm">
+          <div className={`h-16 flex items-center border-b border-[#F0EAE1] sticky top-0 bg-white z-10 transition-all duration-300 ${isCollapsed ? 'px-0 justify-center' : 'px-6 justify-between'}`}>
+            <div className="flex items-center gap-3 overflow-hidden">
+              <div className="w-8 h-8 rounded-lg bg-[#C88238] flex items-center justify-center text-white shadow-sm shrink-0">
                 <Pin className="w-4 h-4" />
               </div>
-              <span className="font-bold text-[18px] text-[#2C2520] tracking-tight">CMS - Adli</span>
+              <span className={`font-bold text-[18px] text-[#2C2520] tracking-tight whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>CMS - Adli</span>
             </div>
             <button className="lg:hidden text-[#685E55] hover:text-[#2C2520]" onClick={() => setIsSidebarOpen(false)}>
               <X className="w-5 h-5" />
@@ -54,89 +55,100 @@ export default function AdminLayout() {
 
           {/* Navigation Menu */}
           <nav className="px-4 py-4 flex flex-col gap-1.5">
-            <span className="px-4 text-[11px] font-bold text-[#837466] uppercase tracking-wider mb-1 mt-2">Utama</span>
+            <span className={`px-4 text-[11px] font-bold text-[#837466] uppercase tracking-wider mb-1 mt-2 whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Utama</span>
             <Link
               to="/admin/dashboard"
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/dashboard') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
+              className={`flex items-center gap-3 ${isCollapsed ? 'justify-center px-0' : ''} px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/dashboard') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
             >
               <LayoutDashboard className="w-5 h-5" />
-              <span>Dashboard</span>
+              <span className={`whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Dashboard</span>
             </Link>
 
-            <span className="px-4 text-[11px] font-bold text-[#837466] uppercase tracking-wider mb-1 mt-4">Manajemen Konten</span>
+            <span className={`px-4 text-[11px] font-bold text-[#837466] uppercase tracking-wider mb-1 mt-4 whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Manajemen Konten</span>
             <Link
               to="/admin/profile"
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/profile') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
+              className={`flex items-center gap-3 ${isCollapsed ? 'justify-center px-0' : ''} px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/profile') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
             >
               <User className="w-5 h-5" />
-              <span>Profil & Biodata</span>
+              <span className={`whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Profil & Biodata</span>
             </Link>
             <Link
               to="/admin/projects"
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/projects') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
+              className={`flex items-center gap-3 ${isCollapsed ? 'justify-center px-0' : ''} px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/projects') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
             >
               <FolderOpen className="w-5 h-5" />
-              <span>Proyek & Portofolio</span>
+              <span className={`whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Proyek & Portofolio</span>
             </Link>
             <Link
               to="/admin/experience"
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/experience') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
+              className={`flex items-center gap-3 ${isCollapsed ? 'justify-center px-0' : ''} px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/experience') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
             >
               <Briefcase className="w-5 h-5" />
-              <span>Pengalaman Kerja</span>
+              <span className={`whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Pengalaman Kerja</span>
             </Link>
             <Link
               to="/admin/techstack"
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/techstack') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
+              className={`flex items-center gap-3 ${isCollapsed ? 'justify-center px-0' : ''} px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/techstack') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
             >
               <Code2 className="w-5 h-5" />
-              <span>Tech Stack</span>
+              <span className={`whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Tech Stack</span>
             </Link>
             <Link
               to="/admin/achievements"
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/achievements') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
+              className={`flex items-center gap-3 ${isCollapsed ? 'justify-center px-0' : ''} px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/achievements') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
             >
               <Award className="w-5 h-5" />
-              <span>Sertifikasi & Prestasi</span>
+              <span className={`whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Sertifikasi & Prestasi</span>
             </Link>
             <Link
               to="/admin/contact"
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/contact') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
+              className={`flex items-center gap-3 ${isCollapsed ? 'justify-center px-0' : ''} px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/contact') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
             >
               <Phone className="w-5 h-5" />
-              <span>Kontak & Layanan</span>
+              <span className={`whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Kontak & Layanan</span>
             </Link>
 
-            <span className="px-4 text-[11px] font-bold text-[#837466] uppercase tracking-wider mb-1 mt-4">Komunikasi</span>
+            <span className={`px-4 text-[11px] font-bold text-[#837466] uppercase tracking-wider mb-1 mt-4 whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Komunikasi</span>
             <Link
               to="/admin/messages"
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/messages') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
+              className={`flex items-center gap-3 ${isCollapsed ? 'justify-center px-0' : ''} px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/messages') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
             >
               <MessageSquare className="w-5 h-5" />
-              <span>Pesan Masuk (Form)</span>
+              <span className={`whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Pesan Masuk (Form)</span>
             </Link>
             <Link
               to="/admin/livechat"
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/livechat') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
+              className={`flex items-center gap-3 ${isCollapsed ? 'justify-center px-0' : ''} px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/livechat') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
             >
               <Radio className="w-5 h-5" />
-              <span>Live Chat Terminal</span>
+              <span className={`whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Live Chat Terminal</span>
             </Link>
 
-            <span className="px-4 text-[11px] font-bold text-[#837466] uppercase tracking-wider mb-1 mt-4">Sistem</span>
+            <span className={`px-4 text-[11px] font-bold text-[#837466] uppercase tracking-wider mb-1 mt-4 whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Sistem</span>
             <Link
               to="/admin/settings"
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/settings') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
+              className={`flex items-center gap-3 ${isCollapsed ? 'justify-center px-0' : ''} px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-colors ${path.includes('/settings') ? 'bg-[#FAF4EE] text-[#C88238]' : 'text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520]'}`}
             >
               <Settings className="w-5 h-5" />
-              <span>Pengaturan</span>
+              <span className={`whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? 'opacity-0 hidden' : 'opacity-100 block'}`}>Pengaturan</span>
             </Link>
           </nav>
         </div>
+
+        {/* Collapse Toggle */}
+        <div className="p-4 border-t border-[#E8DFD5] hidden lg:flex justify-end">
+          <button 
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            className="w-10 h-10 rounded-lg flex items-center justify-center text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-colors"
+          >
+            {isCollapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
+          </button>
+        </div>
       </aside>
 
+
       {/* Main Content Wrapper */}
-      <div className="lg:pl-64 w-full flex flex-col min-h-screen">
+      <div className={`w-full flex flex-col min-h-screen transition-all duration-300 ease-in-out ${isCollapsed ? 'lg:pl-20' : 'lg:pl-64'}`}>
         {/* Top Header Bar */}
         <header className="sticky top-0 h-16 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E8DFD5] z-100 flex items-center justify-between px-4 sm:px-6 shrink-0">
           <div className="flex items-center gap-3">
