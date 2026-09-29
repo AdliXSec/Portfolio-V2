@@ -4,6 +4,7 @@
 -- ==============================================================================
 
 -- Bersihkan tabel lama jika ada
+DROP TABLE IF EXISTS site_settings;
 DROP TABLE IF EXISTS livechat;
 DROP TABLE IF EXISTS messages;
 DROP TABLE IF EXISTS projects;
@@ -176,6 +177,14 @@ CREATE TABLE livechat (
 );
 CREATE INDEX idx_livechat_time ON livechat (created_at DESC);
 
+
+-- Tabel 10: Site Settings (Konfigurasi Global Website)
+CREATE TABLE site_settings (
+    key          VARCHAR(100) PRIMARY KEY,
+    value        JSONB NOT NULL,
+    updated_at   TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- ==============================================================================
 -- 2. SEED DATA (DATA AWAL)
 -- ==============================================================================
@@ -261,3 +270,10 @@ INSERT INTO livechat (sender, role, message, created_at) VALUES
 ('System', 'admin', 'Connection established. P2P encryption active.', NOW() - INTERVAL '1 hour'),
 ('Naufal Syahruradli', 'admin', 'Halo! Terima kasih sudah menyempatkan waktu untuk mampir dan melihat isi "Case Archive" saya. Semoga Anda menemukan sesuatu yang menarik di sini. Mari terhubung dan berkolaborasi! 👋', NOW() - INTERVAL '55 minutes'),
 ('Guest_0x8F9', 'visitor', 'Halo, saya sangat tertarik dengan arsitektur eBPF yang Anda buat di Project Obsidian. Boleh diskusi lebih lanjut?', NOW() - INTERVAL '10 minutes');
+
+-- Data: Site Settings
+INSERT INTO site_settings (key, value) VALUES 
+('maintenance_mode', 'false'),
+('default_live_preview', 'true'),
+('site_title', '"Naufal Syahruradli | Portfolio"'),
+('meta_description', '"Security Researcher & Backend Developer Portfolio. Discover adversary emulation engagements and secure infrastructure design."');

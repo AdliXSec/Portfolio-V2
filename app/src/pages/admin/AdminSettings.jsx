@@ -1,6 +1,19 @@
+import { useState, useEffect } from 'react';
 import { Shield, Globe, Key, Lock, Save, Database, HardDrive, Cpu, AlertTriangle } from 'lucide-react';
 
 export default function AdminSettings() {
+  // Gunakan localStorage untuk simulasi konfigurasi sebelum ada DB
+  const [maintenanceMode, setMaintenanceMode] = useState(false);
+  const [defaultPreview, setDefaultPreview] = useState(() => {
+    return localStorage.getItem('default_live_preview') === 'false' ? false : true;
+  });
+
+  const handleTogglePreview = () => {
+    const newVal = !defaultPreview;
+    setDefaultPreview(newVal);
+    localStorage.setItem('default_live_preview', newVal.toString());
+  };
+
   return (
     <div className="py-2 sm:py-6 flex flex-col gap-6 max-w-[1440px] mx-auto w-full">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-4 sm:p-6 rounded-xl border border-[#E8DFD5] shadow-sm">
@@ -41,8 +54,19 @@ export default function AdminSettings() {
               <p className="text-[11px] text-[#685E55] mt-0.5">Website publik akan menampilkan halaman perbaikan.</p>
             </div>
             <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" name="toggle" id="toggle1" className="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#FAF4EE] appearance-none cursor-pointer transition-transform duration-200 ease-in-out z-10" />
-              <label htmlFor="toggle1" className="toggle-label block overflow-hidden h-5 rounded-full bg-[#E8DFD5] cursor-pointer"></label>
+              <input type="checkbox" id="toggle_maintenance" checked={maintenanceMode} onChange={() => setMaintenanceMode(!maintenanceMode)} className="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#FAF4EE] appearance-none cursor-pointer transition-transform duration-200 ease-in-out z-10" />
+              <label htmlFor="toggle_maintenance" className="toggle-label block overflow-hidden h-5 rounded-full bg-[#E8DFD5] cursor-pointer"></label>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between p-4 bg-[#FAF7F2] rounded-lg border border-[#E8DFD5]">
+            <div>
+              <h3 className="text-[13px] font-bold text-[#2C2520]">Tampilkan Live Preview (Default)</h3>
+              <p className="text-[11px] text-[#685E55] mt-0.5">Otomatis membuka jendela live preview di setiap halaman konten.</p>
+            </div>
+            <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+              <input type="checkbox" id="toggle_preview" checked={defaultPreview} onChange={handleTogglePreview} className="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#FAF4EE] appearance-none cursor-pointer transition-transform duration-200 ease-in-out z-10" />
+              <label htmlFor="toggle_preview" className="toggle-label block overflow-hidden h-5 rounded-full bg-[#E8DFD5] cursor-pointer"></label>
             </div>
           </div>
         </div>

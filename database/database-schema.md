@@ -1,7 +1,7 @@
 # ⚡ Skema Database PostgreSQL — High Performance Hybrid
 
 > **Prinsip:** 0-JOIN untuk read, JSONB untuk array kecil, tabel terpisah hanya untuk entity yang bertambah.
-> **Total: 9 Tabel** (bukan 19)
+> **Total: 10 Tabel** (bukan 19)
 
 ### 9. Livechat (Terminal Intercept)
 
@@ -15,6 +15,18 @@ CREATE TABLE livechat (
 );
 
 CREATE INDEX idx_livechat_time ON livechat (created_at DESC);
+```
+
+### 10. Site Settings (Konfigurasi Global)
+
+Menyimpan pengaturan dinamis website dan panel admin.
+
+```sql
+CREATE TABLE site_settings (
+    key          VARCHAR(100) PRIMARY KEY,
+    value        JSONB NOT NULL,
+    updated_at   TIMESTAMPTZ DEFAULT NOW()
+);
 ```
 
 ---
@@ -120,6 +132,12 @@ erDiagram
         varchar card_button_text
         text modal_description
         text_arr services "TEXT[]"
+    }
+
+    site_settings {
+        varchar key PK
+        jsonb value
+        timestamp updated_at
     }
 
     livechat {
@@ -451,5 +469,5 @@ INSERT INTO achievements (type, title, organization, year, image, sort_order) VA
 | 8 | `messages` | ∞ | 0 | ~0.2ms |
 
 **Total JOIN di seluruh aplikasi: 0**
-**Total tabel: 9**
+**Total tabel: 10**
 **Database: PostgreSQL 15+**

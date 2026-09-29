@@ -5,7 +5,11 @@ import DossierModal from '../../components/DossierModal';
 export default function LivePreviewWrapper({ children, title = 'Live Preview' }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalKey, setModalKey] = useState('principal');
-  const [showPreview, setShowPreview] = useState(true);
+  const [showPreview, setShowPreview] = useState(() => {
+    // Ambil default state dari pengaturan simulasi (localstorage)
+    const stored = localStorage.getItem('default_live_preview');
+    return stored === 'false' ? false : true;
+  });
 
   const onOpenModal = (key) => {
     setModalKey(key);
