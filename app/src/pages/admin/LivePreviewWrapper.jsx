@@ -29,7 +29,7 @@ export default function LivePreviewWrapper({ children, title = 'Live Preview' })
             <p className="text-[11px] text-[#685E55] hidden sm:block">Tampilan node seperti di halaman utama. Klik untuk membuka popup modal.</p>
           </div>
           <div className="ml-auto flex items-center gap-2">
-            <button 
+            <button
               onClick={() => setShowPreview(!showPreview)}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-[11px] font-bold transition-colors ${showPreview ? 'bg-white border-[#E8DFD5] text-[#2C2520] hover:bg-[#FAF4EE]' : 'bg-[#FAF4EE] border-[#E8DFD5] text-[#685E55] hover:bg-white'}`}
             >
@@ -46,12 +46,12 @@ export default function LivePreviewWrapper({ children, title = 'Live Preview' })
         {/* Preview Area — Dark Detective Board */}
         <div className={`grid transition-all duration-300 ease-in-out ${showPreview ? 'grid-rows-[1fr] opacity-100 border-t border-[#2C2520]' : 'grid-rows-[0fr] opacity-0 border-t-0'}`}>
           <div className="overflow-hidden">
-            <div className="cork-texture relative p-4 sm:p-6 md:p-10 min-h-[320px] max-h-[70vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#C88238]/50 scrollbar-track-transparent">
+            <div className="cork-texture relative p-4 sm:p-6 md:p-10 min-h-[320px] max-h-[80vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#C88238]/50 scrollbar-track-transparent">
               <div className="flex flex-wrap gap-8 items-start justify-center" style={{ transformOrigin: 'top center' }}>
-              {typeof children === 'function' ? children({ onOpenModal }) : children}
+                {typeof children === 'function' ? children({ onOpenModal }) : children}
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
 
