@@ -73,7 +73,7 @@ export default function AdminAchievements() {
       <div className="flex flex-col gap-4">
         {achvList.map((item, index) => (
           <div key={index} className="bg-white p-6 rounded-xl border border-[#E8DFD5] shadow-sm flex flex-col md:flex-row gap-6 relative group">
-            <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
+            <div className="absolute top-6 right-6 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity flex gap-2">
               <button className="px-3 py-1.5 bg-[#FAF4EE] text-[#2C2520] text-[12px] font-bold rounded border border-[#E8DFD5] hover:bg-[#F2EAE1]">Simpan</button>
               <button onClick={() => removeAchievement(index)} className="p-1.5 bg-[#FFF0F0] text-[#D32F2F] rounded border border-[#FFCDD2] hover:bg-[#FFEBEE]"><Trash2 className="w-4 h-4" /></button>
             </div>

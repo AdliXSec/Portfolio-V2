@@ -78,7 +78,7 @@ export default function AdminLivechat() {
                 {/* Delete Button (Hover) */}
                 <button
                   onClick={() => deleteMsg(msg.id)}
-                  className={`absolute top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-full bg-red-500/20 text-red-400 hover:bg-red-500/40 ${msg.role === 'admin' ? '-left-10' : '-right-10'}`}
+                  className={`absolute top-1/2 -translate-y-1/2 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity p-1.5 rounded-full bg-red-500/20 text-red-400 hover:bg-red-500/40 ${msg.role === 'admin' ? '-left-10' : '-right-10'}`}
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>

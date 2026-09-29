@@ -151,7 +151,7 @@ export default function AdminProfile() {
             <div className="space-y-4">
               {socials.map((social, index) => (
                 <div key={index} className="p-3 bg-[#FAF7F2] rounded-lg border border-[#E8DFD5] relative group">
-                  <button onClick={() => removeSocial(index)} className="absolute top-2 right-2 p-1 text-[#D32F2F] hover:bg-[#FFF0F0] rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button onClick={() => removeSocial(index)} className="absolute top-2 right-2 p-1 text-[#D32F2F] hover:bg-[#FFF0F0] rounded opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
                     <Trash2 className="w-3.5 h-3.5" />
                   </button>
                   <div className="mb-2 pr-6">
@@ -189,7 +189,7 @@ export default function AdminProfile() {
                     <input type="text" defaultValue={stat.value} placeholder="Cth: C3SA" className="w-full px-2 py-1.5 bg-[#FAF7F2] border border-[#E8DFD5] rounded-md text-[12px] font-bold text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
                     <input type="text" defaultValue={stat.label} placeholder="Cth: Certified Analyst" className="w-full px-2 py-1.5 bg-[#FAF7F2] border border-[#E8DFD5] rounded-md text-[12px] text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
                   </div>
-                  <button onClick={() => removeStat(i)} className="p-1.5 text-[#D32F2F] hover:bg-[#FFF0F0] rounded shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button onClick={() => removeStat(i)} className="p-1.5 text-[#D32F2F] hover:bg-[#FFF0F0] rounded shrink-0 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
@@ -267,7 +267,7 @@ export default function AdminProfile() {
                   <div key={i} className="relative group">
                     <label className="block text-[11px] font-bold text-[#865305] uppercase mb-1">Paragraf Filosofi {i + 1}</label>
                     <textarea rows="3" defaultValue={p} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238] resize-none pr-10"></textarea>
-                    <button onClick={() => removeExtendedPhilosophy(i)} className="absolute right-2 top-6 p-1.5 text-[#D32F2F] hover:bg-[#FFF0F0] rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button onClick={() => removeExtendedPhilosophy(i)} className="absolute right-2 top-6 p-1.5 text-[#D32F2F] hover:bg-[#FFF0F0] rounded opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
@@ -293,7 +293,7 @@ export default function AdminProfile() {
                   <div key={i} className="bg-[#FAF7F2] p-3 rounded-lg border border-[#E8DFD5] flex items-center gap-2 relative group">
                     <input type="text" defaultValue={domain.icon} placeholder="🛡️" className="w-12 px-2 py-2 bg-white border border-[#E8DFD5] rounded text-[16px] text-center focus:outline-none focus:border-[#C88238]" title="Emoji Icon" />
                     <input type="text" defaultValue={domain.label} placeholder="Domain Keahlian" className="w-full px-2 py-2 bg-white border border-[#E8DFD5] rounded text-[13px] font-bold text-[#2C2520] focus:outline-none focus:border-[#C88238]" />
-                    <button onClick={() => removeDomain(i)} className="absolute -top-2 -right-2 p-1 bg-white text-[#D32F2F] hover:bg-[#FFF0F0] border border-[#E8DFD5] rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
+                    <button onClick={() => removeDomain(i)} className="absolute -top-2 -right-2 p-1 bg-white text-[#D32F2F] hover:bg-[#FFF0F0] border border-[#E8DFD5] rounded-full opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity shadow-sm">
                       <Trash2 className="w-3 h-3" />
                     </button>
                   </div>
@@ -313,7 +313,7 @@ export default function AdminProfile() {
                 {methodologyPillars.map((pillar, i) => (
                   <div key={i} className="relative group">
                     <textarea rows="2" defaultValue={pillar} className="w-full px-3 py-2 bg-[#FAF7F2] border border-[#E8DFD5] rounded-lg text-[13px] text-[#2C2520] focus:outline-none focus:border-[#C88238] resize-none pr-10"></textarea>
-                    <button onClick={() => removePillar(i)} className="absolute right-2 top-2 p-1.5 text-[#D32F2F] hover:bg-[#FFF0F0] rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button onClick={() => removePillar(i)} className="absolute right-2 top-2 p-1.5 text-[#D32F2F] hover:bg-[#FFF0F0] rounded opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>

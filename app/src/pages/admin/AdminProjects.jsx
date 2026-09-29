@@ -243,7 +243,7 @@ export default function AdminProjects() {
                       <input type="text" value={key} onChange={(e) => handleStatChange(key, e.target.value, val)} className="w-full px-2 py-1.5 bg-[#FAF7F2] border border-[#E8DFD5] rounded-md text-[11px] uppercase font-bold text-[#685E55] focus:outline-none focus:border-[#C88238]" placeholder="Kunci (contoh: overhead)" />
                       <input type="text" value={val} onChange={(e) => handleStatChange(key, key, e.target.value)} className="w-full px-2 py-1.5 bg-[#FAF7F2] border border-[#E8DFD5] rounded-md text-[12px] text-[#2C2520] font-bold focus:outline-none focus:border-[#C88238]" placeholder="Nilai (contoh: <1.2%)" />
                     </div>
-                    <button onClick={() => removeStat(key)} className="p-1.5 text-[#D32F2F] hover:bg-[#FFF0F0] rounded shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"><Trash2 className="w-4 h-4" /></button>
+                    <button onClick={() => removeStat(key)} className="p-1.5 text-[#D32F2F] hover:bg-[#FFF0F0] rounded shrink-0 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity"><Trash2 className="w-4 h-4" /></button>
                   </div>
                 ))}
                 {statsEntries.length === 0 && <div className="text-[12px] text-[#837466] italic text-center py-2">Belum ada metrik.</div>}

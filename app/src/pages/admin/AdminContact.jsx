@@ -122,7 +122,7 @@ export default function AdminContact() {
                       className="w-full bg-transparent text-[12px] font-bold text-[#2C2520] focus:outline-none"
                       placeholder="Nama layanan (contoh: Red Teaming)"
                     />
-                    <button onClick={() => removeService(i)} className="p-1.5 rounded-full text-[#D32F2F] hover:bg-[#FFF0F0] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button onClick={() => removeService(i)} className="p-1.5 rounded-full text-[#D32F2F] hover:bg-[#FFF0F0] shrink-0 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
