@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Eye, FolderOpen, Trash2, Download, MessageSquare, Briefcase, ArrowUp, TrendingUp, TrendingDown, Calendar, Plus, ArrowRight, ChevronRight, Lightbulb } from 'lucide-react';
 import { projects } from '../../data/projects';
 
