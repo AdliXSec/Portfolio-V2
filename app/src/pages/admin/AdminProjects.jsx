@@ -35,6 +35,14 @@ export default function AdminProjects() {
     setIsEditing(true);
   };
 
+  const removeProject = (idx) => {
+    if(window.confirm('Yakin ingin menghapus proyek ini?')) {
+      const newList = [...projectList];
+      newList.splice(idx, 1);
+      setProjectList(newList);
+    }
+  };
+
   const openEditForm = (proj, idx) => {
     setEditingProject({ ...proj, originalIndex: idx });
     setIsEditing(true);
@@ -399,9 +407,14 @@ export default function AdminProjects() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-right">
-                    <button onClick={() => openEditForm(proj, idx)} className="px-4 py-2 rounded-lg bg-white hover:bg-[#F2EAE1] text-[#2C2520] border border-[#E8DFD5] text-[12px] font-bold transition-colors shadow-sm">
-                      Edit Proyek
-                    </button>
+                    <div className="flex items-center justify-end gap-2">
+                      <button onClick={() => openEditForm(proj, idx)} className="px-4 py-2 rounded-lg bg-white hover:bg-[#F2EAE1] text-[#2C2520] border border-[#E8DFD5] text-[12px] font-bold transition-colors shadow-sm">
+                        Edit Proyek
+                      </button>
+                      <button onClick={() => removeProject(idx)} className="p-2 rounded-lg bg-white hover:bg-[#FFF0F0] text-[#D32F2F] border border-[#E8DFD5] hover:border-[#FFCDD2] transition-colors shadow-sm" title="Hapus Proyek">
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

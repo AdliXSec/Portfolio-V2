@@ -38,7 +38,7 @@ export default function AdminLayout() {
       )}
 
       {/* Left Sidebar */}
-      <aside className={`fixed left-0 top-0 h-full bg-[#FFFFFF] border-r border-[#E8DFD5] z-50 flex flex-col justify-between overflow-x-hidden overflow-y-auto transition-all duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0 w-64' : '-translate-x-full lg:translate-x-0'} ${isCollapsed ? 'lg:w-20' : 'lg:w-64'}`}>
+      <aside className={`fixed left-0 top-0 h-full bg-[#FFFFFF] border-r border-[#E8DFD5] flex flex-col justify-between overflow-x-hidden overflow-y-auto transition-all duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0 w-64 z-105' : '-translate-x-full lg:translate-x-0 z-50'} ${isCollapsed ? 'lg:w-20' : 'lg:w-64'}`}>
         <div className="flex flex-col pb-6">
           {/* Logo / Brand */}
           <div className={`h-16 flex items-center border-b border-[#F0EAE1] sticky top-0 bg-white z-10 transition-all duration-300 ${isCollapsed ? 'px-0 justify-center' : 'px-6 justify-between'}`}>
@@ -168,15 +168,15 @@ export default function AdminLayout() {
             >
               <Menu className="w-5 h-5" />
             </button>
-            <Link to="/" target="_blank" className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-[13px] font-bold text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-all border border-transparent hover:border-[#E8DFD5]">
+            <Link to="/" target="_blank" className="inline-flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-lg text-[13px] font-bold text-[#685E55] hover:bg-[#FAF4EE] hover:text-[#2C2520] transition-all border border-transparent hover:border-[#E8DFD5]">
               <Globe className="w-4 h-4" />
-              <span>Lihat Website</span>
+              <span className="hidden sm:inline">Lihat Website</span>
             </Link>
 
             <button
               onClick={handleGlobalSave}
               disabled={isSaving}
-              className={`hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13px] font-bold text-white transition-all shadow-sm ${saveSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-[#C88238] hover:bg-[#B86F28]'
+              className={`inline-flex items-center gap-1.5 p-2 sm:px-4 sm:py-2 rounded-lg text-[13px] font-bold text-white transition-all shadow-sm ${saveSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-[#C88238] hover:bg-[#B86F28]'
                 } disabled:opacity-70 disabled:cursor-wait`}
             >
               {isSaving ? (
@@ -186,7 +186,7 @@ export default function AdminLayout() {
               ) : (
                 <Save className="w-4 h-4" />
               )}
-              <span>{isSaving ? 'Menyimpan...' : saveSuccess ? 'Tersimpan!' : 'Simpan Semua Perubahan'}</span>
+              <span className="hidden sm:inline">{isSaving ? 'Menyimpan...' : saveSuccess ? 'Tersimpan!' : 'Simpan Semua Perubahan'}</span>
             </button>
           </div>
 
