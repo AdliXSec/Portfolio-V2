@@ -1,4 +1,5 @@
-import { Eye, Download, MessageSquare, Briefcase, ArrowUp, TrendingUp, TrendingDown, Calendar, Plus, ArrowRight, ChevronRight, Lightbulb } from 'lucide-react';
+import { Eye, FolderOpen, Trash2, Download, MessageSquare, Briefcase, ArrowUp, TrendingUp, TrendingDown, Calendar, Plus, ArrowRight, ChevronRight, Lightbulb } from 'lucide-react';
+import { projects } from '../../data/projects';
 
 export default function AdminDashboard() {
   return (
@@ -124,47 +125,47 @@ export default function AdminDashboard() {
                 </thead>
                 <tbody className="divide-y divide-[#F0EAE1]">
                   {projects
-                    .filter(p => p.status === 'Tayang')
+                    .filter(p => p.status !== 'Draft')
                     .sort((a, b) => (b.viewCount || 0) - (a.viewCount || 0))
                     .slice(0, 4)
                     .map((proj, idx) => (
-                    <tr key={idx} className="hover:bg-[#FAF4EE]/60 transition-colors">
-                      <td className="py-3.5">
-                        <div className="flex items-center gap-3">
-                          <div className="w-12 h-12 rounded-lg bg-[#FAF4EE] border border-[#E8DFD5] overflow-hidden shrink-0">
-                            {proj.image ? (
-                              <img src={proj.image} alt={proj.title} className="w-full h-full object-cover" />
-                            ) : (
-                              <FolderOpen className="w-5 h-5 mx-auto mt-3 text-[#C88238]" />
-                            )}
+                      <tr key={idx} className="hover:bg-[#FAF4EE]/60 transition-colors">
+                        <td className="py-3.5">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-12 rounded-lg bg-[#FAF4EE] border border-[#E8DFD5] overflow-hidden shrink-0">
+                              {proj.image ? (
+                                <img src={proj.image} alt={proj.title} className="w-full h-full object-cover" />
+                              ) : (
+                                <FolderOpen className="w-5 h-5 mx-auto mt-3 text-[#C88238]" />
+                              )}
+                            </div>
+                            <div>
+                              <div className="text-[14px] text-[#2C2520] font-semibold">{proj.title}</div>
+                              <div className="text-[12px] text-[#685E55]">{proj.codename}</div>
+                            </div>
                           </div>
-                          <div>
-                            <div className="text-[14px] text-[#2C2520] font-semibold">{proj.title}</div>
-                            <div className="text-[12px] text-[#685E55]">{proj.codename}</div>
+                        </td>
+                        <td className="py-3.5 text-center">
+                          <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#FAF4EE] border border-[#E8DFD5] text-[11px] font-medium text-[#685E55]">
+                            {proj.techStack && proj.techStack[0] ? proj.techStack[0] : 'Umum'}
+                          </span>
+                        </td>
+                        <td className="py-3.5 text-right">
+                          <span className="text-[14px] font-bold text-[#2C2520]">{proj.viewCount || 0}</span>
+                          <span className="text-[11px] text-[#685E55] block">kali</span>
+                        </td>
+                        <td className="py-3.5 text-right">
+                          <div className="flex items-center justify-end gap-1.5">
+                            <Link to="/admin/projects" className="px-3 py-1.5 rounded-lg bg-[#FAF4EE] hover:bg-[#F2EAE1] text-[#2C2520] border border-[#E8DFD5] text-[12px] font-medium transition-colors">
+                              Edit Proyek
+                            </Link>
+                            <button onClick={() => alert('Fitur hapus langsung akan memanggil API Backend.')} className="p-1.5 rounded-lg bg-[#FAF4EE] hover:bg-[#FFF0F0] text-[#D32F2F] border border-[#E8DFD5] hover:border-[#FFCDD2] transition-colors" title="Hapus Proyek">
+                              <Trash2 className="w-4 h-4" />
+                            </button>
                           </div>
-                        </div>
-                      </td>
-                      <td className="py-3.5 text-center">
-                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#FAF4EE] border border-[#E8DFD5] text-[11px] font-medium text-[#685E55]">
-                          {proj.techStack && proj.techStack[0] ? proj.techStack[0] : 'Umum'}
-                        </span>
-                      </td>
-                      <td className="py-3.5 text-right">
-                        <span className="text-[14px] font-bold text-[#2C2520]">{proj.viewCount || 0}</span>
-                        <span className="text-[11px] text-[#685E55] block">kali</span>
-                      </td>
-                      <td className="py-3.5 text-right">
-                        <div className="flex items-center justify-end gap-1.5">
-                          <Link to="/admin/projects" className="px-3 py-1.5 rounded-lg bg-[#FAF4EE] hover:bg-[#F2EAE1] text-[#2C2520] border border-[#E8DFD5] text-[12px] font-medium transition-colors">
-                            Edit Proyek
-                          </Link>
-                          <button onClick={() => alert('Fitur hapus langsung akan memanggil API Backend.')} className="p-1.5 rounded-lg bg-[#FAF4EE] hover:bg-[#FFF0F0] text-[#D32F2F] border border-[#E8DFD5] hover:border-[#FFCDD2] transition-colors" title="Hapus Proyek">
-                            <Trash2 className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
+                        </td>
+                      </tr>
+                    ))}
                 </tbody>
               </table>
             </div>
