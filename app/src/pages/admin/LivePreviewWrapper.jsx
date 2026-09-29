@@ -44,12 +44,14 @@ export default function LivePreviewWrapper({ children, title = 'Live Preview' })
         </div>
 
         {/* Preview Area — Dark Detective Board */}
-        <div className={`transition-all duration-300 origin-top overflow-hidden ${showPreview ? 'opacity-100 max-h-[2000px] border-t border-[#2C2520]' : 'opacity-0 max-h-0 border-t-0'}`}>
-          <div className="cork-texture relative p-4 sm:p-6 md:p-10 min-h-[320px]">
-            <div className="flex flex-wrap gap-8 items-start justify-center" style={{ transformOrigin: 'top center' }}>
+        <div className={`grid transition-all duration-300 ease-in-out ${showPreview ? 'grid-rows-[1fr] opacity-100 border-t border-[#2C2520]' : 'grid-rows-[0fr] opacity-0 border-t-0'}`}>
+          <div className="overflow-hidden">
+            <div className="cork-texture relative p-4 sm:p-6 md:p-10 min-h-[320px] max-h-[70vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#C88238]/50 scrollbar-track-transparent">
+              <div className="flex flex-wrap gap-8 items-start justify-center" style={{ transformOrigin: 'top center' }}>
               {typeof children === 'function' ? children({ onOpenModal }) : children}
             </div>
           </div>
+        </div>
         </div>
       </div>
 
